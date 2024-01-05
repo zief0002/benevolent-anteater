@@ -1,0 +1,250 @@
+---
+title: "Regression Review"
+author: "Andy"
+format: 
+  revealjs:
+    echo: true
+    code-fold: show
+df_print: paged
+---
+
+# Research Questions
+
+1. Is there an effect of news exposure on political knowledge?
+2. Is there an effect of news exposure on political knowledge after controlling for demographic and political covariates?
+3. Does education level moderate the effect of news exposure on political knowledge after controlling for demographic and political covariates?
+
+
+# Data
+
+The data in [pew.csv](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/pew.csv) come from a telephone survey conducted by [The Pew Research Center for The People &amp; The Press](https://www.pewresearch.org/politics/2007/04/15/public-knowledge-of-current-affairs-little-changed-by-news-and-information-revolutions/) in February 2007. The data represent a probability sample of 1,502 adults in the U.S.
+
+- `id`: The respondent ID number
+- `knowledge`: Score on the *Political News Knowledge Test*; on a scale from 0--100, with higher values indicating more political knowledge.
+- `news`: Respondent's level of news exposure; on a scale from 0--100, with higher values indicating more news exposure
+- `age`: Respondent's age
+- `educ`: Respondent's education level; indicates highest grade completed from 8 to 18 (a post masters degree)
+- `male`: Dummy coded sex variable (0 = Not male, 1 = Male)
+- `ideology`: Respondent's political ideology; on a scale from 0--100, where 0 is as liberal as possible and 100 is as conservative as possible
+- `party`: Respondent's party affiliation
+- `state_blue`: Does the respondent live in a "blue state" (voted Democrat) or a "red state" (voted Republican) as classified by voting in the 2004 presidential election
+- `engagement`: Index of individual political engagement; on a scale from 0--100, with higher values indicating more political engagement
+
+
+
+# Categorize Attributes
+
+:::: {.columns}
+
+::: {.column width="33%"}
+**Outcome**
+
+Political knowledge (`knowledge`)
+:::
+
+::: {.column width="33%"}
+**Focal Predictor**
+
+News exposure (`news`)
+:::
+
+::: {.column width="33%"}
+**Covariate(s)**
+
+*Demographic*
+
+- Age (`age`)
+- Education level (`educ`)
+- Sex (`male`)
+
+<br />
+*Political*
+
+- Political ideology (`news`)
+- Political affiliation (`party`)
+- Blue/red state (`state_blue`)
+- Political engagement (`engagement`)
+:::
+
+::::
+
+
+# Analytic Strategy
+
+
+::: {.panel-tabset}
+
+### Explore Attributes
+
+Examine attributes (plots, numerical summaries)
+
+1. Outcome 
+2. Focal predictor
+3. Covariates
+
+### Explore Relationships
+
+Examine relationship between focal predictor/covariates and outcome
+
+1. Scatterplot
+2. Correlation matrix 
+
+### Modeling
+
+Fit models
+
+1. Examine residuals
+2. Model-level output (`glance()`)
+3. Coefficient-level output (`tidy()`)
+:::
+
+
+
+
+# Load Libraries and Import Data
+
+```{r}
+#| code-fold: show
+# Load libraries
+library(tidyverse)
+library(patchwork)
+
+# Import data
+pew = read_csv(file = "https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/pew.csv")
+
+# View data
+pew
+```
+
+# Examine Outcome 
+
+::: {.panel-tabset}
+### Density Plot
+
+```{r}
+# Density plot of outcome
+ggplot(data = pew, aes(x = knowledge)) +
+  geom_density() +
+  theme_light() +
+  xlab("Political knowledge") +
+  ylab("Probability density")
+```
+
+### Numerical Summaries
+
+```{r}
+pew |> 
+  summarize(
+    M = mean(knowledge),
+    SD = sd(knowledge)
+  )
+```
+
+:::
+
+
+
+# Examine  Focal Predictor
+
+::: {.panel-tabset}
+
+### Density plot of focal predictor
+
+
+```{r}
+ggplot(data = pew, aes(x = news)) +
+  geom_density() +
+  theme_light() +
+  xlab("News exposure") +
+  ylab("Probability density")
+```
+
+### Numerical Summaries
+
+```{r}
+pew |> 
+  summarize(
+    M = mean(news),
+    SD = sd(news)
+  )
+```
+
+:::
+
+# Examine Covariates
+
+::: {.panel-tabset}
+### Dummy Code Party
+
+Before we do any analysis, we will dummy code the `party` attribute.
+
+```{r}
+pew = pew |>
+  mutate(
+    democrat = if_else(party == "Democrat", 1, 0),
+    republican = if_else(party == "Republican", 1, 0)
+  )
+```
+
+
+
+### Explore
+
+We will use the `{skimr}` package to quickly summarize the covariates. (You will need to install this package. before you can load it!)
+
+```{r}
+library(skimr)
+
+pew |>
+  select(age:republican, -party) |>
+  skim()
+```
+:::
+
+# Examine Relationship Between Focal Predictor and Outcome
+
+::: {.panel-tabset}
+### Scatterplot
+
+```{r}
+ggplot(data = pew, aes(x = news, y = knowledge)) +
+  geom_point(size = 4, shape = 21, color = "black", fill = "skyblue") +
+  theme_light() +
+  xlab("News exposure") +
+  ylab("Political knowledge") +
+  ylab("Probability density")
+```
+
+### Correlation
+
+```{r}
+library(corrr)
+
+pew |> 
+  select(knowledge, news) |>
+  correlate()
+```
+
+:::
+
+
+# Examine Relationship Between All Predictor and Outcome
+
+::: {.panel-tabset}
+### Scatterplot
+
+```{r}
+pew |>
+  select(-id, -party) |>
+  pairs()
+```
+
+### Correlation
+
+```{r}
+pew |> 
+  select(-id, -party) |>
+  correlate()
+```
+
+:::

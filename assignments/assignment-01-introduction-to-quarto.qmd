@@ -1,0 +1,115 @@
+---
+title: "Assignment 01"
+subtitle: "INTRODUCTION TO QUARTO"
+description: "The goal of this assignment is twofold: (1) to give you experience using Quarto to integrate analysis and documentation, and (2) to review regression content from EPSY 8251. This assignment is worth 15 points. <br /><br /> *Copyright EPSY 8252, 2024*"
+format:
+  html:
+   css: "assets/styles.css"
+   code-copy: true
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+---
+
+<br />
+
+In this assignment, you will use the data from the file *woods.csv* to explain variation in infant mortality rates. You will be replicating some of the analyses in Woods (2008) to assess the relationship between political corruption and state environmental programs.
+
+- [[CSV]](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/woods.csv)
+- [[Data Codebook]](http://zief0002.github.io/benevolent-anteater/codebooks/woods.html)
+
+
+```{r}
+#| echo: false
+#| out-width: "50%"
+#| fig-align: "center"
+knitr::include_graphics("figs/assign-01.png")
+```
+
+## Preparation
+
+Read the article: Woods, N. D. (2008). The policy consequences of political corruption: Evidence from state environmental programs. *Social Science Quarterly, 89*(1), 258--271. <https://doi.org/10.1111/j.1540-6237.2008.00531.x>
+
+
+
+## Instructions
+
+**Create a QMD document to respond to each of the questions below.** Please adhere to the following guidelines for further formatting your assignment:
+
+- All graphics should be resized so that they do not take up more room than necessary and should have an appropriate caption. Learn how to do this in a code chunk using [knitr syntax](http://yihui.name/knitr/).
+- Any typed mathematics (equations, matrices, vectors, etc.) should be appropriately typeset within the document using Markdown's equation typesetting. See [here](http://www.calvin.edu/~rpruim/courses/m343/F12/RStudio/LatexExamples.html) for some examples of how mathematics can be typeset in R Markdown.
+- All syntax should be hidden (i.e., not displayed) unless specifically asked for.
+- Any messages or warnings produced (e.g., from loading packages) should also be hidden.
+
+For each question, specify the question number (e.g., Question 2) using a level-2 (or smaller) header. 
+
+
+<br />
+
+
+## Create Tables
+
+For each of these questions produce a well-formatted table using `gt()` functions.
+
+1. Recreate Table 1 from Woods (2008). (The syntax below will compute summary statistics for you and output them in a dataframe.) All numerical output should be rounded to two decimal places. Also add an appropriate caption that is better than the caption used in Woods (2008). Note the caption does not have to follow APA formatting. Do not display any syntax. **(2pts.)**
+
+```{r}
+#| eval: false
+woods |>
+  select(-state) |>
+  summarize(across(.cols = everything(), .fns = list(Mean = ~ mean(., na.rm = TRUE), SD = ~sd(., na.rm = TRUE), 
+                                                     Min = ~min(., na.rm = TRUE), Max = ~max(., na.rm = TRUE)))) |>
+  pivot_longer(
+    cols = everything(), 
+    names_sep = "_", 
+    names_to = c("attribute", "stat")
+    ) |>
+  pivot_wider(
+    id_cols = c(attribute), 
+    names_from = stat, 
+    values_from = value
+    )
+```
+
+2. Although it doesn't appear in Woods (2008), create a correlation table using the same variables that appear in Table 1. Mimic the format and structure of Table 4 at <https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html>. Make sure the table you create also has an appropriate caption. **(2pts.)**
+
+
+<br />
+
+
+## Model 1
+
+
+3. Use the `lm()` function to fit Model 1 from Woods (2008). Use the `tidy()` function from the *broom* package to display the model's coefficient-level output. Display the syntax for this along with the coefficient-level output. Also note that the SEs you obtain will be different from those in the paper as they estimated robust standard errors.) 
+
+4. Use a bulleted list to provide an interpretation of the following estimated regression coefficients from the regression you fitted in Question 3: (a) the intercept, (b) the effect of political corruption. Give one interpretation per list item.
+
+5. Use a display equation to write the equation for the *fitted least squares regression equation* based on the output from `lm()`.
+
+6. Use the `anova()` function to obtain the different sums of squares for the fitted model. Use the values from this output to compute the model-level $R^2$. (You can use `glance()` to check your work.) Show the syntax you used and all computations for this in your document.
+
+7. Write the following sentence: "The Root Mean Square Error (RMSE; $\hat\sigma_{\epsilon}$) is $x$." In this sentence, use an inline code chunk to replace $x$ with the value for the RMSE from the fitted equation. In this code chunk, do not just write in the value for the RMSE, but use syntax to extract the `sigma` value from the `glance()` output. (Hint: See [here](https://michaelgastner.com/R_for_QR/extracting-values-from-data-frames.html).) **(2pts.)**
+
+
+<br />
+
+
+## Model 3
+
+7. Use the `lm()` function to fit Model 3 from Woods (2008) and use the `tidy()` function to obtain the coefficient-level output. Give a general interpretation of the interaction effect.
+
+8. Create a publication quality plot that displays the results from the fitted model. For this plot, put the political corruption predictor on the *x*-axis. Display separate lines to show the effects for at least two levels of environmental groups. The two lines should be displayed using different linetypes or colors (or both) so that they can be easily differentiated in the plot. Be sure that the figure includes a caption using the `fig-cap` option in the code chunk. The plot should be centered on the page. Adjust the aspect ratio of the plot using `fig-width` and `fig-height` in the code chunk so that it looks good. Lastly, change the values of the output width/height (`out-width`, `out-height`) to change the size of the plot from the default values. **(2pts.)**
+
+<br />
+
+
+## Miscellaneous
+
+9. Write a sentence that includes two references in an inline citation. This should also generate the actual references when you knit your document. One of the two references should be the Fox textbook. The other should be the Woods (2008) journal article. You can choose the topic of the sentence and how the two references are used in the citation. (Note the references do not actually have to pertain to what is written in the sentence. This is just an exercise in using the bibliography tools in Markdown.) Specify an appropriate CSL file so that the references and citations are in APA format. (If you want to use a citation style that is different from APA, say for a specific journal, use the appropriate CSL file, and indicate that on the assignment.) Both the BIB and CSL files should be included in your project's `assets` directory. **(2pts.)**
+
+10. In Table 2 of Woods (2008), all the models were fitted using $N=49$. Why was $N$ not 50? Explain.
+
+
+
+## What to Submit
+
+You need to submit a zipped version of your entire `assignment-01` project directory. When the TA unzips this and opens your R project file they will render your QMD document. This should produce the HTML file that will be graded. (You can include your HTML file as an extra attachment if you want, but the QMD document will need to render. If it doesn't render the TA will return it to you to try again.)
+

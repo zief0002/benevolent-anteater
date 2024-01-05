@@ -1,0 +1,219 @@
+---
+title: "Data"
+---
+
+
+Below are the links to the data sets and data codebooks used in the notes, scripts, and assignments. 
+
+<br />
+
+<table class="table">
+
+<thead>
+<tr>
+<th style="width:50%;">Name</th>
+<th style="width:25%;text-align:center;">Data</th>
+<th style="width:25%;text-align:center;">Codebook</th>
+</tr>
+</thead>
+
+
+<tbody>
+
+<tr>
+<td>carbon.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/carbon.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/carbon.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>fertility.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/fertility.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/fertility.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+<tr>
+<td>graduation.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/graduation.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/graduation.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>mammals.csv</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/mammals.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fas fa-book-open" style="font-size: 20px;"></span>](http://zief0002.github.io/benevolent-antelope/codebooks/mammals.html)
+</td>
+</tr>
+
+<tr>
+<td>minneapolis.csv</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fas fa-file-csv" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/minneapolis.csv)
+</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fas fa-book-open" style="font-size: 20px;"></span>](http://zief0002.github.io/benevolent-antelope/codebooks/minneapolis.html)
+</td>
+</tr>
+
+
+<tr>
+<td>mn-schools.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/mn-schools.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/mn-schools.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>nhl.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/nhl.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/nhl.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>pew.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/pew.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/pew.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+
+<tr>
+<td>riverview.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/riverview.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/riverview.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+<tr>
+<td>same-sex-marriage.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/same-sex-marriage.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/same-sex-marriage.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>vocabulary.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/vocabulary.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/vocabulary.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>wine.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/wine.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/wine.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
+<td>woods.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-antelope/main/data/woods.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-antelope/codebooks/woods.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+<br />
+
+
+## How to Download a CSV File to Your Computer
+
+To download a data (CSV) file, click on the data set. Then click the `RAW` button. Now you should be able to right-click the dataset and save it. If you are using Safari on a Mac, make sure that the downloaded data does not have an extra *.txt* appended to it when it downloads. If it does, just delete the extra *.txt* suffix.
+
+<br />
+
