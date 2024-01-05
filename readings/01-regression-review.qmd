@@ -1,14 +1,13 @@
 ---
-title: "📖 Welcome to EPsy 8264"
+title: "📖 Regression Review"
 format:
   html:
    css: "../assets/sticky-notes.css"
 date: "`r format(Sys.Date(), '%B %d %Y')`"
 ---
 
-Here are some things to do before the first class:
+Here are some things to do before class:
 
-- Read through the course syllabus (the website)
 - [Update R](https://www.r-project.org/) to the most recent version (v. 4.3.2; *Eye Holes*)
 - [Update RStudio Desktop](https://posit.co/download/rstudio-desktop/) to the most recent version (v. 2023.12.0+369)
 - Update all of your R packages (In the `Packages` tab in RStudio click `Update`)
@@ -19,8 +18,7 @@ Remind yourself of the EPsy 8251 content
 
 - [Statistical Modeling and Computation for Educational Scientists](https://zief0002.github.io/modeling/)
   
-  
-We will also start with a short review of the regression content from EPsy 8251.
+
 
 <br />
 
