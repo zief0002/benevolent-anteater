@@ -34,7 +34,7 @@ You are also responsible for ensuring any syntax composed by AI is correct. I wo
 - The environmental impact of AI should not be ignored. The building and usage of AI tools consumes a lot of energy (see [here](https://www.nature.com/articles/s42256-020-0219-9) and [here](https://www.cfr.org/blog/artificial-intelligences-environmental-costs-and-promise)).
 - The development of AI has been associated with labor abuse and other dicey ethical issues (see [here](https://www.aljazeera.com/opinions/2023/1/23/sweatshops-are-making-our-digital-age-work) and [here](https://www.rollingstone.com/culture/culture-features/women-warnings-ai-danger-risk-before-chatgpt-1234804367/)).
 
-If you are caught using AI to answer questions on any of the exams or quizzes, you will be given a 0 on that exam/quiz and a Scholastic Dishonesty Report Form will be filled out and reported to the [Office of Community Standards](https://communitystandards.umn.edu/). Depending on the severity of the offense, the instructor also reserves the right to give you an "F" in the course.
+If you are caught using AI to answer questions on any of the assignments, you will be given a 0 on that assignment and a Scholastic Dishonesty Report Form will be filled out and reported to the [Office of Community Standards](https://communitystandards.umn.edu/). Depending on the severity of the offense, the instructor also reserves the right to give you an "F" in the course.
 :::
 
 <br />

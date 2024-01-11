@@ -1,13 +1,14 @@
 ---
 title: "Assignment 02"
 subtitle: "POLYNOMIAL EFFECTS"
+description: "The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with polynomial effects. This assignment is worth 15 points. <br /><br /> *Copyright EPSY 8252, 2024*"
 format:
   html:
    css: "assets/styles.css"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 ---
 
-The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with polynomial effects. In this assignment, you will use the data from the file *fertility.csv* to explain variation in in infant mortality rates. 
+In this assignment, you will use the data from the file *fertility.csv* to explain variation in in infant mortality rates. 
 
 - [[CSV]](https://raw.githubusercontent.com/zief0002/epsy-8252/master/data/fertility.csv)
 - [[Data Codebook]](http://zief0002.github.io/epsy-8252/codebooks/fertility.html)

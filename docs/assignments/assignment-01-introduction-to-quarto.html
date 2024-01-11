@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-08">
-<meta name="description" content="The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with polynomial effects. This assignment is worth 15 points.    Copyright EPSY 8252, 2024">
+<meta name="dcterms.date" content="2024-01-05">
+<meta name="description" content="The goal of this assignment is twofold: (1) to give you experience using Quarto to integrate analysis and documentation, and (2) to review regression content from EPSY 8251. This assignment is worth 15 points.    Copyright EPSY 8252, 2024">
 
-<title>EPsy 8252 - Assignment 02</title>
+<title>EPsy 8252 - Assignment 01</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -63,6 +97,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../assets/sticky-notes.css">
 <link rel="stylesheet" href="assets/styles.css">
@@ -133,12 +169,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#model-1-linear-effect-of-female-education-level" id="toc-model-1-linear-effect-of-female-education-level" class="nav-link" data-scroll-target="#model-1-linear-effect-of-female-education-level">Model 1: Linear Effect of Female Education Level</a></li>
-  <li><a href="#model-2-quadratic-effect-of-female-education-level" id="toc-model-2-quadratic-effect-of-female-education-level" class="nav-link" data-scroll-target="#model-2-quadratic-effect-of-female-education-level">Model 2: Quadratic Effect of Female Education Level</a></li>
-  <li><a href="#model-3-control-for-differences-in-gross-national-income-gni" id="toc-model-3-control-for-differences-in-gross-national-income-gni" class="nav-link" data-scroll-target="#model-3-control-for-differences-in-gross-national-income-gni">Model 3: Control for Differences in Gross National Income (GNI)</a></li>
-  <li><a href="#adopting-a-model" id="toc-adopting-a-model" class="nav-link" data-scroll-target="#adopting-a-model">Adopting a Model</a></li>
-  <li><a href="#presenting-the-results" id="toc-presenting-the-results" class="nav-link" data-scroll-target="#presenting-the-results">Presenting the Results</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#create-tables" id="toc-create-tables" class="nav-link" data-scroll-target="#create-tables">Create Tables</a></li>
+  <li><a href="#model-1" id="toc-model-1" class="nav-link" data-scroll-target="#model-1">Model 1</a></li>
+  <li><a href="#model-3" id="toc-model-3" class="nav-link" data-scroll-target="#model-3">Model 3</a></li>
+  <li><a href="#miscellaneous" id="toc-miscellaneous" class="nav-link" data-scroll-target="#miscellaneous">Miscellaneous</a></li>
+  <li><a href="#what-to-submit" id="toc-what-to-submit" class="nav-link" data-scroll-target="#what-to-submit">What to Submit</a></li>
   </ul>
 </nav>
     </div>
@@ -147,13 +184,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 02</h1>
-<p class="subtitle lead">POLYNOMIAL EFFECTS</p>
+<h1 class="title">Assignment 01</h1>
+<p class="subtitle lead">INTRODUCTION TO QUARTO</p>
 </div>
 
 <div>
   <div class="description">
-    The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with polynomial effects. This assignment is worth 15 points. <br><br> <em>Copyright EPSY 8252, 2024</em>
+    The goal of this assignment is twofold: (1) to give you experience using Quarto to integrate analysis and documentation, and (2) to review regression content from EPSY 8251. This assignment is worth 15 points. <br><br> <em>Copyright EPSY 8252, 2024</em>
   </div>
 </div>
 
@@ -164,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 8, 2024</p>
+      <p class="date">January 5, 2024</p>
     </div>
   </div>
   
@@ -174,74 +211,93 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>In this assignment, you will use the data from the file <em>fertility.csv</em> to explain variation in in infant mortality rates.</p>
+<p><br></p>
+<p>In this assignment, you will use the data from the file <em>woods.csv</em> to explain variation in infant mortality rates. You will be replicating some of the analyses in Woods (2008) to assess the relationship between political corruption and state environmental programs.</p>
 <ul>
-<li><a href="https://raw.githubusercontent.com/zief0002/epsy-8252/master/data/fertility.csv">[CSV]</a></li>
-<li><a href="http://zief0002.github.io/epsy-8252/codebooks/fertility.html">[Data Codebook]</a></li>
+<li><a href="https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/woods.csv">[CSV]</a></li>
+<li><a href="http://zief0002.github.io/benevolent-anteater/codebooks/woods.html">[Data Codebook]</a></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/assign-02.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src="figs/assign-01.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+<section id="preparation" class="level2">
+<h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
+<p>Read the article: Woods, N. D. (2008). The policy consequences of political corruption: Evidence from state environmental programs. <em>Social Science Quarterly, 89</em>(1), 258–271. <a href="https://doi.org/10.1111/j.1540-6237.2008.00531.x" class="uri">https://doi.org/10.1111/j.1540-6237.2008.00531.x</a></p>
+</section>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>This assignment needs to be completed using Quarto. Submit a zipped version of your entire assignment-02 project directory. Your QMD document should include a response to each of the questions below. Please adhere to the following guidelines for further formatting your assignment:</p>
+<p><strong>Create a QMD document to respond to each of the questions below.</strong> Please adhere to the following guidelines for further formatting your assignment:</p>
 <ul>
-<li>All graphics should be resized so that they do not take up more room than necessary and should have an appropriate caption.</li>
-<li>Any typed mathematics (equations, matrices, vectors, etc.) should be appropriately typeset within the document using Markdown’s equation typesetting.</li>
+<li>All graphics should be resized so that they do not take up more room than necessary and should have an appropriate caption. Learn how to do this in a code chunk using <a href="http://yihui.name/knitr/">knitr syntax</a>.</li>
+<li>Any typed mathematics (equations, matrices, vectors, etc.) should be appropriately typeset within the document using Markdown’s equation typesetting. See <a href="http://www.calvin.edu/~rpruim/courses/m343/F12/RStudio/LatexExamples.html">here</a> for some examples of how mathematics can be typeset in R Markdown.</li>
 <li>All syntax should be hidden (i.e., not displayed) unless specifically asked for.</li>
 <li>Any messages or warnings produced (e.g., from loading packages) should also be hidden.</li>
 </ul>
-<p>For each question, specify the question number (e.g., Question 2) using a level-2 (or smaller) header. This assignment is worth 15 points.</p>
+<p>For each question, specify the question number (e.g., Question 2) using a level-2 (or smaller) header.</p>
 <p><br></p>
 </section>
-<section id="model-1-linear-effect-of-female-education-level" class="level2">
-<h2 class="anchored" data-anchor-id="model-1-linear-effect-of-female-education-level">Model 1: Linear Effect of Female Education Level</h2>
+<section id="create-tables" class="level2">
+<h2 class="anchored" data-anchor-id="create-tables">Create Tables</h2>
+<p>For each of these questions produce a well-formatted table using <code>gt()</code> functions.</p>
 <ol type="1">
-<li><p>Create a scatterplot showing the relationship between female education level and infant mortality rates.</p></li>
-<li><p>Describe the relationship between female education level and infant mortality rates. Be sure to comment on the structural form, direction and strength of the relationship. Also comment on any potential observations that deviate from following this relationship (unusual observations or clusters of observations).</p></li>
-<li><p>Compute and report the Pearson correlation coefficient between female education level and infant mortality rate. Based on your response to Question 2, explain whether the Pearson correlation coefficient is an appropriate summary measure of the relationship.</p></li>
-<li><p>Regress infant mortality rates on female education level. For this model, posit a linear effect of female education level on infant mortality rate (Model 1). Create the scatterplot of the standardized residuals versus the fitted values from Model 1.</p></li>
-<li><p>Does this plot suggest problems about meeting the assumption that the average residual is zero at each fitted value? Explain.</p></li>
+<li>Recreate Table 1 from Woods (2008). (The syntax below will compute summary statistics for you and output them in a dataframe.) All numerical output should be rounded to two decimal places. Also add an appropriate caption that is better than the caption used in Woods (2008). Note the caption does not have to follow APA formatting. Do not display any syntax. <strong>(2pts.)</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>woods <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>state) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(), <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">Mean =</span> <span class="sc">~</span> <span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">SD =</span> <span class="sc">~</span><span class="fu">sd</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                                                     <span class="at">Min =</span> <span class="sc">~</span><span class="fu">min</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">Max =</span> <span class="sc">~</span><span class="fu">max</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sep =</span> <span class="st">"_"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"attribute"</span>, <span class="st">"stat"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="fu">c</span>(attribute), </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> stat, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Although it doesn’t appear in Woods (2008), create a correlation table using the same variables that appear in Table 1. Mimic the format and structure of Table 4 at <a href="https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html" class="uri">https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html</a>. Make sure the table you create also has an appropriate caption. <strong>(2pts.)</strong></li>
 </ol>
 <p><br></p>
 </section>
-<section id="model-2-quadratic-effect-of-female-education-level" class="level2">
-<h2 class="anchored" data-anchor-id="model-2-quadratic-effect-of-female-education-level">Model 2: Quadratic Effect of Female Education Level</h2>
-<ol start="6" type="1">
-<li><p>Regress infant mortality rates on female education level. For this model, posit a quadratic effect of female education level on infant mortality rate (Model 2). Write the <em>fitted equation</em> using Equation Editor (or some other program that correctly types mathematical expressions).</p></li>
-<li><p>Compute, report, and interpret the likelihood ratio between Model 2 and Model 1.</p></li>
-<li><p>Carry out a likelihood ratio test to compare Model 1 and Model 2. Report the results from this test in a nicely formatted table.</p></li>
+<section id="model-1" class="level2">
+<h2 class="anchored" data-anchor-id="model-1">Model 1</h2>
+<ol start="3" type="1">
+<li><p>Use the <code>lm()</code> function to fit Model 1 from Woods (2008). Use the <code>tidy()</code> function from the <em>broom</em> package to display the model’s coefficient-level output. Display the syntax for this along with the coefficient-level output. Also note that the SEs you obtain will be different from those in the paper as they estimated robust standard errors.)</p></li>
+<li><p>Use a bulleted list to provide an interpretation of the following estimated regression coefficients from the regression you fitted in Question 3: (a) the intercept, (b) the effect of political corruption. Give one interpretation per list item.</p></li>
+<li><p>Use a display equation to write the equation for the <em>fitted least squares regression equation</em> based on the output from <code>lm()</code>.</p></li>
+<li><p>Use the <code>anova()</code> function to obtain the different sums of squares for the fitted model. Use the values from this output to compute the model-level <span class="math inline">\(R^2\)</span>. (You can use <code>glance()</code> to check your work.) Show the syntax you used and all computations for this in your document.</p></li>
+<li><p>Write the following sentence: “The Root Mean Square Error (RMSE; <span class="math inline">\(\hat\sigma_{\epsilon}\)</span>) is <span class="math inline">\(x\)</span>.” In this sentence, use an inline code chunk to replace <span class="math inline">\(x\)</span> with the value for the RMSE from the fitted equation. In this code chunk, do not just write in the value for the RMSE, but use syntax to extract the <code>sigma</code> value from the <code>glance()</code> output. (Hint: See <a href="https://michaelgastner.com/R_for_QR/extracting-values-from-data-frames.html">here</a>.) <strong>(2pts.)</strong></p></li>
 </ol>
 <p><br></p>
 </section>
-<section id="model-3-control-for-differences-in-gross-national-income-gni" class="level2">
-<h2 class="anchored" data-anchor-id="model-3-control-for-differences-in-gross-national-income-gni">Model 3: Control for Differences in Gross National Income (GNI)</h2>
+<section id="model-3" class="level2">
+<h2 class="anchored" data-anchor-id="model-3">Model 3</h2>
+<ol start="7" type="1">
+<li><p>Use the <code>lm()</code> function to fit Model 3 from Woods (2008) and use the <code>tidy()</code> function to obtain the coefficient-level output. Give a general interpretation of the interaction effect.</p></li>
+<li><p>Create a publication quality plot that displays the results from the fitted model. For this plot, put the political corruption predictor on the <em>x</em>-axis. Display separate lines to show the effects for at least two levels of environmental groups. The two lines should be displayed using different linetypes or colors (or both) so that they can be easily differentiated in the plot. Be sure that the figure includes a caption using the <code>fig-cap</code> option in the code chunk. The plot should be centered on the page. Adjust the aspect ratio of the plot using <code>fig-width</code> and <code>fig-height</code> in the code chunk so that it looks good. Lastly, change the values of the output width/height (<code>out-width</code>, <code>out-height</code>) to change the size of the plot from the default values. <strong>(2pts.)</strong></p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="miscellaneous" class="level2">
+<h2 class="anchored" data-anchor-id="miscellaneous">Miscellaneous</h2>
 <ol start="9" type="1">
-<li><p>Regress infant mortality rates on female education level. For this model, posit a quadratic effect of female education level on infant mortality rate, and also control for differences in Gross National Income (Model 3). (Use all four levels of GNI.) Write the <em>fitted equation</em> using Equation Editor (or some other program that correctly types mathematical expressions).</p></li>
-<li><p>Carry out a likelihood ratio test to compare Model 2 and Model 3. Add the results from this test to the table you created in Question #8.</p></li>
-</ol>
-<p><br></p>
-</section>
-<section id="adopting-a-model" class="level2">
-<h2 class="anchored" data-anchor-id="adopting-a-model">Adopting a Model</h2>
-<ol start="11" type="1">
-<li><p>Based on the results of the two likelihood ratio tests, which model will you adopt? Explain.</p></li>
-<li><p>Create the density plot of the marginal distribution of the standardized residuals for your adopted model, as well as the scatterplot of the standardized residuals versus the fitted values. Place these plots side-by-side in your printed document and, for the purposes of captioning, etc. treat them as two subfigures within a single figure.</p></li>
-<li><p>Based on the plots you created in Question 12, evaluate and comment on the tenability of each of the model assumptions. <br></p></li>
+<li><p>Write a sentence that includes two references in an inline citation. This should also generate the actual references when you knit your document. One of the two references should be the Fox textbook. The other should be the Woods (2008) journal article. You can choose the topic of the sentence and how the two references are used in the citation. (Note the references do not actually have to pertain to what is written in the sentence. This is just an exercise in using the bibliography tools in Markdown.) Specify an appropriate CSL file so that the references and citations are in APA format. (If you want to use a citation style that is different from APA, say for a specific journal, use the appropriate CSL file, and indicate that on the assignment.) Both the BIB and CSL files should be included in your project’s <code>assets</code> directory. <strong>(2pts.)</strong></p></li>
+<li><p>In Table 2 of Woods (2008), all the models were fitted using <span class="math inline">\(N=49\)</span>. Why was <span class="math inline">\(N\)</span> not 50? Explain.</p></li>
 </ol>
 </section>
-<section id="presenting-the-results" class="level2">
-<h2 class="anchored" data-anchor-id="presenting-the-results">Presenting the Results</h2>
-<ol start="14" type="1">
-<li><p>Mimic the format and structure of either of the first two tables in the <em>Presenting Results from Many Fitted Regression Models</em> section of the document <a href="https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html">Creating Tables to Present Statistical Results</a> to create a table to present the numerical information from the three models you fitted in this assignment. Make sure the table you create also has an appropriate caption. If the table is too wide, change the page orientation in your word processing program to “Landscape”, rather than changing the size of the font. (Note: Only this table should be presented in landscape orientation…not your entire assignment!)</p></li>
-<li><p>Create a publication quality plot that displays the fitted curves from Model 3. Display four separate lines to show the effect of Gross National Income. The four lines should be displayed using different linetypes or colors (or both) so that they can be easily differentiated in the plot.</p></li>
-</ol>
+<section id="what-to-submit" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-submit">What to Submit</h2>
+<p>You need to submit a zipped version of your entire <code>assignment-01</code> project directory. When the TA unzips this and opens your R project file they will render your QMD document. This should produce the HTML file that will be graded. (You can include your HTML file as an extra attachment if you want, but the QMD document will need to render. If it doesn’t render the TA will return it to you to try again.)</p>
 
 
 </section>

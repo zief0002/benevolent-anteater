@@ -30,7 +30,7 @@ As part of the course, there are several articles, papers and technical reports 
 <tbody>
 
 
-<!-- <span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated script file and notes 02-06-2020]*</span> -->
+<!-- <br /><span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated 02-13-2023]*</span> -->
 
 <!-- ---------------------------------- -->
 <!-- Unit 00: Welcome                   -->
@@ -98,7 +98,7 @@ As part of the course, there are several articles, papers and technical reports 
   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/02-project-organization.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/02-project-organization.qmd)
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/02-project-organization.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-code" style="color: #f1f1f1; font-size: 17px;"></span>
@@ -116,7 +116,7 @@ As part of the course, there are several articles, papers and technical reports 
   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/03-introduction-to-quarto.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/03-introduction-to-quarto.qmd)
+   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/03-introduction-to-quarto.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
   <span class="fa fa-code" style="color: #f1f1f1; font-size: 17px;"></span>
@@ -138,7 +138,7 @@ As part of the course, there are several articles, papers and technical reports 
   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/03-more-quarto.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/03-more-quarto.qmd)
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/03-more-quarto.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-code" style="color: #f1f1f1; font-size: 17px;"></span>
@@ -150,12 +150,12 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
 </td>
-<td style="vertical-align:middle;">Creating Tables with `{gt}` <br /><span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated 02-13-2023]*</span></td>
+<td style="vertical-align:middle;">Creating Tables with `{gt}`</td>
 <td align="center" style="vertical-align:middle;">
   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/03-creating-tables.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/03-creating-tables.qmd)
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/03-creating-tables.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-code" style="color: #f1f1f1; font-size: 17px;"></span>
@@ -181,13 +181,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;" rowspan="2">Likelihood: A Framework for Evidence</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/04-likelihood-evidence.html)
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/04-likelihood-evidence.html) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/04-likelihood-evidence.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/04-likelihood-evidence.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/04-likelihood-evidence.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/04-likelihood-evidence.R) -->
 </td>
 </tr>
 
@@ -208,7 +208,7 @@ As part of the course, there are several articles, papers and technical reports 
    [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/04-optional-likelihood-estimation.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/04-optional-likelihood-estimation.qmd)
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/04-optional-likelihood-estimation.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-code" style="font-size: 17px; color: #f1f1f1"></span>
@@ -232,7 +232,7 @@ As part of the course, there are several articles, papers and technical reports 
    [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/05-polynomial-effects.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/05-polynomial-effects.qmd)
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/05-polynomial-effects.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
   [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/05-polynomial-effects.R)
@@ -253,25 +253,19 @@ As part of the course, there are several articles, papers and technical reports 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Feb. 20</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/06-information-criteria-and-model-selection.html)
+<td align="center" style="vertical-align:middle;">
+  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/06-information-criteria-and-model-selection.html) -->
 </td>
-<td style="vertical-align:middle;" rowspan="2">Information Criteria and Model Selection</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/06-information-criteria-and-model-selection.html)
+<td style="vertical-align:middle;">Information Criteria and Model Selection</td>
+<td align="center" style="vertical-align:middle;">
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/06-information-criteria-and-model-selection.html) -->
 </td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/06-information-criteria-and-model-selection.qmd)
+<td align="center" style="vertical-align:middle;">
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/06-information-criteria-and-model-selection.qmd) -->
 </td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/06-information-criteria-and-model-selection.R)
+<td align="center" style="vertical-align:middle;">
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/06-information-criteria-and-model-selection.R) -->
 </td>
-</tr>
-
-
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Feb. 22</td>
 </tr>
 
 
@@ -285,25 +279,29 @@ As part of the course, there are several articles, papers and technical reports 
 </tr>
 
 
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Feb. 22</td>
+<td align="center" style="vertical-align:middle;" rowspan="3">
+  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-outcome.html)
+</td>
+<td style="vertical-align:middle;" rowspan="3">Log-Transforming the Outcome</td>
+<td align="center" style="vertical-align:middle;" rowspan="3">
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/07-logarithmic-transformations-outcome.html)
+</td>
+<td align="center" style="vertical-align:middle;" rowspan="3">
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/07-logarithmic-transformations-outcome.qmd)
+</td>
+<td align="center" style="vertical-align:middle;" rowspan="3">
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/07-logarithmic-transformations-outcome.R)
+</td>
+</tr>
+
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Feb. 27</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-predictor.html)
-</td>
-<td style="vertical-align:middle;" rowspan="2">Log-Transforming the Predictor</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/07-logarithmic-transformations-predictor.html)
-</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/07-logarithmic-transformations-predictor.qmd)
-</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/07-logarithmic-transformations-predictor.R)
-</td>
 </tr>
-
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
@@ -322,29 +320,18 @@ As part of the course, there are several articles, papers and technical reports 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Mar. 12</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td style="vertical-align:middle;">Log-Transforming the Outcome</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td align="center" style="vertical-align:middle;"></td>
-<td align="center" style="vertical-align:middle;"></td>
-</tr>
-
-
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Mar. 12</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/08-logarithmic-transformations-outcome.html)
+  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-predictor.html) -->
 </td>
-<td style="vertical-align:middle;" rowspan="2">Log-Transforming the Outcome</td>
-<td align="center" style="vertical-align:middle;">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/08-logarithmic-transformations-outcome.html)
+<td style="vertical-align:middle;" rowspan="2">Log-Transforming the Predictor</td>
+<td align="center" style="vertical-align:middle;" rowspan="2">
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/07-logarithmic-transformations-predictor.html) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/08-logarithmic-transformations-outcome.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/07-logarithmic-transformations-predictor.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/08-logarithmic-transformations-outcome.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/07-logarithmic-transformations-predictor.R) -->
 </td>
 </tr>
 
@@ -355,6 +342,9 @@ As part of the course, there are several articles, papers and technical reports 
 </tr>
 
 
+
+
+
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Mar. 19</td>
@@ -363,13 +353,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;">Rule of the Bulge---An Example</td>
 <td align="center" style="vertical-align:middle;">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/09-rule-of-the-bulge.html)
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/09-rule-of-the-bulge.html) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/09-rule-of-the-bulge.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/09-rule-of-the-bulge.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/09-rule-of-the-bulge.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/09-rule-of-the-bulge.R) -->
 </td>
 </tr>
 
@@ -392,13 +382,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;">Linear Probability Model</td>
 <td align="center" style="vertical-align:middle;">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/10-linear-probability-model.html)
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/10-linear-probability-model.html) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/10-linear-probability-model.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/10-linear-probability-model.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/10-linear-probability-model.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/10-linear-probability-model.R) -->
 </td>
 </tr>
 
@@ -407,17 +397,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Mar. 26</td>
 <td align="center" style="vertical-align:middle;" >
-  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/11-logistic-regression.html)
+  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/11-logistic-regression.html) -->
 </td>
 <td style="vertical-align:middle;">Logistic Regression Model</td>
 <td align="center" style="vertical-align:middle;">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/11-logistic-regression.html)
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/11-logistic-regression.html) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/11-logistic-regression.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/11-logistic-regression.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/11-logistic-regression.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/11-logistic-regression.R) -->
 </td>
 </tr>
 
@@ -430,13 +420,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;" rowspan="2">More Logistic Regression</td>
 <td align="center" style="vertical-align:middle;">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/12-more-logistic-regression.html)
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/12-more-logistic-regression.html) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/12-more-logistic-regression.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/12-more-logistic-regression.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/12-more-logistic-regression.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/12-more-logistic-regression.R) -->
 </td>
 </tr>
 
@@ -460,17 +450,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Apr. 04</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/13-introduction-to-mixed-effects-models.html)
+  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/13-introduction-to-mixed-effects-models.html) -->
 </td>
 <td style="vertical-align:middle;" rowspan="2">Introduction to Mixed-Effects Regression Models</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/bespectacled-antelope/notes/13-introduction-to-mixed-effects-models.html)
+  <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/13-introduction-to-mixed-effects-models.html) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/13-introduction-to-mixed-effects-models.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/13-introduction-to-mixed-effects-models.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/bespectacled-antelope/raw/main/scripts/13-introduction-to-mixed-effects-models.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/13-introduction-to-mixed-effects-models.R) -->
 </td>
 </tr>
 
@@ -490,13 +480,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;" rowspan="2">LMER: Average Change Over Time</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/bespectacled-antelope/notes/14-lmer-average-change-over-time.html)
+  <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/14-lmer-average-change-over-time.html) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/14-lmer-average-change-over-time.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/14-lmer-average-change-over-time.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/bespectacled-antelope/raw/main/scripts/14-lmer-average-change-over-time.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/14-lmer-average-change-over-time.R) -->
 </td>
 </tr>
 
@@ -512,17 +502,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Apr. 18</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/15-lmer-other-random-effects-and-covariates.html)
+  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/15-lmer-other-random-effects-and-covariates.html) -->
 </td>
 <td style="vertical-align:middle;" rowspan="2">LMER: Other Random-Effects and Covariates</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/bespectacled-antelope/notes/15-lmer-other-random-effects-and-covariates.html)
+  <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/15-lmer-other-random-effects-and-covariates.html) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/15-lmer-other-random-effects-and-covariates.qmd)
+  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/15-lmer-other-random-effects-and-covariates.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/bespectacled-antelope/raw/main/scripts/15-lmer-other-random-effects-and-covariates.R)
+  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/15-lmer-other-random-effects-and-covariates.R) -->
 </td>
 </tr>
 
@@ -541,7 +531,7 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;">Q&amp;A and Future Coursework</td>
 <td align="center" style="vertical-align:middle;">
-   [<span class="fas fa-link" style="font-size: 17px;"></span>](files/qme-course-map-2023-04-10.pdf)
+   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](files/qme-course-map-2023-04-10.pdf) -->
 </td>
 <td align="center" style="vertical-align:middle;">
   <span class="fab fa-markdown" style="font-size: 17px; color: #f1f1f1;"></span>
@@ -560,13 +550,13 @@ As part of the course, there are several articles, papers and technical reports 
 <!-- </td> -->
 <!-- <td style="vertical-align:middle;" rowspan="2">NO CLASS --- Optional: LMER: Alternative Representations and Assumptions</td> -->
 <!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/bespectacled-antelope/notes/16-lmer-alt-representations-and-assumptions.html) -->
+<!--   [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/16-lmer-alt-representations-and-assumptions.html) -->
 <!-- </td> -->
 <!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/notes/16-lmer-alt-representations-and-assumptions.qmd) -->
+<!--   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/16-lmer-alt-representations-and-assumptions.qmd) -->
 <!-- </td> -->
 <!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/bespectacled-antelope/raw/main/scripts/16-lmer-alt-representations-and-assumptions.R) -->
+<!--   [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/16-lmer-alt-representations-and-assumptions.R) -->
 <!-- </td> -->
 <!-- </tr> -->
 

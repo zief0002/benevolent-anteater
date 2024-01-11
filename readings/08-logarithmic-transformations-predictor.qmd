@@ -1,5 +1,5 @@
 ---
-title: "📖 Log-Transforming the Outcome"
+title: "📖 Log-Transforming the Predictor"
 format:
   html:
     css: ["../assets/sticky-notes.css"]
@@ -23,4 +23,6 @@ In addition to the notes and what we cover in class, there are many other resour
 
 - [UCLA IDRE: Interpreting Log-Transformed Variables in Regression ](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faqhow-do-i-interpret-a-regression-model-when-some-variables-are-log-transformed/)
 - [Interpret Regression Coefficient Estimates](http://www.cazaar.com/ta/econ113/interpreting-beta)
+
+
 
