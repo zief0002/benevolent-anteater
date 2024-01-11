@@ -74,10 +74,10 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment \#4: *Logarithmic Transformations*</td>
 <td>Mar. 21</td>
 <td align="center" style="vertical-align:middle;">
-[<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-04-logarithmic-transformations.qmd)
+<!-- [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-04-logarithmic-transformations.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-[<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-04-logarithmic-transformations.html)
+<!-- [<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-04-logarithmic-transformations.html) -->
 </td>
 </tr>
 
@@ -87,10 +87,10 @@ Below are the due dates for the assignments, as well as links to each assignment
 <!-- <br /><span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated: 03-24-2022]*</span> -->
 <td>Apr. 11</td>
 <td align="center" style="vertical-align:middle;">
-[<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-05-logistic-regression.qmd)
+<!-- [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-05-logistic-regression.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-[<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-05-logistic-regression.html)
+<!-- [<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-05-logistic-regression.html) -->
 </td>
 </tr>
 
@@ -99,10 +99,10 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment \#6: *LMER: Unconditional Longitudinal Models*</td>
 <td>Apr. 30 (due by 10:00am)</td>
 <td align="center" style="vertical-align:middle;">
-[<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-06-lmer-unconditional-longitudinal-models.qmd)
+<!-- [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-06-lmer-unconditional-longitudinal-models.qmd) -->
 </td>
 <td align="center" style="vertical-align:middle;">
-[<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-06-lmer-unconditional-longitudinal-models.html)
+<!-- [<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-06-lmer-unconditional-longitudinal-models.html) -->
 </td>
 </tr>
 
@@ -141,7 +141,7 @@ Stress management is an important piece of the skill set needed for success in g
 
 ## Evaluation of Student Performance
 
-Course grades will be based entirely on performance on the homework assignments. The points from the eight homework assignment will be pooled to compute a percentage in the class, which will be converted to a final course grade using:
+Course grades will be based entirely on performance on the homework assignments. The points from the six homework assignment will be pooled to compute a percentage in the class, which will be converted to a final course grade using:
 
 Cutoff    | Grade | Definition for Graduate Credit |
 --------- | ----- | ------------------------------ |
