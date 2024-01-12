@@ -3,7 +3,7 @@ title: "📖 Project Management"
 format:
   html:
     css: ["../assets/sticky-notes.css"]
-date: "`r format(Sys.Date(), '%B %d %Y')`"
+date: "today"
 ---
 
 

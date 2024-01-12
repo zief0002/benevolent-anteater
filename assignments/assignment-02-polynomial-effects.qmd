@@ -10,8 +10,8 @@ date: "`r format(Sys.Date(), '%B %d, %Y')`"
 
 In this assignment, you will use the data from the file *fertility.csv* to explain variation in in infant mortality rates. 
 
-- [[CSV]](https://raw.githubusercontent.com/zief0002/epsy-8252/master/data/fertility.csv)
-- [[Data Codebook]](http://zief0002.github.io/epsy-8252/codebooks/fertility.html)
+- [[CSV]](https://raw.githubusercontent.com/zief0002/benevolent-anteater/master/data/fertility.csv)
+- [[Data Codebook]](http://zief0002.github.io/benevolent-anteater/codebooks/fertility.html)
 
 
 ```{r}

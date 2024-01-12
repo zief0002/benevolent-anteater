@@ -7,7 +7,7 @@ format:
     highlight-style: zenburn
     df-print: paged
     css: ["../assets/sticky-notes.css"]
-date: "`r format(Sys.Date(), '%B %d %Y')`"
+date: "today"
 bibliography: "../assets/epsy8252.bib"
 csl: "../assets/apa-single-spaced.csl"
 ---

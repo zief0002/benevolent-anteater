@@ -35,7 +35,7 @@ Read the article: Woods, N. D. (2008). The policy consequences of political corr
 **Create a QMD document to respond to each of the questions below.** Please adhere to the following guidelines for further formatting your assignment:
 
 - All graphics should be resized so that they do not take up more room than necessary and should have an appropriate caption. Learn how to do this in a code chunk using [knitr syntax](http://yihui.name/knitr/).
-- Any typed mathematics (equations, matrices, vectors, etc.) should be appropriately typeset within the document using Markdown's equation typesetting. See [here](http://www.calvin.edu/~rpruim/courses/m343/F12/RStudio/LatexExamples.html) for some examples of how mathematics can be typeset in R Markdown.
+- Any typed mathematics (equations, matrices, vectors, etc.) should be appropriately typeset within the document using Markdown's equation typesetting. See [here](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) for some examples of how mathematics can be typeset in R Markdown.
 - All syntax should be hidden (i.e., not displayed) unless specifically asked for.
 - Any messages or warnings produced (e.g., from loading packages) should also be hidden.
 

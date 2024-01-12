@@ -3,7 +3,7 @@ title: "📖 Regression Review"
 format:
   html:
    css: "../assets/sticky-notes.css"
-date: "`r format(Sys.Date(), '%B %d %Y')`"
+date: "today"
 ---
 
 Here are some things to do before class:

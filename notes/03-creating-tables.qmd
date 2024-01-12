@@ -7,7 +7,7 @@ format:
     highlight-style: zenburn
     df-print: paged
     css: ["../assets/sticky-notes.css"]
-date: "`r format(Sys.Date(), '%B %d %Y')`"
+date: "today"
 crossref:
   tbl-title: "**Table**"
   tbl-labels: arabic
