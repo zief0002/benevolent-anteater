@@ -94,18 +94,18 @@ woods |>
 
 ## Model 3
 
-7. Use the `lm()` function to fit Model 3 from Woods (2008) and use the `tidy()` function to obtain the coefficient-level output. Give a general interpretation of the interaction effect.
+8. Use the `lm()` function to fit Model 3 from Woods (2008) and use the `tidy()` function to obtain the coefficient-level output. Give a general interpretation of the interaction effect.
 
-8. Create a publication quality plot that displays the results from the fitted model. For this plot, put the political corruption predictor on the *x*-axis. Display separate lines to show the effects for at least two levels of environmental groups. The two lines should be displayed using different linetypes or colors (or both) so that they can be easily differentiated in the plot. Be sure that the figure includes a caption using the `fig-cap` option in the code chunk. The plot should be centered on the page. Adjust the aspect ratio of the plot using `fig-width` and `fig-height` in the code chunk so that it looks good. Lastly, change the values of the output width/height (`out-width`, `out-height`) to change the size of the plot from the default values. **(2pts.)**
+9. Create a publication quality plot that displays the results from the fitted model. For this plot, put the political corruption predictor on the *x*-axis. Display separate lines to show the effects for at least two levels of environmental groups. The two lines should be displayed using different linetypes or colors (or both) so that they can be easily differentiated in the plot. Be sure that the figure includes a caption using the `fig-cap` option in the code chunk. The plot should be centered on the page. Adjust the aspect ratio of the plot using `fig-width` and `fig-height` in the code chunk so that it looks good. Lastly, change the values of the output width/height (`out-width`, `out-height`) to change the size of the plot from the default values. **(2pts.)**
 
 <br />
 
 
 ## Miscellaneous
 
-9. Write a sentence that includes two references in an inline citation. This should also generate the actual references when you knit your document. One of the two references should be the Fox textbook. The other should be the Woods (2008) journal article. You can choose the topic of the sentence and how the two references are used in the citation. (Note the references do not actually have to pertain to what is written in the sentence. This is just an exercise in using the bibliography tools in Markdown.) Specify an appropriate CSL file so that the references and citations are in APA format. (If you want to use a citation style that is different from APA, say for a specific journal, use the appropriate CSL file, and indicate that on the assignment.) Both the BIB and CSL files should be included in your project's `assets` directory. **(2pts.)**
+10. Write a sentence that includes two references in an inline citation. This should also generate the actual references when you knit your document. One of the two references should be the Fox textbook. The other should be the Woods (2008) journal article. You can choose the topic of the sentence and how the two references are used in the citation. (Note the references do not actually have to pertain to what is written in the sentence. This is just an exercise in using the bibliography tools in Markdown.) Specify an appropriate CSL file so that the references and citations are in APA format. (If you want to use a citation style that is different from APA, say for a specific journal, use the appropriate CSL file, and indicate that on the assignment.) Both the BIB and CSL files should be included in your project's `assets` directory. **(2pts.)**
 
-10. In Table 2 of Woods (2008), all the models were fitted using $N=49$. Why was $N$ not 50? Explain.
+11. In Table 2 of Woods (2008), all the models were fitted using $N=49$. Why was $N$ not 50? Explain.
 
 
 
