@@ -206,7 +206,7 @@ Below are the links to the data sets and data codebooks used in the notes, scrip
 
 
 <tr>
-<td>woods.csv</td>
+<td>woods.csv<br /><span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated 01-24-2024]*</span></td>
 <td align="center" style="vertical-align:middle;">
   <a href="https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/woods.csv">
     <span class="fas fa-file-csv" style="font-size: 20px;"></span>
