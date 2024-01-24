@@ -161,6 +161,21 @@ Below are the links to the data sets and data codebooks used in the notes, scrip
 
 
 <tr>
+<td>usnwr-2024.csv</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/usnwr-2024.csv">
+    <span class="fas fa-file-csv" style="font-size: 20px;"></span>
+  </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+  <a href="http://zief0002.github.io/benevolent-anteater/codebooks/usnwr-2024.html">
+    <span class="fas fa-book-open" style="font-size: 20px;"></span>
+  </a>
+</td>
+</tr>
+
+
+<tr>
 <td>vocabulary.csv</td>
 <td align="center" style="vertical-align:middle;">
   <a href="https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/vocabulary.csv">

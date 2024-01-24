@@ -1293,5 +1293,26 @@
     "title": "Likelihood: A Framework for Evidence",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nSometimes this is also referred to a the sum of squared errors (SSE).↩︎\nThis is in some sense mixing the paradigms of likelihood-based evidence and classical hypothesis test-based evidence. In a future set of notes we will learn about information criteria which eliminate the need to mix these two paradigms.↩︎\nThe use of the term “residual deviance” is not universal. Some textbooks omit the “residual” part and just refer to it as the “deviance”. Others use the term “model deviance”.↩︎"
+  },
+  {
+    "objectID": "codebooks/usnwr-2024.html",
+    "href": "codebooks/usnwr-2024.html",
+    "title": "usnwr-2024.csv",
+    "section": "",
+    "text": "The data in usnwr-2024.csv includes 13 attributes collected from the n=111 graduate schools of education ranked in the U.S. News and World Report’s 2023–2024 Best Education Graduate Schools."
+  },
+  {
+    "objectID": "codebooks/usnwr-2024.html#attributes",
+    "href": "codebooks/usnwr-2024.html#attributes",
+    "title": "usnwr-2024.csv",
+    "section": "Attributes",
+    "text": "Attributes\n\nrank: Rank in USNWR\nschool: Graduate program of Education\npeer_rating: Peer assessment score from deans’, program directors’, and senior faculty’s judgement of the academic quality of the program on a scale of 1 (marginal) to 5 (outstanding).\nenroll: Total enrollment of part-time and full-time graduate students in 2022–23\nft_students: Total number of full-time graduate students enrolled in 2022–23\nft_faculty: Total number of full-time faculty employed in 2022–23\nnonres_tuition: Amount of yearly non-resident graduate tuition\nsf_ratio: Adjusted ratio of graduate students to faculty in 2022–2023\npct_doc: Percentage of students enrolled in a Ph.D./Ed.D. in 2022–23\nug_gpa: Average undergraduate GPA for Ph.D. students admitted in 2022–23\ngre: Averge total GRE score (based on verbal and quantitative) for Ph.D. students admitted in 2022–23\ndoc_accept: Acceptance rate for doctoral students in 2016\ntot_pubs: Total number of publication attributed to faculty in the program from 2019–23 based on SCOPUS\ntot_res: Total amount of funded research (in millions of dollars)"
+  },
+  {
+    "objectID": "codebooks/usnwr-2024.html#preview",
+    "href": "codebooks/usnwr-2024.html#preview",
+    "title": "usnwr-2024.csv",
+    "section": "Preview",
+    "text": "Preview\n\n# Import data\nusnwr = readr::read_csv(file = \"https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/usnwr-2024.csv\")\n\n# View data\nusnwr |&gt;\n    print(width = Inf)\n\n# A tibble: 111 × 14\n    rank school                                peer_rating enroll ft_students\n   &lt;dbl&gt; &lt;chr&gt;                                       &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;\n 1     1 Teachers College, Columbia University         4.2   4471        3192\n 2     1 University of Michigan--Ann Arbor             4.4    455         303\n 3     3 Northwestern University                       4.1    382         228\n 4     3 University of Pennsylvania                    4.4   1654        1091\n 5     3 University of Wisconsin--Madison              4.3   1136         729\n 6     6 Vanderbilt University (Peabody)               4.5   1007         809\n 7     7 Stanford University                           4.6    343         343\n 8     7 University of California--Los Angeles         4.3    701         701\n 9     9 Harvard University                            4.4    868         707\n10     9 New York University (Steinhardt)              4.1   2163        1747\n   ft_fac nonres_tuition sf_ratio pct_doc ug_gpa   gre doc_acc tot_pubs tot_res\n    &lt;dbl&gt;          &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n 1    131          45912      8.4    23.9    3.5   313    12.1      789    65.2\n 2     45          53178      4.2    30.8    3.3   316    13.7     1802    40.9\n 3     39          56067      2.2    22.2    3.7   321     7.8      719    29.2\n 4     75          42864      4.8    23.8    3.3   312    14.6     1176    50.4\n 5    123          24054      5.4    51.1    3.5   305    15.9     1396    64.5\n 6     97          53160      2.6    24.9    3.6   321     5.4     1195    49.9\n 7     51          56487      4.3    46.6    3     327     3.9     1415    25.2\n 8     43          26802      7.1    51.6    3.4   310    28.1     1058    46.5\n 9     42          54032      3.6    14.1    3.9   320     5.7     2148    36.7\n10     79          48480      4.6    14.5    3.7   314     4.7      886    71.4\n# ℹ 101 more rows"
   }
 ]
