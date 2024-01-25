@@ -125,7 +125,7 @@ tidy(lm.1)
 
 The *p*-values associated with the effect of full-time students ($p=.007$), and non-resident tuition ($p=.009$) suggest that these two effects are more than we would expect because of chance. While the effects of total graduate enrollment ($p=.124$) and full-time faculty ($p=.409$) may be completely due to chance.
 
-Interpreting one of these *p*-values, say that for the effect of full-time students, we would say that the probability of seeing the empirical evidence we observed, or evidence that is more extreme, if the null hypothesis that there is no effect of full-time students is true, is 0.007. This implies that our observed data are inconsistent with the hypothesized model that there is no effect of full-time students. In an applied setting, we might use such evidence to decide that the number of full-time students (institutiion size) does indeed predict variation in institutions' peer ratings (prestige).
+Interpreting one of these *p*-values, say that for the effect of full-time students, we would say that the probability of seeing the empirical evidence we observed, or evidence that is more extreme, if the null hypothesis that there is no effect of full-time students is true, is 0.007. This implies that our observed data are inconsistent with the hypothesized model that there is no effect of full-time students. In an applied setting, we might use such evidence to decide that the number of full-time students (institution size) does indeed predict variation in institutions' peer ratings (prestige).
 
 Despite being the predominant evidential paradigm used in the education and social sciences, hypothesis testing has many criticisms [e.g., @Johansson:2011; @Weakliem:2016]. Among some of the stronger criticisms,
 
