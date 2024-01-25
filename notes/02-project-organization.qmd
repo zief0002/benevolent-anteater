@@ -151,21 +151,21 @@ We can add files and directories by creating them using an application on our co
 :::exercises
 **Your Turn**
 
-Download the [fertility.csv](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/data/fertility.csv) file to your computer. Make sure that the file suffix is `.csv`. (Sometimes Safari users will find that the suffix `.txt` gets appended to the end of the filename---`fertility.csv.txt`. If that is the case delete the `.txt` part that was appended.) Place `fertility.csv` into the `data` directory of your project. The new tree is:
+Download the [woods.csv](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/data/woods.csv) file to your computer. Make sure that the file suffix is `.csv`. (Sometimes Safari users will find that the suffix `.txt` gets appended to the end of the filename---`woods.csv.txt`. If that is the case delete the `.txt` part that was appended.) Place `woods.csv` into the `data` directory of your project. The new tree is:
 
 ```
 assignment-01
     ├── assets
     ├── assignment-01.Rproj
     ├── data
-    │   └── fertility.csv
+    │   └── woods.csv
     ├── figs
     └── scripts
 ```
 :::
 
 
-In RStudio, in the `Files` pane, if you click on the `data` directory, you should see `fertility.csv`. 
+In RStudio, in the `Files` pane, if you click on the `data` directory, you should see `woods.csv`. 
 
 
 <br />
@@ -198,7 +198,7 @@ assignment-01
     ├── assets
     ├── assignment-01.Rproj
     ├── data
-    │   └── fertility.csv
+    │   └── woods.csv
     ├── figs
     └── scripts
 ```
