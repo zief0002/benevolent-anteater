@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-05">
+<meta name="dcterms.date" content="2024-01-30">
 
 <title>EPsy 8252 - 📖 Introduction to Quarto</title>
 <style>
@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 5, 2024</p>
+      <p class="date">January 30, 2024</p>
     </div>
   </div>
   
@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In this set of notes, you will continue your Quarto journey. One important note before we begin:</p>
 <div class="fyi">
-<p>In EPsy 8251, when we create objects, they are stored in the R environment and we can operate on those objects. For example, in this document we will read in the <em>fertility.csv</em> data and assign it to the object <code>fertility</code>. We can then use functions to compute values and operate on the data.</p>
+<p>In EPsy 8251, when we create objects, they are stored in the R environment and we can operate on those objects. For example, in this document we will read in the <em>woods.csv</em> data and assign it to the object <code>woods</code>. We can then use functions to compute values and operate on the data.</p>
 <p>Trying to operate on an object that we created in the R environment, but do not create in our Quarto document will lead to an error. This is because the R environment and your Quarto document are completely independent from one another.</p>
 <p><strong>If you want to operate on an object you have to create the object in the Quarto document.</strong></p>
 </div>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     ├── assignment-01.qmd
     ├── assignment-01.Rproj
     ├── data
-    │   └── fertility.csv
+    │   └── woods.csv
     ├── figs
     └── scripts</code></pre>
 </div>
@@ -302,14 +302,14 @@ editor: visual
 <ul>
 <li>Create a Level-2 Heading in your QMD document that is called “Question 1”.</li>
 <li>Then create a new R chunk. In that chunk load the <code>{tidyverse}</code> library. Don’t forget to add a comment.</li>
-<li>In the same R chunk, import the <code>fertility.csv</code> data into an object called <code>fertility</code>.</li>
+<li>In the same R chunk, import the <code>woods.csv</code> data into an object called <code>woods</code>.</li>
 </ul>
 </div>
 <p>To import the data (which you put in the <code>data</code> directory of your project last class) use the following syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fertility <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>woods <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/woods.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The path inside the quotation marks gives the location (relative to the QMD file) of the <code>fertility.csv</code> data. Here, the data are in the directory called <code>data</code>. Thus the path <code>data/fertility.csv</code> indicates go to the data folder and inside of that locate <code>fertility.csv</code>.</p>
+<p>The path inside the quotation marks gives the location (relative to the QMD file) of the <code>woods.csv</code> data. Here, the data are in the directory called <code>data</code>. Thus the path <code>data/woods.csv</code> indicates go to the data folder and inside of that locate <code>woods.csv</code>.</p>
 <div class="exercises">
 <p>What would the path be inside the quotation marks if our project had the following tree?</p>
 <pre><code>assignment-01
@@ -319,7 +319,7 @@ editor: visual
     ├── assignment-01.Rproj
     ├── data
        ├── assignment-data
-          └── fertility.csv
+          └── woods.csv
        └── notes-data
     ├── figs
     └── scripts</code></pre>
@@ -367,15 +367,15 @@ editor: visual
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-scatterplot</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot showing the relationship between female education level and infant mortality."</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> fertility, <span class="fu">aes</span>(<span class="at">x =</span> educ_female, <span class="at">y =</span> infant_mortality)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot showing the relationship between political corruption and environmental program strength."</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> woods, <span class="fu">aes</span>(<span class="at">x =</span> envprogstr, <span class="at">y =</span> corrupt)) <span class="sc">+</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-introduction-to-quarto_files/figure-html/fig-scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Scatterplot showing the relationship between female education level and infant mortality.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1: Scatterplot showing the relationship between political corruption and environmental program strength.</figcaption>
 </figure>
 </div>
 </div>
@@ -388,17 +388,17 @@ editor: visual
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-scatterplot-2</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot showing the relationship between female education level and infant mortality."</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot showing the relationship between political corruption and environmental program strength."</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 9</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> fertility, <span class="fu">aes</span>(<span class="at">x =</span> educ_female, <span class="at">y =</span> infant_mortality)) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> woods, <span class="fu">aes</span>(<span class="at">x =</span> envprogstr, <span class="at">y =</span> corrupt)) <span class="sc">+</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-introduction-to-quarto_files/figure-html/fig-scatterplot-2-1.png" class="img-fluid figure-img" width="864"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Scatterplot showing the relationship between female education level and infant mortality.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2: Scatterplot showing the relationship between political corruption and environmental program strength.</figcaption>
 </figure>
 </div>
 </div>
@@ -410,18 +410,18 @@ editor: visual
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-scatterplot-3</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot showing the relationship between female education level and infant mortality."</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Scatterplot showing the relationship between political corruption and environmental program strength."</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 9</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "40%"</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> fertility, <span class="fu">aes</span>(<span class="at">x =</span> educ_female, <span class="at">y =</span> infant_mortality)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> woods, <span class="fu">aes</span>(<span class="at">x =</span> envprogstr, <span class="at">y =</span> corrupt)) <span class="sc">+</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-scatterplot-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-introduction-to-quarto_files/figure-html/fig-scatterplot-3-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Scatterplot showing the relationship between female education level and infant mortality.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;3: Scatterplot showing the relationship between political corruption and environmental program strength.</figcaption>
 </figure>
 </div>
 </div>
@@ -434,20 +434,20 @@ editor: visual
 </section>
 <section id="inline-code-chunks-for-better-reproducibility" class="level2">
 <h2 class="anchored" data-anchor-id="inline-code-chunks-for-better-reproducibility">Inline Code Chunks for Better Reproducibility</h2>
-<p>In writing papers where there are results from data analyses being reported in the text, inline code chunks are boss! For example, consider writing the following sentence in an analysis of the <em>fertility.csv</em> data.</p>
+<p>In writing papers where there are results from data analyses being reported in the text, inline code chunks are boss! For example, consider writing the following sentence in an analysis of the <em>woods.csv</em> data.</p>
 <blockquote class="blockquote">
-<p>The mean infant mortality rate is 26.05% (SD = 23.98).</p>
+<p>The mean environmental program strength is 17.6 (SD = 8.23).</p>
 </blockquote>
 <p>Rather than computing these values and then transposing the values into the sentence, we can use inline code chunks to directly compute and write the values in the sentence. Here is some syntax we could use:</p>
-<p>The mean infant mortality rate is <code>`r mean(fertility$infant_mortality)`</code> (SD = <code>`r sd(fertility$infant_mortality)`</code>).</p>
+<p>The mean environmental program strength is <code>`r mean(woods$envprogstr)`</code> (SD = <code>`r sd(woods$envprogstr)`</code>).</p>
 <p>This produces the following sentence in the rendered document:</p>
 <blockquote class="blockquote">
-<p>The mean infant mortality rate is 26.05 (SD = 23.982719).</p>
+<p>The mean environmental program strength is 17.6 (SD = 8.2263886).</p>
 </blockquote>
 <p><br></p>
 <section id="rounding" class="level3">
 <h3 class="anchored" data-anchor-id="rounding">Rounding</h3>
-<p>There are several ways to set the rounding to two decimal places. One is to embed the computation in the <code>round()</code> function. For example, in the first inline chunk we could use: <code>round(mean(fertility$infant_mortality), 2)</code>.</p>
+<p>There are several ways to set the rounding to two decimal places. One is to embed the computation in the <code>round()</code> function. For example, in the first inline chunk we could use: <code>round(mean(woods$envprogstr), 2)</code>.</p>
 <p>You can also do this in a separate code chunk and then call the values in the inline computation (as suggested in the <a href="https://quarto.org/docs/get-started/computations/rstudio.html">Quarto Computations Tutorial</a>).</p>
 <p><br></p>
 </section>
@@ -479,13 +479,13 @@ $$</code></pre>
 </ul>
 <div class="exercises">
 <p><strong>Your Turn</strong></p>
-<p>Part of Question #8 asks you to use a display equation to write the fitted equation based on the following output.</p>
+<p>Part of Question #5 asks you to use a display equation to write the fitted equation based on the following output.</p>
 <div class="cell">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"63.370963","3":"3.1515263","4":"20.108023","5":"2.176131e-40"},{"1":"educ_female","2":"-3.599037","3":"0.5490205","4":"-6.555379","5":"1.431500e-09"},{"1":"high_gni","2":"-17.583207","3":"3.7836312","4":"-4.647178","5":"8.640582e-06"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-68.63407867","3":"24.11348049","4":"-2.8462950","5":"0.006877513"},{"1":"corrupt","2":"-12.00501425","3":"4.57638232","4":"-2.6232542","5":"0.012174252"},{"1":"legprof","2":"12.30028084","3":"7.28600643","4":"1.6882061","5":"0.098965263"},{"1":"wealth","2":"0.03908701","3":"0.02392998","4":"1.6333909","5":"0.110043947"},{"1":"toxicwaste","2":"0.24824077","3":"0.68341937","4":"0.3632334","5":"0.718296655"},{"1":"publicenv","2":"28.34663776","3":"9.85503365","4":"2.8763613","5":"0.006356284"},{"1":"demcontrol","2":"6.34051657","3":"3.77871375","4":"1.6779563","5":"0.100963735"},{"1":"interpartycomp","2":"0.27060890","3":"0.09250613","4":"2.9253079","5":"0.005585897"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -497,26 +497,20 @@ $$</code></pre>
 <h2 class="anchored" data-anchor-id="better-typesetting-of-equations">Better Typesetting of Equations</h2>
 <p>When we typeset equations, there are a couple things we should do:</p>
 <ul>
-<li>Use variable names that make sense to our reader, rather than their name in our dataset/R. For example “Female Education Level” is a better name than “educ_female”.</li>
-</ul>
-<p>This means we will need to add spaces into our variable names in the mathematical expression. If you tried that earlier, you found out that just hitting the spacebar does not produce a space in the outputted expression. We need to include a tilde (<code>~</code>) every time you want a space. So to get the name “Female Education Level” we need to use the following in our equation:</p>
-<pre><code>$$
-Female~Education~Level
-$$</code></pre>
-<ul>
+<li>Use variable names that make sense to our reader, rather than their name in our dataset/R. For example “Environmental Program Strength” is a better name than “envprogstr”.</li>
 <li>Variable names should also be typeset using normal text rather than italic (the default in mathematical expressions).</li>
 </ul>
-<p>To achieve this, we have to embed the text we want to be normal in the syntax <code>\mathrm{}</code>. This typesets the text in a roman font (normal text). For example:</p>
+<p>We can fix both issues by including the variable names in a text environment (<code>\text{}</code>). So to get the name “Environmental Program Strength” we need to use the following in our equation:</p>
 <pre><code>$$
-\mathrm{Female~Education~Level}
+\text{Environmental Program Strength}
 $$</code></pre>
-<p>You can also use <code>\mathit{}</code> (italics), <code>\mathbf{}</code> (bold), <code>\mathtt{}</code> (typewriter text), and <code>\mathcal{}</code> (caligraphy; this is useful for the “N” we use to indicate a normal distribution).</p>
+<p>Other useful environments include: <code>\mathit{}</code> (italics), <code>\mathbf{}</code> (bold), <code>\mathtt{}</code> (typewriter text), and <code>\mathcal{}</code> (caligraphy; this is useful for the “N” we use to indicate a normal distribution). If you want a space when using these, you include a tilde (<code>~</code>) to denote a space.</p>
 <ul>
 <li>Hyphens need special syntax since a hyphen would be interpreted as a minus sign. In typesetting, the minus sign is longer than the hyphen symbol.</li>
 </ul>
-<p>If you want to include a hyphen, we need to include it in <code>\mbox{}</code>. For example, to add a hyphen in our variable name to get “Female Education-Level”, we use:</p>
+<p>If you want to include a hyphen, we need to include it in <code>\mbox{}</code>. For example, to add a hyphen in our variable name to get “Check-In”, we use:</p>
 <pre><code>$$
-\mathrm{Female~Education\mbox{-}Level}
+\text{Check\mbox{-}In}
 $$</code></pre>
 <div class="exercises">
 <p>Update your fitted equation from before to include spaces in variable names. Also be sure the variable names are written in normal font.</p>

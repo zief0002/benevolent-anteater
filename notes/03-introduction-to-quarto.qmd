@@ -15,7 +15,7 @@ csl: "../assets/apa-single-spaced.csl"
 In this set of notes, you will continue your Quarto journey. One important note before we begin:
 
 :::fyi
-In EPsy 8251, when we create objects, they are stored in the R environment and we can operate on those objects. For example, in this document we will read in the *fertility.csv* data and assign it to the object `fertility`. We can then use functions to compute values and operate on the data.
+In EPsy 8251, when we create objects, they are stored in the R environment and we can operate on those objects. For example, in this document we will read in the *woods.csv* data and assign it to the object `woods`. We can then use functions to compute values and operate on the data.
 
 Trying to operate on an object that we created in the R environment, but do not create in our Quarto document will lead to an error. This is because the R environment and your Quarto document are completely independent from one another.
 
@@ -43,7 +43,7 @@ To begin:
         ├── assignment-01.qmd
         ├── assignment-01.Rproj
         ├── data
-        │   └── fertility.csv
+        │   └── woods.csv
         ├── figs
         └── scripts
 :::
@@ -107,17 +107,17 @@ The first question on Assignment 1 is:
 ::: exercises
 -   Create a Level-2 Heading in your QMD document that is called "Question 1".
 -   Then create a new R chunk. In that chunk load the `{tidyverse}` library. Don't forget to add a comment.
--   In the same R chunk, import the `fertility.csv` data into an object called `fertility`.
+-   In the same R chunk, import the `woods.csv` data into an object called `woods`.
 :::
 
 To import the data (which you put in the `data` directory of your project last class) use the following syntax:
 
 ```{r}
 #| eval: false
-fertility = read_csv("data/fertility.csv")
+woods = read_csv("data/woods.csv")
 ```
 
-The path inside the quotation marks gives the location (relative to the QMD file) of the `fertility.csv` data. Here, the data are in the directory called `data`. Thus the path `data/fertility.csv` indicates go to the data folder and inside of that locate `fertility.csv`.
+The path inside the quotation marks gives the location (relative to the QMD file) of the `woods.csv` data. Here, the data are in the directory called `data`. Thus the path `data/woods.csv` indicates go to the data folder and inside of that locate `woods.csv`.
 
 ::: exercises
 What would the path be inside the quotation marks if our project had the following tree?
@@ -129,7 +129,7 @@ What would the path be inside the quotation marks if our project had the followi
         ├── assignment-01.Rproj
         ├── data
            ├── assignment-data
-              └── fertility.csv
+              └── woods.csv
            └── notes-data
         ├── figs
         └── scripts
@@ -198,20 +198,14 @@ library(broom)
 library(tidyverse)
 
 # Import data
-fertility = read_csv("https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/data/fertility.csv") |>
-  mutate(
-    high_gni = if_else(gni_class == "Upper/Middle" | gni_class == "Upper", 1, 0)
-  )
-
-# Fit model
-lm.1 = lm(infant_mortality ~ 1 + educ_female + high_gni, data = fertility)
+woods = read_csv("https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/woods.csv")
 ```
 
 ```{r}
 #| echo: fenced
 #| label: fig-scatterplot
-#| fig-cap: "Scatterplot showing the relationship between female education level and infant mortality."
-ggplot(data = fertility, aes(x = educ_female, y = infant_mortality)) +
+#| fig-cap: "Scatterplot showing the relationship between political corruption and environmental program strength."
+ggplot(data = woods, aes(x = envprogstr, y = corrupt)) +
    geom_point()
 ```
 
@@ -227,10 +221,10 @@ There are a couple other chunk options for figures that help set the aspect rati
 ```{r}
 #| echo: fenced
 #| label: fig-scatterplot-2
-#| fig-cap: "Scatterplot showing the relationship between female education level and infant mortality."
+#| fig-cap: "Scatterplot showing the relationship between political corruption and environmental program strength."
 #| fig-width: 9
 #| fig-height: 5
-ggplot(data = fertility, aes(x = educ_female, y = infant_mortality)) +
+ggplot(data = woods, aes(x = envprogstr, y = corrupt)) +
    geom_point()
 ```
 
@@ -245,11 +239,11 @@ The actual size of the figure in the document is independent of the aspect ratio
 ```{r}
 #| echo: fenced
 #| label: fig-scatterplot-3
-#| fig-cap: "Scatterplot showing the relationship between female education level and infant mortality."
+#| fig-cap: "Scatterplot showing the relationship between political corruption and environmental program strength."
 #| fig-width: 9
 #| fig-height: 5
 #| out-width: "40%"
-ggplot(data = fertility, aes(x = educ_female, y = infant_mortality)) +
+ggplot(data = woods, aes(x = envprogstr, y = corrupt)) +
    geom_point()
 ```
 
@@ -263,24 +257,24 @@ If you set the aspect ratio of the figure, you need only set `out-width:` or `ou
 
 ## Inline Code Chunks for Better Reproducibility
 
-In writing papers where there are results from data analyses being reported in the text, inline code chunks are boss! For example, consider writing the following sentence in an analysis of the *fertility.csv* data.
+In writing papers where there are results from data analyses being reported in the text, inline code chunks are boss! For example, consider writing the following sentence in an analysis of the *woods.csv* data.
 
-> The mean infant mortality rate is 26.05% (SD = 23.98).
+> The mean environmental program strength is 17.6 (SD = 8.23).
 
 Rather than computing these values and then transposing the values into the sentence, we can use inline code chunks to directly compute and write the values in the sentence. Here is some syntax we could use:
 
-The mean infant mortality rate is `` `r knitr::inline_expr("mean(fertility$infant_mortality)")` `` (SD = `` `r knitr::inline_expr("sd(fertility$infant_mortality)")` ``).
+The mean environmental program strength is `` `r knitr::inline_expr("mean(woods$envprogstr)")` `` (SD = `` `r knitr::inline_expr("sd(woods$envprogstr)")` ``).
 
 This produces the following sentence in the rendered document:
 
-> The mean infant mortality rate is `r mean(fertility$infant_mortality)` (SD = `r sd(fertility$infant_mortality)`).
+> The mean environmental program strength is `r mean(woods$envprogstr)` (SD = `r sd(woods$envprogstr)`).
 
 <br />
 
 
 ### Rounding
 
-There are several ways to set the rounding to two decimal places. One is to embed the computation in the `round()` function. For example, in the first inline chunk we could use: `round(mean(fertility$infant_mortality), 2)`.
+There are several ways to set the rounding to two decimal places. One is to embed the computation in the `round()` function. For example, in the first inline chunk we could use: `round(mean(woods$envprogstr), 2)`.
 
 You can also do this in a separate code chunk and then call the values in the inline computation (as suggested in the [Quarto Computations Tutorial](https://quarto.org/docs/get-started/computations/rstudio.html)).
 
@@ -321,11 +315,12 @@ The syntax we use to create the mathematical expressions is from LaTeX. Here are
 ::: exercises
 **Your Turn**
 
-Part of Question #8 asks you to use a display equation to write the fitted equation based on the following output.
+Part of Question #5 asks you to use a display equation to write the fitted equation based on the following output.
 
 ```{r}
 #| echo: false
 # Display coefficient-output
+lm.1 = lm(envprogstr ~ 1 + corrupt + legprof + wealth + toxicwaste + publicenv + demcontrol + interpartycomp, data = woods)
 tidy(lm.1)
 ```
 
@@ -338,30 +333,24 @@ Try to write this fitted equation in your Quarto document using a display equati
 
 When we typeset equations, there are a couple things we should do:
 
--   Use variable names that make sense to our reader, rather than their name in our dataset/R. For example "Female Education Level" is a better name than "educ_female".
-
-This means we will need to add spaces into our variable names in the mathematical expression. If you tried that earlier, you found out that just hitting the spacebar does not produce a space in the outputted expression. We need to include a tilde (`~`) every time you want a space. So to get the name "Female Education Level" we need to use the following in our equation:
-
-    $$
-    Female~Education~Level
-    $$
-
+-   Use variable names that make sense to our reader, rather than their name in our dataset/R. For example "Environmental Program Strength" is a better name than "envprogstr".
 -   Variable names should also be typeset using normal text rather than italic (the default in mathematical expressions).
 
-To achieve this, we have to embed the text we want to be normal in the syntax `\mathrm{}`. This typesets the text in a roman font (normal text). For example:
+We can fix both issues by including the variable names in a text environment (`\text{}`). So to get the name "Environmental Program Strength" we need to use the following in our equation:
 
     $$
-    \mathrm{Female~Education~Level}
+    \text{Environmental Program Strength}
     $$
 
-You can also use `\mathit{}` (italics), `\mathbf{}` (bold), `\mathtt{}` (typewriter text), and `\mathcal{}` (caligraphy; this is useful for the "N" we use to indicate a normal distribution).
+
+Other useful environments include: `\mathit{}` (italics), `\mathbf{}` (bold), `\mathtt{}` (typewriter text), and `\mathcal{}` (caligraphy; this is useful for the "N" we use to indicate a normal distribution). If you want a space when using these, you include a tilde (`~`) to denote a space.
 
 -   Hyphens need special syntax since a hyphen would be interpreted as a minus sign. In typesetting, the minus sign is longer than the hyphen symbol.
 
-If you want to include a hyphen, we need to include it in `\mbox{}`. For example, to add a hyphen in our variable name to get "Female Education-Level", we use:
+If you want to include a hyphen, we need to include it in `\mbox{}`. For example, to add a hyphen in our variable name to get "Check-In", we use:
 
     $$
-    \mathrm{Female~Education\mbox{-}Level}
+    \text{Check\mbox{-}In}
     $$
 
 ::: exercises
