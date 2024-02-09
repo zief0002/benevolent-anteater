@@ -74,10 +74,10 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment \#4: *Logarithmic Transformations*</td>
 <td>Mar. 21</td>
 <td align="center" style="vertical-align:middle;">
-<!-- [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-04-logarithmic-transformations.qmd) -->
+[<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-04-logarithmic-transformations.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
-<!-- [<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-04-logarithmic-transformations.html) -->
+[<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-04-logarithmic-transformations.html)
 </td>
 </tr>
 

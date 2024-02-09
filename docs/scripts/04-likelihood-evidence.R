@@ -20,6 +20,9 @@ usnwr = read_csv(file = "https://raw.githubusercontent.com/zief0002/benevolent-a
 # View data
 usnwr
 
+usnwr_complete = usnwr |>
+  drop_na()
+
 
 
 ##################################################
@@ -155,7 +158,7 @@ pchisq(q = 25.44, df = 4, lower.tail = FALSE)
 library(lmtest)
 
 # LRT to compare Model 0 and Model 1
-lrtest(lm.0, lm.1)
+lrtest(lm.0, lm.1, lm.2)
 
 
 

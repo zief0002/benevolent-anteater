@@ -9,8 +9,8 @@ date: "`r format(Sys.Date(), '%B %d, %Y')`"
 
 The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with logarithmically transformed variables. In this assignment, you will use the data from the file *wine.csv* to examine several different predictors of wine rating (a measure of the wine's quality). The literature has suggested that price of wine is quite predictive of a wine's quality. You will be carrying out a replication study (using a different data set) of a study published by Snipes and Taylor (2014). 
 
-- [[CSV]](https://raw.githubusercontent.com/zief0002/bespectacled-antelope/main/data/wine.csv)
-- [[Data Codebook]](http://zief0002.github.io/bespectacled-antelope/codebooks/wine.html)
+- [[CSV]](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/wine.csv)
+- [[Data Codebook]](http://zief0002.github.io/benevolent-anteater/codebooks/wine.html)
 
 
 ```{r echo=FALSE, out.width="50%", fig.align='center'}

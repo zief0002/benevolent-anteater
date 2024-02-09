@@ -325,13 +325,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;" rowspan="2">Log-Transforming the Predictor</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/07-logarithmic-transformations-predictor.html) -->
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/08-logarithmic-transformations-predictor.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/07-logarithmic-transformations-predictor.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/08-logarithmic-transformations-predictor.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/07-logarithmic-transformations-predictor.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/08-logarithmic-transformations-predictor.R)
 </td>
 </tr>
 

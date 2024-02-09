@@ -143,7 +143,7 @@ glance(lm.2)
 tidy(lm.2)
 
 # Assumptions
-residual_plots(lm.1)
+residual_plots(lm.2)
 
 
 
