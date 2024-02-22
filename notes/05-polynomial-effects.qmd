@@ -533,6 +533,8 @@ my_models |>
 You should also include the estimates and any summary measures from the model(s) you adopt. Here we would for sure want to report the estimates and summaries for Model 4. Since the number of candidate models here is small (only five models) I would probably present the estimates and summaries from all five candidate models.
 
 ```{r}
+#| label: tbl-reg-results
+#| tbl-cap: "Coefficients (and standard errors) for five candidate models (M1--M5) predicting variation in six-year graduation rates."
 #| results: asis
 #| code-fold: true
 # Load library
@@ -556,7 +558,7 @@ htmlreg(
   caption.above = TRUE, #Move caption above table
   inner.rules = 1, #Include line rule before model-level output
   outer.rules = 1,  #Include line rules around table
-  caption = "Table 2: Coefficients (and standard errors) for five candidate models (M1--M5) predicting variation in six-year graduation rates."
+  caption = NULL #"Table 2: Coefficients (and standard errors) for five candidate models (M1--M5) predicting variation in six-year graduation rates."
   )
 ```
 
@@ -564,6 +566,10 @@ htmlreg(
 
 
 <br />
+
+See @tbl-model-likelihood for fun results.
+
+
 
 <!-- ## References -->
 

@@ -224,17 +224,17 @@ As part of the course, there are several articles, papers and technical reports 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Feb. 13</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td align="center" style="vertical-align:middle;" rowspan="3">
   [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/05-polynomial-effects.html)
 </td>
-<td style="vertical-align:middle;" rowspan="2">Polynomial Effects</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td style="vertical-align:middle;" rowspan="3">Polynomial Effects</td>
+<td align="center" style="vertical-align:middle;" rowspan="3">
    [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/05-polynomial-effects.html)
 </td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td align="center" style="vertical-align:middle;" rowspan="3">
   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/05-polynomial-effects.qmd)
 </td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td align="center" style="vertical-align:middle;" rowspan="3">
   [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/05-polynomial-effects.R)
 </td>
 </tr>
@@ -246,13 +246,18 @@ As part of the course, there are several articles, papers and technical reports 
 </tr>
 
 <tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Feb. 20</td>
+</tr>
+
+<tr>
 <td colspan="7"><b>Unit 02 (Revisited): Model Selection and Evidence</b></td>
 </tr>
 
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Feb. 20</td>
+<td>Feb. 22</td>
 <td align="center" style="vertical-align:middle;">
   [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/06-information-criteria-and-model-selection.html)
 </td>
@@ -281,26 +286,20 @@ As part of the course, there are several articles, papers and technical reports 
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Feb. 22</td>
-<td align="center" style="vertical-align:middle;" rowspan="3">
+<td>Feb. 27</td>
+<td align="center" style="vertical-align:middle;" rowspan="2">
   [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-outcome.html)
 </td>
-<td style="vertical-align:middle;" rowspan="3">Log-Transforming the Outcome</td>
-<td align="center" style="vertical-align:middle;" rowspan="3">
+<td style="vertical-align:middle;" rowspan="2">Log-Transforming the Outcome</td>
+<td align="center" style="vertical-align:middle;" rowspan="2">
    [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/07-logarithmic-transformations-outcome.html)
 </td>
-<td align="center" style="vertical-align:middle;" rowspan="3">
+<td align="center" style="vertical-align:middle;" rowspan="2">
   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/07-logarithmic-transformations-outcome.qmd)
 </td>
-<td align="center" style="vertical-align:middle;" rowspan="3">
+<td align="center" style="vertical-align:middle;" rowspan="2">
   [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/07-logarithmic-transformations-outcome.R)
 </td>
-</tr>
-
-
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Feb. 27</td>
 </tr>
 
 <tr>
@@ -320,6 +319,27 @@ As part of the course, there are several articles, papers and technical reports 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Mar. 12</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-outcome.html)
+</td>
+<td style="vertical-align:middle;">Log-Transforming the Outcome</td>
+<td align="center" style="vertical-align:middle;">
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/07-logarithmic-transformations-outcome.html)
+</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/07-logarithmic-transformations-outcome.qmd)
+</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/07-logarithmic-transformations-outcome.R)
+</td>
+</tr>
+
+
+
+
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Mar. 14</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
   <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-predictor.html) -->
 </td>
@@ -338,7 +358,7 @@ As part of the course, there are several articles, papers and technical reports 
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Mar. 14</td>
+<td>Mar. 19</td>
 </tr>
 
 
@@ -347,7 +367,7 @@ As part of the course, there are several articles, papers and technical reports 
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Mar. 19</td>
+<td>Mar. 21</td>
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
 </td>
@@ -376,7 +396,7 @@ As part of the course, there are several articles, papers and technical reports 
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Mar. 21</td>
+<td>*Optional*</td>
 <td align="center" style="vertical-align:middle;">
   <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
 </td>

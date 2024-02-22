@@ -60,7 +60,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <tr>
 <td>Assignment \#3: *Evidence and Model Selection*</td>
 <!-- <br /><span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated: 02-08-2022]*</span> -->
-<td>Feb. 29</td>
+<td>Mar. 12</td>
 <td align="center" style="vertical-align:middle;">
 [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-03-evidence-and-model-selection.qmd)
 </td>
@@ -72,7 +72,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 
 <tr>
 <td>Assignment \#4: *Logarithmic Transformations*</td>
-<td>Mar. 21</td>
+<td>Mar. 26</td>
 <td align="center" style="vertical-align:middle;">
 [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-04-logarithmic-transformations.qmd)
 </td>
