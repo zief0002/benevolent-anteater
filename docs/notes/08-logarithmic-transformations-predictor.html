@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-09">
+<meta name="dcterms.date" content="2024-02-27">
 
 <title>EPsy 8252 - Log-Transforming the Predictor</title>
 <style>
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,18 +95,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="../site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/sticky-notes.css">
 </head>
@@ -109,9 +142,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EPsy 8252</span>
     </a>
@@ -123,41 +156,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html" rel="" target="">
- <span class="menu-text">Schedule</span></a>
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructor.html" rel="" target="">
- <span class="menu-text">Instructor &amp; TA</span></a>
+    <a class="nav-link" href="../instructor.html"> 
+<span class="menu-text">Instructor &amp; TA</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignments.html" rel="" target="">
- <span class="menu-text">Assignments &amp; Grading</span></a>
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments &amp; Grading</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html" rel="" target="">
- <span class="menu-text">Data</span></a>
+    <a class="nav-link" href="../data.html"> 
+<span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../class-policies.html" rel="" target="">
- <span class="menu-text">Class Policies</span></a>
+    <a class="nav-link" href="../class-policies.html"> 
+<span class="menu-text">Class Policies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../mission-statements.html" rel="" target="">
- <span class="menu-text">Mission Statements</span></a>
+    <a class="nav-link" href="../mission-statements.html"> 
+<span class="menu-text">Mission Statements</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../umn-policies.html" rel="" target="">
- <span class="menu-text">University Policies</span></a>
+    <a class="nav-link" href="../umn-policies.html"> 
+<span class="menu-text">University Policies</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -217,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 9, 2024</p>
+      <p class="date">February 27, 2024</p>
     </div>
   </div>
   
@@ -225,7 +258,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="preparation" class="level1">
 <h1>Preparation</h1>
@@ -250,7 +285,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>mn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["grad"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["public"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["sat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["tuition"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Augsburg College","3":"65.2","4":"0","5":"10.30","6":"39.294"},{"1":"3","2":"Bethany Lutheran College","3":"52.6","4":"0","5":"10.65","6":"30.480"},{"1":"4","2":"Bethel University, Saint Paul, MN","3":"73.3","4":"0","5":"11.45","6":"39.400"},{"1":"5","2":"Carleton College","3":"92.6","4":"0","5":"14.00","6":"54.265"},{"1":"6","2":"College of Saint Benedict","3":"81.1","4":"0","5":"11.85","6":"43.198"},{"1":"7","2":"Concordia College at Moorhead","3":"69.4","4":"0","5":"11.45","6":"36.590"},{"1":"8","2":"Concordia University-Saint Paul","3":"47.9","4":"0","5":"9.90","6":"37.795"},{"1":"9","2":"Crossroads College","3":"26.9","4":"0","5":"9.70","6":"25.345"},{"1":"10","2":"Crown College","3":"51.3","4":"0","5":"10.30","6":"33.210"},{"1":"11","2":"Gustavus Adolphus College","3":"81.7","4":"0","5":"12.25","6":"43.800"},{"1":"12","2":"Hamline University","3":"67.8","4":"0","5":"10.90","6":"41.085"},{"1":"13","2":"Macalester College","3":"87.2","4":"0","5":"13.55","6":"50.984"},{"1":"14","2":"Martin Luther College","3":"72.8","4":"0","5":"11.25","6":"19.450"},{"1":"15","2":"Minneapolis College of Art and Design","3":"69.6","4":"0","5":"11.05","6":"41.420"},{"1":"18","2":"North Central University","3":"40.4","4":"0","5":"10.10","6":"25.698"},{"1":"19","2":"Northwestern College, Saint Paul, MN","3":"63.6","4":"0","5":"11.05","6":"35.400"},{"1":"20","2":"Oak Hills Christian College","3":"27.3","4":"0","5":"8.90","6":"24.805"},{"1":"22","2":"Saint Johns University","3":"79.9","4":"0","5":"11.85","6":"41.920"},{"1":"23","2":"Saint Mary's University of Minnesota","3":"62.4","4":"0","5":"10.70","6":"35.700"},{"1":"25","2":"St Catherine University","3":"65.4","4":"0","5":"10.50","6":"41.876"},{"1":"26","2":"St Olaf College","3":"84.9","4":"0","5":"12.85","6":"47.200"},{"1":"27","2":"The College of Saint Scholastica","3":"63.5","4":"0","5":"10.30","6":"38.756"},{"1":"32","2":"University of St Thomas, Saint Paul, MN","3":"74.3","4":"0","5":"11.65","6":"44.630"},{"1":"2","2":"Bemidji State University","3":"42.3","4":"1","5":"10.10","6":"18.057"},{"1":"16","2":"Minnesota State University Moorhead","3":"44.7","4":"1","5":"10.30","6":"16.800"},{"1":"17","2":"Minnesota State University-Mankato","3":"49.6","4":"1","5":"10.30","6":"16.294"},{"1":"21","2":"Saint Cloud State University","3":"48.5","4":"1","5":"10.10","6":"17.050"},{"1":"24","2":"Southwest Minnesota State University","3":"39.5","4":"1","5":"10.10","6":"18.102"},{"1":"28","2":"University of Minnesota-Crookston","3":"46.4","4":"1","5":"10.10","6":"19.897"},{"1":"29","2":"University of Minnesota-Duluth","3":"54.8","4":"1","5":"11.10","6":"21.404"},{"1":"30","2":"University of Minnesota-Morris","3":"60.3","4":"1","5":"11.65","6":"21.722"},{"1":"31","2":"University of Minnesota-Twin Cities","3":"70.2","4":"1","5":"12.45","6":"23.058"},{"1":"33","2":"Winona State University","3":"54.0","4":"1","5":"10.70","6":"19.670"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -264,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Relationship between Graduation Rate and SAT Scores</h1>
 <p>In a previous set of notes, we determined that the relationship between SAT scores and graduation rates was curvilinear. We initially saw evidence of this curvilinearity in the scatterplot of graduation rates versus median SAT scores. After fitting a model assuming a linear relationship (syntax not shown), the plot of the standardized residuals versus the fitted values also suggests that the linearity assumption is not tenable.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mn, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">y =</span> grad)) <span class="sc">+</span></span>
@@ -284,10 +318,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">|</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-scatterplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-scatterplot-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: LEFT: Six-year graduation rate as a function of median SAT score. The loess smoother (blue line) is also displayed. RIGHT: Scatterplot of the standardized residuals versus the fitted values for a model using median SAT scores to predict variation in six-year graduation rates. The reference line of Y=0 is also displayed along with the 95% confidence envelope (grey shaded area). The loess smoother (solid, blue line) shows the empirical relationship betwen the residuals and fitted values.</figcaption>
+<div id="fig-scatterplot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-scatterplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: LEFT: Six-year graduation rate as a function of median SAT score. The loess smoother (blue line) is also displayed. RIGHT: Scatterplot of the standardized residuals versus the fitted values for a model using median SAT scores to predict variation in six-year graduation rates. The reference line of Y=0 is also displayed along with the 95% confidence envelope (grey shaded area). The loess smoother (solid, blue line) shows the empirical relationship betwen the residuals and fitted values.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -298,7 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One way to model this non-linearity is to fit a model that included a quadratic polynomial effect. Remember that the quadratic function is ‘U’-shaped. In our example, the quadratic term was negative, which creates an upside-down ‘U’-shape. This negative quadratic function is shown in the left-had side of the figure below.</p>
 <p>We do not have to use a quadratic function to model curvilinear relationships. We can use any mathematical function that mimics the curvilinear pattern observed in the data.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> One mathematical function that is useful for modeling curvilinearity is the logarithmic function. The logarithmic function is shown in the right-hand side of the figure below.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig_01 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
@@ -329,10 +367,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">|</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-quadratic-log" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-quadratic-log-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: LEFT: Negative quadratic function of <em>X</em>. RIGHT: Logarithmic function of <em>X</em>.</figcaption>
+<div id="fig-quadratic-log" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quadratic-log-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-quadratic-log-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quadratic-log-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: LEFT: Negative quadratic function of <em>X</em>. RIGHT: Logarithmic function of <em>X</em>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -363,7 +405,6 @@ Y = \log(X)
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm.log2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.8113365","2":"0.8052506","3":"7.386362","4":"133.3137","5":"9.296264e-13","6":"1","7":"-111.7814","8":"229.5627","9":"234.0522","10":"1691.309","11":"31","12":"33"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -377,7 +418,6 @@ Y = \log(X)
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.log2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-306.7055","3":"31.868325","4":"-9.624148","5":"7.936748e-11"},{"1":"log(sat, base = 2)","2":"106.4392","3":"9.218583","4":"11.546155","5":"9.296264e-13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -461,7 +501,6 @@ Y = \log(X)
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm.log10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.8113365","2":"0.8052506","3":"7.386362","4":"133.3137","5":"9.296264e-13","6":"1","7":"-111.7814","8":"229.5627","9":"234.0522","10":"1691.309","11":"31","12":"33"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -474,7 +513,6 @@ Y = \log(X)
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.log10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-306.7055","3":"31.86833","4":"-9.624148","5":"7.936748e-11"},{"1":"log(sat, base = 10)","2":"353.5833","3":"30.62347","4":"11.546155","5":"9.296264e-13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -515,10 +553,14 @@ Y = \log(X)
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Layout</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-resid-compare" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-resid-compare-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Scatterplot of the standardized residuals versus the fitted values for the model fitted using the base-2 log-transformed median SAT values (LEFT) and the base-10 log-transformed median SAT values (RIGHT). In both plots the reference line of Y=0 is displayed along with the 95% confidence envelope (grey shaded area). The loess smoother (solid, blue line) showing the empirical relationship is also displayed.</figcaption>
+<div id="fig-resid-compare" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-resid-compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-resid-compare-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-resid-compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Scatterplot of the standardized residuals versus the fitted values for the model fitted using the base-2 log-transformed median SAT values (LEFT) and the base-10 log-transformed median SAT values (RIGHT). In both plots the reference line of Y=0 is displayed along with the 95% confidence envelope (grey shaded area). The loess smoother (solid, blue line) showing the empirical relationship is also displayed.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -555,7 +597,6 @@ Y = \log(X)
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm.ln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.8113365","2":"0.8052506","3":"7.386362","4":"133.3137","5":"9.296264e-13","6":"1","7":"-111.7814","8":"229.5627","9":"234.0522","10":"1691.309","11":"31","12":"33"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -565,7 +606,6 @@ Y = \log(X)
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm.ln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-306.7055","3":"31.86833","4":"-9.624148","5":"7.936748e-11"},{"1":"log(sat)","2":"153.5593","3":"13.29960","4":"11.546155","5":"9.296264e-13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -588,10 +628,14 @@ Y = \log(X)
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain residuals for base-2 log-transformed SAT</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">residual_plots</span>(lm.ln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-residuals-ln" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-residuals-ln-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Plot of the standardized residuals versus the fitted values for a model fitted using the natural log-transformed median SAT scores. The reference line of Y=0 is displayed along with the 95% confidence envelope (grey shaded area). The loess smoother (solid, blue line) showing the empirical relationship is also displayed.</figcaption>
+<div id="fig-residuals-ln" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-residuals-ln-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-residuals-ln-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-residuals-ln-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Plot of the standardized residuals versus the fitted values for a model fitted using the natural log-transformed median SAT scores. The reference line of Y=0 is displayed along with the 95% confidence envelope (grey shaded area). The loess smoother (solid, blue line) showing the empirical relationship is also displayed.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -605,7 +649,7 @@ Y = \log(X)
 \]</span></p>
 <p>The SAT values and predicted graduation rates for these schools are given below:</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tab_05 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -630,26 +674,31 @@ Y = \log(X)
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.width =</span> <span class="fu">pct</span>(<span class="dv">40</span>)</span>
 <span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div id="tbl-pred-grad" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pred-grad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Median SAT Values and Graduation Rates for Three Hypothetical Schools that have Median SAT Values that Differ by One Percent.
+</figcaption>
+<div aria-describedby="tbl-pred-grad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-pred-grad" class="anchored">
-
-<div id="uppndixipd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uppndixipd table {
+<div>
+<div id="sefsgrssja" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sefsgrssja table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uppndixipd thead, #uppndixipd tbody, #uppndixipd tfoot, #uppndixipd tr, #uppndixipd td, #uppndixipd th {
+#sefsgrssja thead, #sefsgrssja tbody, #sefsgrssja tfoot, #sefsgrssja tr, #sefsgrssja td, #sefsgrssja th {
   border-style: none;
 }
 
-#uppndixipd p {
+#sefsgrssja p {
   margin: 0;
   padding: 0;
 }
 
-#uppndixipd .gt_table {
+#sefsgrssja .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -675,12 +724,12 @@ Y = \log(X)
   border-left-color: #D3D3D3;
 }
 
-#uppndixipd .gt_caption {
+#sefsgrssja .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uppndixipd .gt_title {
+#sefsgrssja .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -692,7 +741,7 @@ Y = \log(X)
   border-bottom-width: 0;
 }
 
-#uppndixipd .gt_subtitle {
+#sefsgrssja .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -704,7 +753,7 @@ Y = \log(X)
   border-top-width: 0;
 }
 
-#uppndixipd .gt_heading {
+#sefsgrssja .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -716,13 +765,13 @@ Y = \log(X)
   border-right-color: #D3D3D3;
 }
 
-#uppndixipd .gt_bottom_border {
+#sefsgrssja .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uppndixipd .gt_col_headings {
+#sefsgrssja .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -737,7 +786,7 @@ Y = \log(X)
   border-right-color: #D3D3D3;
 }
 
-#uppndixipd .gt_col_heading {
+#sefsgrssja .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -757,7 +806,7 @@ Y = \log(X)
   overflow-x: hidden;
 }
 
-#uppndixipd .gt_column_spanner_outer {
+#sefsgrssja .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -769,15 +818,15 @@ Y = \log(X)
   padding-right: 4px;
 }
 
-#uppndixipd .gt_column_spanner_outer:first-child {
+#sefsgrssja .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uppndixipd .gt_column_spanner_outer:last-child {
+#sefsgrssja .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uppndixipd .gt_column_spanner {
+#sefsgrssja .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -789,11 +838,11 @@ Y = \log(X)
   width: 100%;
 }
 
-#uppndixipd .gt_spanner_row {
+#sefsgrssja .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uppndixipd .gt_group_heading {
+#sefsgrssja .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -819,7 +868,7 @@ Y = \log(X)
   text-align: left;
 }
 
-#uppndixipd .gt_empty_group_heading {
+#sefsgrssja .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -834,15 +883,15 @@ Y = \log(X)
   vertical-align: middle;
 }
 
-#uppndixipd .gt_from_md > :first-child {
+#sefsgrssja .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uppndixipd .gt_from_md > :last-child {
+#sefsgrssja .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uppndixipd .gt_row {
+#sefsgrssja .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -861,7 +910,7 @@ Y = \log(X)
   overflow-x: hidden;
 }
 
-#uppndixipd .gt_stub {
+#sefsgrssja .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -874,7 +923,7 @@ Y = \log(X)
   padding-right: 5px;
 }
 
-#uppndixipd .gt_stub_row_group {
+#sefsgrssja .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -888,15 +937,15 @@ Y = \log(X)
   vertical-align: top;
 }
 
-#uppndixipd .gt_row_group_first td {
+#sefsgrssja .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uppndixipd .gt_row_group_first th {
+#sefsgrssja .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uppndixipd .gt_summary_row {
+#sefsgrssja .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -906,16 +955,16 @@ Y = \log(X)
   padding-right: 5px;
 }
 
-#uppndixipd .gt_first_summary_row {
+#sefsgrssja .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uppndixipd .gt_first_summary_row.thick {
+#sefsgrssja .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uppndixipd .gt_last_summary_row {
+#sefsgrssja .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -925,7 +974,7 @@ Y = \log(X)
   border-bottom-color: #D3D3D3;
 }
 
-#uppndixipd .gt_grand_summary_row {
+#sefsgrssja .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -935,7 +984,7 @@ Y = \log(X)
   padding-right: 5px;
 }
 
-#uppndixipd .gt_first_grand_summary_row {
+#sefsgrssja .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -945,7 +994,7 @@ Y = \log(X)
   border-top-color: #D3D3D3;
 }
 
-#uppndixipd .gt_last_grand_summary_row_top {
+#sefsgrssja .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -955,11 +1004,11 @@ Y = \log(X)
   border-bottom-color: #D3D3D3;
 }
 
-#uppndixipd .gt_striped {
+#sefsgrssja .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uppndixipd .gt_table_body {
+#sefsgrssja .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -968,7 +1017,7 @@ Y = \log(X)
   border-bottom-color: #D3D3D3;
 }
 
-#uppndixipd .gt_footnotes {
+#sefsgrssja .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -982,7 +1031,7 @@ Y = \log(X)
   border-right-color: #D3D3D3;
 }
 
-#uppndixipd .gt_footnote {
+#sefsgrssja .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -991,7 +1040,7 @@ Y = \log(X)
   padding-right: 5px;
 }
 
-#uppndixipd .gt_sourcenotes {
+#sefsgrssja .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1005,7 +1054,7 @@ Y = \log(X)
   border-right-color: #D3D3D3;
 }
 
-#uppndixipd .gt_sourcenote {
+#sefsgrssja .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1013,88 +1062,95 @@ Y = \log(X)
   padding-right: 5px;
 }
 
-#uppndixipd .gt_left {
+#sefsgrssja .gt_left {
   text-align: left;
 }
 
-#uppndixipd .gt_center {
+#sefsgrssja .gt_center {
   text-align: center;
 }
 
-#uppndixipd .gt_right {
+#sefsgrssja .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uppndixipd .gt_font_normal {
+#sefsgrssja .gt_font_normal {
   font-weight: normal;
 }
 
-#uppndixipd .gt_font_bold {
+#sefsgrssja .gt_font_bold {
   font-weight: bold;
 }
 
-#uppndixipd .gt_font_italic {
+#sefsgrssja .gt_font_italic {
   font-style: italic;
 }
 
-#uppndixipd .gt_super {
+#sefsgrssja .gt_super {
   font-size: 65%;
 }
 
-#uppndixipd .gt_footnote_marks {
+#sefsgrssja .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uppndixipd .gt_asterisk {
+#sefsgrssja .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uppndixipd .gt_indent_1 {
+#sefsgrssja .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uppndixipd .gt_indent_2 {
+#sefsgrssja .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uppndixipd .gt_indent_3 {
+#sefsgrssja .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uppndixipd .gt_indent_4 {
+#sefsgrssja .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uppndixipd .gt_indent_5 {
+#sefsgrssja .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;1:  <p>Median SAT Values and Graduation Rates for Three Hypothetical Schools
-that have Median SAT Values that Differ by One Percent.</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>SAT</em>"><em>SAT</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Predicted Graduation Rate">Predicted Graduation Rate</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="sat" class="gt_row gt_center">10.000</td>
-<td headers="grad" class="gt_row gt_center">46.87784</td></tr>
-    <tr><td headers="sat" class="gt_row gt_center">10.100</td>
-<td headers="grad" class="gt_row gt_center">48.40581</td></tr>
-    <tr><td headers="sat" class="gt_row gt_center">10.201</td>
-<td headers="grad" class="gt_row gt_center">49.93378</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="<em>SAT</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>SAT</em></th>
+<th id="Predicted Graduation Rate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Predicted Graduation Rate</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="sat">10.000</td>
+<td class="gt_row gt_center" headers="grad">46.87784</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="sat">10.100</td>
+<td class="gt_row gt_center" headers="grad">48.40581</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="sat">10.201</td>
+<td class="gt_row gt_center" headers="grad">49.93378</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>The difference between each subsequent predicted graduation rate is 1.53.</p>
@@ -1189,8 +1245,8 @@ that have Median SAT Values that Differ by One Percent.</p> </caption>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/plot-model-01-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Plot of the predicted graduation rate as a function of median SAT score. The non-linearity in the plot indicates that there is a diminishing positive effect of SAT on graduation rates.</figcaption>
+<p><img src="08-logarithmic-transformations-predictor_files/figure-html/plot-model-01-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<figcaption>Plot of the predicted graduation rate as a function of median SAT score. The non-linearity in the plot indicates that there is a diminishing positive effect of SAT on graduation rates.</figcaption>
 </figure>
 </div>
 </div>
@@ -1235,7 +1291,7 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <p>The inclusion of polynomial effects and the use of a log-transformation was to model the nonlinearity observed in the relationship between SAT scores and graduation rates. Both methods were successful in this endeavor. While either method could be used in practice to model nonlinearity, there are some considerations when making the choice of which may be more appropriate for a given modeling situation.</p>
 <p>The first consideration is one of substantive theory. The plot below shows the mathematical function for a log-transformed <em>X</em> (solid, black line) and for a quadratic polynomial of <em>X</em> (dashed, red line).</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>new <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">15</span>, <span class="at">by =</span> <span class="fl">0.01</span>))</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>new<span class="sc">$</span>y <span class="ot">=</span> <span class="fu">log</span>(new<span class="sc">$</span>x)</span>
@@ -1244,10 +1300,14 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(quad <span class="sc">~</span> x, <span class="at">data =</span> new, <span class="at">col =</span> <span class="st">"#6d92ee"</span>, <span class="at">lty =</span> <span class="st">"dashed"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-quad-02" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-quad-02-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Comparison of the quadratic polynomial (blue, dashed line) and logarithmic (red, solid line) functions of <em>X</em>.</figcaption>
+<div id="fig-quad-02" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quad-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-quad-02-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quad-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Comparison of the quadratic polynomial (blue, dashed line) and logarithmic (red, solid line) functions of <em>X</em>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1273,7 +1333,6 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">modnames =</span> <span class="fu">c</span>(<span class="st">"Quadratic polynomial"</span>, <span class="st">"Log-transformed SAT"</span>)</span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Modnames"],"name":[1],"type":["chr"],"align":["left"]},{"label":["K"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["AICc"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Delta_AICc"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ModelLik"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AICcWt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["LL"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Cum.Wt"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"Quadratic polynomial","2":"4","3":"228.5452","4":"0.000000","5":"1.0000000","6":"0.7155643","7":"-109.5583","8":"0.7155643","_rn_":"1"},{"1":"Log-transformed SAT","2":"3","3":"230.3903","4":"1.845128","5":"0.3974985","6":"0.2844357","7":"-111.7814","8":"1.0000000","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1285,7 +1344,7 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <p>As with all decisions from statistical evidence, you must also rely on substantive knowledge and an evaluation of the residuals. Substantively, the quadratic model is less defensible, since it seems unlikely that we would see the graduation rate decreasing for institutions with high SAT scores. It is more likely that the effect of SAT score has less and less impact on graduation rates as it gets larger. In this scenario, the substantive knowledge points to the log model rather than the quadratic model.</p>
 <p>We can also examine the residuals for the two models:</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate residuals</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="fu">residual_plots</span>(lm.log)</span>
@@ -1295,10 +1354,14 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-resid-compare-02" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-resid-compare-02-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Residual plots for the log model (TOP) and quadratic model (BOTTOM).</figcaption>
+<div id="fig-resid-compare-02" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-resid-compare-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-resid-compare-02-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-resid-compare-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Residual plots for the log model (TOP) and quadratic model (BOTTOM).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1316,7 +1379,6 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.8655648","2":"0.8566025","3":"6.338162","4":"96.57793","5":"8.466311e-14","6":"2","7":"-106.1898","8":"220.3796","9":"226.3656","10":"1205.169","11":"30","12":"33"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1329,7 +1391,6 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm<span class="fl">.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-286.068526","3":"27.981966","4":"-10.223318","5":"2.728587e-11"},{"1":"public","2":"-8.501108","3":"2.443758","4":"-3.478703","5":"1.562637e-03"},{"1":"log(sat)","2":"146.015808","3":"11.616447","4":"12.569748","5":"1.735682e-13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1384,10 +1445,14 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Estimated median SAT score (in hundreds)"</span>) <span class="sc">+</span></span>
 <span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Six-year graduation rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-model-02" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="08-logarithmic-transformations-predictor_files/figure-html/fig-model-02-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Plot of predicted graduation rate as a function of median SAT score for public (blue, solid line) and private (orange, dashed line) institutions.</figcaption>
+<div id="fig-model-02" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-logarithmic-transformations-predictor_files/figure-html/fig-model-02-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Plot of predicted graduation rate as a function of median SAT score for public (blue, solid line) and private (orange, dashed line) institutions.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1420,7 +1485,6 @@ Y_i=\ln\bigg(e^{\hat\beta_0} \times X_i^{\hat\beta_1}\bigg) ~~\equiv~~ Y_i =\bet
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">modnames =</span> <span class="fu">c</span>(<span class="st">"Intercept-only"</span>, <span class="st">"Ln(SAT)"</span>, <span class="st">"Ln(SAT) and Sector"</span>)</span>
 <span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Modnames"],"name":[1],"type":["chr"],"align":["left"]},{"label":["K"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["AICc"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Delta_AICc"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ModelLik"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AICcWt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["LL"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Cum.Wt"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ln(SAT) and Sector","2":"4","3":"221.8081","4":"0.000000","5":"1.000000e+00","6":"9.864947e-01","7":"-106.1898","8":"0.9864947","_rn_":"3"},{"1":"Ln(SAT)","2":"3","3":"230.3903","4":"8.582152","5":"1.369019e-02","6":"1.350530e-02","7":"-111.7814","8":"1.0000000","_rn_":"2"},{"1":"Intercept-only","2":"2","3":"282.9998","4":"61.191641","5":"5.157082e-14","6":"5.087434e-14","7":"-139.2999","8":"1.0000000","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1526,10 +1590,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1539,8 +1602,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1553,6 +1625,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1596,6 +1787,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1621,6 +1813,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1681,6 +1899,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

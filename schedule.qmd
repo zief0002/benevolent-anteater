@@ -373,13 +373,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;">Rule of the Bulge---An Example</td>
 <td align="center" style="vertical-align:middle;">
-   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/09-rule-of-the-bulge.html) -->
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/09-rule-of-the-bulge.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/09-rule-of-the-bulge.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/09-rule-of-the-bulge.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/09-rule-of-the-bulge.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/09-rule-of-the-bulge.R)
 </td>
 </tr>
 
