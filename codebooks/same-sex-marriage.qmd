@@ -5,7 +5,6 @@ output:
     css: '../assets/codebooks.css'
     df_print: paged
     code_folding: show
-theme: "lumen"
 highlight-style: "atom-one"
 bibliography: '../assets/epsy8252.bib'
 csl: '../assets/apa-single-spaced.csl'
@@ -17,14 +16,39 @@ csl: '../assets/apa-single-spaced.csl'
 source("../assets/codebook-setup.R")
 ```
 
-The data in [same-sex-marriage.csv](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/same-sex-marriage.csv) were collected from the 2008 American National Election Study, conducted jointly by the University of Michigan and Stanford University. These particular data consist of 1,746 American's responses. The attributes are:
+The data in [same-sex-marriage.csv](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/same-sex-marriage.csv) were collected from a poll taken by Pew Research Center in 2015. These particular data consist of 500 American's responses. The attributes are:
 
-- `support`: Dummy-coded variable indicating whether the respondent supports gay marriage? (1=Yes; 0=No)
-- `attendance`: Frequency the respondent attends religious services (0=Never; 1=Few times a year; 2=Once or twice a month; 3=Almost every week; 4=Every week) 
-- `denomination`: Respondent's religious denomination? (Catholic; Jewish; Protestant; Other)
-- `friends`: Does the respondent have family or friends that are LGBT? (1=Yes; 0=No)
-- `age`: Respondent's age, in years
+- `support`: Dummy-coded variable indicating whether the respondent supports same sex marriage? (1=Yes; 0=No)
+- `friends`: Number of respondent's friends that are gay or lesbian
+  + 0 = None
+  + 1 = Only 1 or 2
+  + 2 = Some
+  + 3 = A lot
+- `education`: Respondent's level of education
+  + 0 = High school or less
+  + 1 = Some college (no degree) or two year associate degree from a college or university
+  + 2 = Four year college or university degree/Bachelor's degree (e.g., BS, BA, AB)
+  + 3 = Some postgraduate or professional schooling or postgraduate or professional degree
 - `female`: Dummy-coded variable indicating whether the respondent is female (1=Yes; 0=No)
+- `age`: Respondent's age, in years
+- `attend`: Frequency the respondent attends religious services
+  + 0 = Never
+  + 1 = Seldom
+  + 2 = A few times a year; 
+  + 3 = Once or twice a month; 
+  + 4 = Once a week
+  + 5 = More than once a week
+- `ideology`: Respondent's description of their political views 
+  + 1 = Very conservative
+  + 2 = Conservative
+  + 3 = Moderate
+  + 4 = Liberal
+  + 5 = Very liberal
+- `party`: Respondent's self-identified political party affiliation (Democrat, Republican, Independent)
+
+
+
+
 
 
 ### Preview

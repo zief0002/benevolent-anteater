@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-12">
+<meta name="dcterms.date" content="2024-03-05">
 
 <title>EPsy 8252 - Introduction to Probability Distributions</title>
 <style>
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -99,7 +100,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -108,18 +115,45 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="../site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/sticky-notes.css">
 </head>
@@ -128,9 +162,9 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EPsy 8252</span>
     </a>
@@ -142,41 +176,41 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html" rel="" target="">
- <span class="menu-text">Schedule</span></a>
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructor.html" rel="" target="">
- <span class="menu-text">Instructor &amp; TA</span></a>
+    <a class="nav-link" href="../instructor.html"> 
+<span class="menu-text">Instructor &amp; TA</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignments.html" rel="" target="">
- <span class="menu-text">Assignments &amp; Grading</span></a>
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments &amp; Grading</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html" rel="" target="">
- <span class="menu-text">Data</span></a>
+    <a class="nav-link" href="../data.html"> 
+<span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../class-policies.html" rel="" target="">
- <span class="menu-text">Class Policies</span></a>
+    <a class="nav-link" href="../class-policies.html"> 
+<span class="menu-text">Class Policies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../mission-statements.html" rel="" target="">
- <span class="menu-text">Mission Statements</span></a>
+    <a class="nav-link" href="../mission-statements.html"> 
+<span class="menu-text">Mission Statements</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../umn-policies.html" rel="" target="">
- <span class="menu-text">University Policies</span></a>
+    <a class="nav-link" href="../umn-policies.html"> 
+<span class="menu-text">University Policies</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -237,7 +271,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 12, 2024</p>
+      <p class="date">March 5, 2024</p>
     </div>
   </div>
   
@@ -245,7 +279,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>If you need to refresh your knowledge about probability distributions, I recommend reading <strong>Section 3.1.1:</strong> (<em>Probability Basics</em>) in <span class="citation" data-cites="Fox:2009">Fox (<a href="#ref-Fox:2009" role="doc-biblioref">2009</a>)</span>. You could also go through the <a href="https://www.khanacademy.org/math/probability/random-variables-topic">Kahn Academy: Random Variables and Probability Distributions</a> tutorial.</p>
 <p>Here is some ideas you will need to be familiar with from those readings/tutorials:</p>
@@ -262,10 +298,14 @@ div.csl-indent {
 <p>A probability distribution is simply a mapping of every outcome in the sample space to a probability. (It is conventional to use <em>x</em> to denote the outcomes.) This mapping can take many forms such a list, a plot, or an equation. All are reasonable to define the probability distribution, although some of these are more typical for discrete variables (e.g., list, plot), while others are more typical for continuous distributions (e.g., plot, equation). Here are a couple different probability distributions:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-01" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-probability-distributions-example.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: An example of a discrete and continuous probability distribution.</figcaption>
+<div id="fig-01" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-probability-distributions-example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An example of a discrete and continuous probability distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -277,7 +317,7 @@ S = \{HH,~HT,~TH,~TT\}
 <p>The probability of a head and a tail (assuming order doesn’t matter) is:</p>
 <p><span class="math display">\[
 p(HT~\mathrm{or}~TH) = \frac{2}{4} = 0.5
-\]</span> This falls apart when we move to continuous distributions. For example, consider finding the probability of a zero occurring in the standard normal distribution given in <a href="#fig-01">Figure&nbsp;1</a>. The sample space includes every outcome possible and is:</p>
+\]</span> This falls apart when we move to continuous distributions. For example, consider finding the probability of a zero occurring in the standard normal distribution given in <a href="#fig-01" class="quarto-xref">Figure&nbsp;1</a>. The sample space includes every outcome possible and is:</p>
 <p><span class="math display">\[
 S = \{-\infty, ~ +\infty\}
 \]</span> so the probability of zero (which occurs once in that sample space) is:</p>
@@ -303,7 +343,7 @@ p(-2 \leq x \leq 2) = 0.95
 <section id="probability-density" class="level2">
 <h2 class="anchored" data-anchor-id="probability-density">Probability Density</h2>
 <p>In a continuous distribution we also need to account be able to talk about the fact that some outcomes are more likely than other outcomes. For example, in our standard normal distribution outcomes near zero are more probable than outcomes near 1, which are more probable than outcomes near 2, etc. Since we can’t use probability to do this (remember the probability of each outcome is the same, namely 0), we use something called <em>probability density</em>. This is akin to a relative probability, so outcomes with a higher probability density are more likely than outcomes with a lower probability density.</p>
-<p>The mapping of all the outcomes to their probability densities is called a <em>probability density function</em> (PDF). Thus the equation or “bell-shaped” curve describing the standard normal distribution in <a href="#fig-01">Figure&nbsp;1</a> is technically a PDF Here are some laws governing PDFs:</p>
+<p>The mapping of all the outcomes to their probability densities is called a <em>probability density function</em> (PDF). Thus the equation or “bell-shaped” curve describing the standard normal distribution in <a href="#fig-01" class="quarto-xref">Figure&nbsp;1</a> is technically a PDF Here are some laws governing PDFs:</p>
 <ul>
 <li>Probability densities are always positive.</li>
 <li>The probability of an outcome <em>x</em> between <em>a</em> and <em>b</em> equals the integral (area under the curve) between <em>a</em> and <em>b</em> of the probability density function. That is:</li>
@@ -374,7 +414,7 @@ P\bigg(x=65 \mid \mathcal{N}(30,20)\bigg) = 0.004313866
 \]</span></p>
 <p>In general, when we think about the normal distribution, we are thinking about the mapping of each <em>x</em>-value from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> to its associated probability density. Rather than list each of these mappings out, we can create a plot of these mappings. This plot gives us the familiar “bell shape”. Theoretically this plot is the graphical depiction of the PDF.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -399,10 +439,14 @@ P\bigg(x=65 \mid \mathcal{N}(30,20)\bigg) = 0.004313866
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">65</span>, <span class="at">y =</span> <span class="fl">0.004313866</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"#c62f4b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-02" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-02-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Plot of the probability density function (PDF) for a <span class="math inline">\(\mathcal{N}(50,10)\)</span> distribution (blue, solid line) and for a <span class="math inline">\(\mathcal{N}(30,20)\)</span> distribution (red, dashed line). The probability density value for <span class="math inline">\(x=65\)</span> is also displayed on both PDFs.</figcaption>
+<div id="fig-02" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-02-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Plot of the probability density function (PDF) for a <span class="math inline">\(\mathcal{N}(50,10)\)</span> distribution (blue, solid line) and for a <span class="math inline">\(\mathcal{N}(30,20)\)</span> distribution (red, dashed line). The probability density value for <span class="math inline">\(x=65\)</span> is also displayed on both PDFs.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -430,7 +474,7 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 \]</span></p>
 <p>This is akin to finding the proportion of the area under the <span class="math inline">\(\mathcal{N}(50,10)\)</span> PDF that is to the left of 65. The figure below shows a graphical depiction of the cumulative probability density for <span class="math inline">\(x=65\)</span>.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataset</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig_03 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -453,10 +497,14 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-03" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-03-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Plot of the probability density function (PDF) for a <span class="math inline">\(\mathcal{N}(50,10)\)</span> distribution. The area that is shaded grey (relative to the total area under the PDF) represents the cumulative probability density for <span class="math inline">\(x=65\)</span>.</figcaption>
+<div id="fig-03" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-03-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Plot of the probability density function (PDF) for a <span class="math inline">\(\mathcal{N}(50,10)\)</span> distribution. The area that is shaded grey (relative to the total area under the PDF) represents the cumulative probability density for <span class="math inline">\(x=65\)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -480,7 +528,7 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <p>where <span class="math inline">\(p(x)\)</span> is the PDF for the normal distribution.</p>
 <p>The most common application for finding the cumulative density is to compute a <em>p</em>-value. The <em>p</em>-value is just the area under the distribution (curve) that is AT LEAST as extreme as some observed value. For example, assume we computed a test statistic of <span class="math inline">\(z=2.5\)</span>, and were evaluating whether this was different from 0 (two-tailed test). Graphically, we want to determine the proportion of the area under the PDF that is shaded grey in the figure below.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fig_04 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -507,10 +555,14 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-04" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-04-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Plot of the probability density function (PDF) for the standard normal distribution (<span class="math inline">\(M=0\)</span>, <span class="math inline">\(SD=1\)</span>). The cumulative density representing the <em>p</em>-value for a two-tailed test evaluating whether <span class="math inline">\(\mu=0\)</span> using an observed mean of 2.5 is also displayed.</figcaption>
+<div id="fig-04" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-04-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Plot of the probability density function (PDF) for the standard normal distribution (<span class="math inline">\(M=0\)</span>, <span class="math inline">\(SD=1\)</span>). The cumulative density representing the <em>p</em>-value for a two-tailed test evaluating whether <span class="math inline">\(\mu=0\)</span> using an observed mean of 2.5 is also displayed.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -563,7 +615,7 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <h1>Student’s <em>t</em>-Distribution</h1>
 <p>The PDF of Student’s <em>t</em>-distribution looks similar to the PDF for a standard normal distribution. In the figure below, Student’s <em>t</em>-distribution is depicted with a solid, black line and the standard normal distribution (<span class="math inline">\(M=0\)</span>, <span class="math inline">\(SD=1\)</span>) is depicted with a dotted, red line.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fig_05 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -584,10 +636,14 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-05" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-05-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Plot of the probability density function (PDF) for both the standard normal distribution (dotted, red line) and Student’s <span class="math inline">\(t(5)\)</span> distribution (solid, black line).</figcaption>
+<div id="fig-05" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-05-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Plot of the probability density function (PDF) for both the standard normal distribution (dotted, red line) and Student’s <span class="math inline">\(t(5)\)</span> distribution (solid, black line).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -600,7 +656,7 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <p>In practice, we often use Student’s <em>t</em>-distribution rather than the standard normal distribution in our evaluations of sample data. This is because the increased error (i.e., standard deviation) associated with Student’s <em>t</em>-distribution better models the additional uncertainty associated with having incomplete information (i.e., a sample rather than the entire population).</p>
 <p>Student’s <em>t</em>-distribution also constitutes a family of distributions; there is not a single <em>t</em>-distribution. The specific shape (and thus probability density) is defined by a parameter called the <em>degrees of freedom</em> (<em>df</em>). The plot below shows the standard normal distribution (purple) and four <em>t</em>-distributions with varying <em>df</em>-values. The means and standard deviations for each of these distributions is also provided in a table.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data for t(3)</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_03 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -661,16 +717,20 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-06" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-06-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Plot of several <em>t</em>-Distributions with differing degrees of freedom.</figcaption>
+<div id="fig-06" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-06-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-06-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-06-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Plot of several <em>t</em>-Distributions with differing degrees of freedom.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
@@ -695,9 +755,14 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
 <span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"center"</span></span>
 <span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div id="tbl-01" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Means and standard deviations for four <em>t</em>-Distributions and the standard normal distribution.
+</figcaption>
+<div aria-describedby="tbl-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-01" class="anchored">
-
+<div>
 <div id="bsddtpugyp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#bsddtpugyp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1138,38 +1203,49 @@ P\bigg(x \leq 65 \mid \mathcal{N}(50,10)\bigg)
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;1:  <p>Means and standard deviations for four <em>t</em>-Distributions and
-the standard normal distribution.</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>df</em>"><em>df</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>M</em>"><em>M</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>SD</em>"><em>SD</em></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="df" class="gt_row gt_center">3</td>
-<td headers="M" class="gt_row gt_center">0</td>
-<td headers="SD" class="gt_row gt_center">2.00</td></tr>
-    <tr><td headers="df" class="gt_row gt_center">5</td>
-<td headers="M" class="gt_row gt_center">0</td>
-<td headers="SD" class="gt_row gt_center">1.50</td></tr>
-    <tr><td headers="df" class="gt_row gt_center">10</td>
-<td headers="M" class="gt_row gt_center">0</td>
-<td headers="SD" class="gt_row gt_center">1.22</td></tr>
-    <tr><td headers="df" class="gt_row gt_center">25</td>
-<td headers="M" class="gt_row gt_center">0</td>
-<td headers="SD" class="gt_row gt_center">1.08</td></tr>
-    <tr><td headers="df" class="gt_row gt_center">z</td>
-<td headers="M" class="gt_row gt_center">0</td>
-<td headers="SD" class="gt_row gt_center">1.00</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="<em>df</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>df</em></th>
+<th id="<em>M</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>M</em></th>
+<th id="<em>SD</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>SD</em></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="df">3</td>
+<td class="gt_row gt_center" headers="M">0</td>
+<td class="gt_row gt_center" headers="SD">2.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="df">5</td>
+<td class="gt_row gt_center" headers="M">0</td>
+<td class="gt_row gt_center" headers="SD">1.50</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="df">10</td>
+<td class="gt_row gt_center" headers="M">0</td>
+<td class="gt_row gt_center" headers="SD">1.22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="df">25</td>
+<td class="gt_row gt_center" headers="M">0</td>
+<td class="gt_row gt_center" headers="SD">1.08</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="df">z</td>
+<td class="gt_row gt_center" headers="M">0</td>
+<td class="gt_row gt_center" headers="SD">1.00</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>If we compare the means and standard deviations for these distributions, we find that the mean for all the <em>t</em>-distributions is 0, same as the standard normal distribution. All <em>t</em>-distributions are unimodal and symmetric around zero. The standard deviation for every <em>t</em>-distribution is higher than the standard deviation for the standard normal distribution. Mathematically, the variance for the <em>t</em>-distribution is:</p>
@@ -1191,7 +1267,7 @@ the standard normal distribution.</p> </caption>
 <h1>The F-distribution</h1>
 <p>The <em>F</em>-distribution, like the <em>t</em>-distribution, constitutes a family of distributions. They are positively skewed and generally have a lower-limit of 0. To parameterize an <em>F</em>-distribution we need two parameters, namely <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span>. These are both degrees of freedom. The exact shape of the <em>F</em>-distribution s governed by the two degrees of freedom parameters. The figure below shows several <em>F</em>-distributions with different degrees of freedom.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data for F(1,10)</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -1242,10 +1318,14 @@ the standard normal distribution.</p> </caption>
 <span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">name =</span> <span class="st">""</span>, <span class="at">values =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-07" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-07-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Plot of several <em>F</em>-Distributions with differing degrees of freedom.</figcaption>
+<div id="fig-07" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-07-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Plot of several <em>F</em>-Distributions with differing degrees of freedom.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1261,7 +1341,7 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <p>From these formulas we can see that as <span class="math inline">\(\nu_2 \rightarrow +\infty\)</span> the mean of the <em>F</em>-distribution approaches 1. We can also see that the variation in the <em>F</em>-distribution is a function of both parameters and the variance decreases as either parameter gets larger.</p>
 <p>The means and standard deviations for our four example <em>F</em>-distributions are given in the table below.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data from table</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>tab_02 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -1291,9 +1371,14 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">decimals =</span> <span class="dv">2</span></span>
 <span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div id="tbl-02" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Means and standard deviations for four <em>F</em>-distributions.
+</figcaption>
+<div aria-describedby="tbl-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-02" class="anchored">
-
+<div>
 <div id="viiivxkgai" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#viiivxkgai table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1734,44 +1819,54 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2:  <p>Means and standard deviations for four <em>F</em>-distributions.</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>df1</em>"><em>df1</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>df2</em>"><em>df2</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>M</em>"><em>M</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>SD</em>"><em>SD</em></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="df1" class="gt_row gt_center">1</td>
-<td headers="df2" class="gt_row gt_center">10</td>
-<td headers="M" class="gt_row gt_center">1.25</td>
-<td headers="SD" class="gt_row gt_center">2.17</td></tr>
-    <tr><td headers="df1" class="gt_row gt_center">15</td>
-<td headers="df2" class="gt_row gt_center">30</td>
-<td headers="M" class="gt_row gt_center">1.07</td>
-<td headers="SD" class="gt_row gt_center">0.50</td></tr>
-    <tr><td headers="df1" class="gt_row gt_center">30</td>
-<td headers="df2" class="gt_row gt_center">60</td>
-<td headers="M" class="gt_row gt_center">1.03</td>
-<td headers="SD" class="gt_row gt_center">0.33</td></tr>
-    <tr><td headers="df1" class="gt_row gt_center">5</td>
-<td headers="df2" class="gt_row gt_center">25</td>
-<td headers="M" class="gt_row gt_center">1.09</td>
-<td headers="SD" class="gt_row gt_center">0.79</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="<em>df1</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>df1</em></th>
+<th id="<em>df2</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>df2</em></th>
+<th id="<em>M</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>M</em></th>
+<th id="<em>SD</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>SD</em></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="df1">1</td>
+<td class="gt_row gt_center" headers="df2">10</td>
+<td class="gt_row gt_center" headers="M">1.25</td>
+<td class="gt_row gt_center" headers="SD">2.17</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="df1">15</td>
+<td class="gt_row gt_center" headers="df2">30</td>
+<td class="gt_row gt_center" headers="M">1.07</td>
+<td class="gt_row gt_center" headers="SD">0.50</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="df1">30</td>
+<td class="gt_row gt_center" headers="df2">60</td>
+<td class="gt_row gt_center" headers="M">1.03</td>
+<td class="gt_row gt_center" headers="SD">0.33</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="df1">5</td>
+<td class="gt_row gt_center" headers="df2">25</td>
+<td class="gt_row gt_center" headers="M">1.09</td>
+<td class="gt_row gt_center" headers="SD">0.79</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>Because there is no negative side of the distribution, when we use the <em>F</em>-distribution to compute a <em>p</em>-value, we only compute the cumulative density GREATER THAN OR EQUAL TO the value of the <em>F</em>-statistic. For example, the figure below shows the <span class="math inline">\(F(5,25)\)</span>-distribution and the shaded area corresponds to the <em>p</em>-value for an observed <em>F</em>-statistic of 2.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data for F(5,25)</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig_08 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -1794,10 +1889,14 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-08" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-08-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Plot of the probability density function (PDF) for the <span class="math inline">\(F(5,25)\)</span>-distribution. The cumulative density representing the <em>p</em>-value associated with an <em>F</em>-statistic of 2 is shaded in grey.</figcaption>
+<div id="fig-08" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-08-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-08-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-08-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Plot of the probability density function (PDF) for the <span class="math inline">\(F(5,25)\)</span>-distribution. The cumulative density representing the <em>p</em>-value associated with an <em>F</em>-statistic of 2 is shaded in grey.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1829,7 +1928,6 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fig_09)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["X"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Y"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.00","2":"0.000000000","_rn_":"1"},{"1":"0.01","2":"0.008319698","_rn_":"2"},{"1":"0.02","2":"0.022838243","_rn_":"3"},{"1":"0.03","2":"0.040722606","_rn_":"4"},{"1":"0.04","2":"0.060856280","_rn_":"5"},{"1":"0.05","2":"0.082557740","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1845,10 +1943,14 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Probability density"</span>) <span class="sc">+</span></span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-09" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-09-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Plot of the probability density function (PDF) for the <span class="math inline">\(F(5,25)\)</span>-distribution.</figcaption>
+<div id="fig-09" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-09-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-09-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-09-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Plot of the probability density function (PDF) for the <span class="math inline">\(F(5,25)\)</span>-distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1862,7 +1964,6 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(shade_09)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["X"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Y"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2.00","2":"0.1558647","_rn_":"1"},{"1":"2.01","2":"0.1537083","_rn_":"2"},{"1":"2.02","2":"0.1515807","_rn_":"3"},{"1":"2.03","2":"0.1494816","_rn_":"4"},{"1":"2.04","2":"0.1474106","_rn_":"5"},{"1":"2.05","2":"0.1453676","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1882,10 +1983,14 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Probability density"</span>) <span class="sc">+</span></span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-10" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-10-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: Plot of the probability density function (PDF) for the <span class="math inline">\(F(5,25)\)</span>-distribution. The cumulative density representing the <em>p</em>-value associated with an <em>F</em>-statistic of 2 is shaded in grey.</figcaption>
+<div id="fig-10" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Plot of the probability density function (PDF) for the <span class="math inline">\(F(5,25)\)</span>-distribution. The cumulative density representing the <em>p</em>-value associated with an <em>F</em>-statistic of 2 is shaded in grey.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1909,7 +2014,6 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>city</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["education"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["income"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["seniority"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["gender"],"name":[4],"type":["chr"],"align":["left"]},{"label":["party"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"8","2":"26.430","3":"9","4":"female","5":"Independent"},{"1":"8","2":"37.449","3":"7","4":"Not female","5":"Democrat"},{"1":"10","2":"34.182","3":"16","4":"female","5":"Independent"},{"1":"10","2":"25.479","3":"1","4":"female","5":"Republican"},{"1":"10","2":"47.034","3":"14","4":"Not female","5":"Democrat"},{"1":"12","2":"46.488","3":"11","4":"female","5":"Democrat"},{"1":"12","2":"52.480","3":"16","4":"female","5":"Independent"},{"1":"12","2":"37.656","3":"14","4":"Not female","5":"Democrat"},{"1":"12","2":"50.265","3":"24","4":"Not female","5":"Democrat"},{"1":"14","2":"32.631","3":"5","4":"female","5":"Independent"},{"1":"14","2":"49.968","3":"18","4":"Not female","5":"Independent"},{"1":"14","2":"64.926","3":"26","4":"Not female","5":"Independent"},{"1":"15","2":"37.302","3":"8","4":"female","5":"Democrat"},{"1":"16","2":"38.586","3":"11","4":"female","5":"Independent"},{"1":"16","2":"55.878","3":"22","4":"female","5":"Independent"},{"1":"16","2":"59.499","3":"20","4":"female","5":"Independent"},{"1":"16","2":"55.782","3":"6","4":"Not female","5":"Democrat"},{"1":"16","2":"63.471","3":"10","4":"Not female","5":"Democrat"},{"1":"17","2":"60.068","3":"10","4":"female","5":"Independent"},{"1":"18","2":"54.840","3":"20","4":"female","5":"Republican"},{"1":"18","2":"62.466","3":"16","4":"female","5":"Republican"},{"1":"19","2":"56.019","3":"21","4":"female","5":"Independent"},{"1":"19","2":"65.142","3":"16","4":"Not female","5":"Republican"},{"1":"20","2":"56.343","3":"22","4":"female","5":"Independent"},{"1":"20","2":"54.672","3":"12","4":"female","5":"Independent"},{"1":"20","2":"61.629","3":"5","4":"Not female","5":"Republican"},{"1":"20","2":"82.726","3":"23","4":"Not female","5":"Republican"},{"1":"21","2":"71.202","3":"26","4":"female","5":"Democrat"},{"1":"21","2":"73.542","3":"16","4":"Not female","5":"Republican"},{"1":"22","2":"56.322","3":"8","4":"female","5":"Independent"},{"1":"22","2":"70.044","3":"14","4":"Not female","5":"Independent"},{"1":"24","2":"79.227","3":"27","4":"Not female","5":"Democrat"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1935,7 +2039,6 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.7417857","2":"0.7239778","3":"7.645854","4":"41.6549","5":"0.000000002976563","6":"2","7":"-108.9242","8":"225.8484","9":"231.7114","10":"1695.313","11":"29","12":"32"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1945,7 +2048,6 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partition the variation</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sum Sq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mean Sq"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["F value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"4147.3305","3":"4147.33049","4":"70.94416","5":"0.000000002780644","_rn_":"education"},{"1":"1","2":"722.8836","3":"722.88365","4":"12.36564","5":"0.001459777425592","_rn_":"seniority"},{"1":"29","2":"1695.3133","3":"58.45908","4":"NA","5":"NA","_rn_":"Residuals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1958,7 +2060,6 @@ E(F) &amp;= \frac{\nu_2}{\nu_2 - 2} \\[1ex]
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm<span class="fl">.1</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"6.7691720","3":"5.3728914","4":"1.259875","5":"0.2177593428983","6":"-4.2196249","7":"17.75797"},{"1":"education","2":"2.2518456","3":"0.3346443","4":"6.729073","5":"0.0000002202903","6":"1.5674213","7":"2.93627"},{"1":"seniority","2":"0.7387965","3":"0.2100954","4":"3.516481","5":"0.0014597774256","6":"0.3091031","7":"1.16849"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -2015,7 +2116,6 @@ F &amp;= \frac{0.742}{1-0.742} \times \frac{29}{2} \\
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partition the variation</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sum Sq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mean Sq"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["F value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"4147.3305","3":"4147.33049","4":"70.94416","5":"0.000000002780644","_rn_":"education"},{"1":"1","2":"722.8836","3":"722.88365","4":"12.36564","5":"0.001459777425592","_rn_":"seniority"},{"1":"29","2":"1695.3133","3":"58.45908","4":"NA","5":"NA","_rn_":"Residuals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -2070,7 +2170,7 @@ F &amp;= \frac{R^2}{1-R^2} \times \frac{\mathrm{df}_{\mathrm{Error}}}{\mathrm{df
 <h2 class="anchored" data-anchor-id="testing-the-model-level-null-hypothesis">Testing the Model-Level Null Hypothesis</h2>
 <p>We evaluate our test statistic (<em>F</em> in this case) in the appropriate test distribution, in this case an <em>F</em>-distribution with 2 and 29 degrees of freedom. The figure below, shows the <span class="math inline">\(F(2,29)\)</span>-distribution as a solid, black line. The <em>p</em>-value is the area under the curve that is at least as extreme as the observed <em>F</em>-value of 41.7.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>fig_11 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -2091,10 +2191,14 @@ F &amp;= \frac{R^2}{1-R^2} \times \frac{\mathrm{df}_{\mathrm{Error}}}{\mathrm{df
 <span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> shade, <span class="at">ymin =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="fu">aes</span>(<span class="at">ymax =</span> Y), <span class="at">color =</span> <span class="st">"#bbbbbb"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-11" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-probability-distributions_files/figure-html/fig-11-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11: Plot of the probability density function (PDF) for the <span class="math inline">\(F(2,~29)\)</span>-distribution. The cumulative density representing the <em>p</em>-value for a test evaluating whether <span class="math inline">\(\rho^2=0\)</span> using an observed <em>F</em>-statistic of 41.7 is also displayed.</figcaption>
+<div id="fig-11" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-probability-distributions_files/figure-html/fig-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Plot of the probability density function (PDF) for the <span class="math inline">\(F(2,~29)\)</span>-distribution. The cumulative density representing the <em>p</em>-value for a test evaluating whether <span class="math inline">\(\rho^2=0\)</span> using an observed <em>F</em>-statistic of 41.7 is also displayed.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -2128,10 +2232,14 @@ F &amp;= \frac{R^2}{1-R^2} \times \frac{\mathrm{df}_{\mathrm{Error}}}{\mathrm{df
 <p>The mean squared error (from the <code>anova()</code> output) plays a special role in regression analysis. It is the variance estimate for the conditional distributions of the residuals in our visual depiction of the distributional assumptions of the residuals underlying linear regression.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-12" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-regression-assumptions-residuals.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;12: Visual Depiction of the Distributional Assumptions of the Residuals Underlying Linear Regression</figcaption>
+<div id="fig-12" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-regression-assumptions-residuals.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Visual Depiction of the Distributional Assumptions of the Residuals Underlying Linear Regression
+</figcaption>
 </figure>
 </div>
 </div>
@@ -2247,7 +2355,7 @@ t^{*}_{.975}
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Fox:2009" class="csl-entry" role="listitem">
 Fox, J. (2009). <em>A mathematical primer for social statistics</em>. Thousand Oaks, CA: Sage.
 </div>
@@ -2337,10 +2445,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2350,8 +2457,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2364,6 +2480,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2407,6 +2642,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2432,6 +2668,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2492,6 +2754,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

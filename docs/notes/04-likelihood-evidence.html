@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-25">
+<meta name="dcterms.date" content="2024-03-05">
 
 <title>EPsy 8252 - Likelihood: A Framework for Evidence</title>
 <style>
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -99,7 +100,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -108,18 +115,45 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="../site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/sticky-notes.css">
 </head>
@@ -128,9 +162,9 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EPsy 8252</span>
     </a>
@@ -142,41 +176,41 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html" rel="" target="">
- <span class="menu-text">Schedule</span></a>
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructor.html" rel="" target="">
- <span class="menu-text">Instructor &amp; TA</span></a>
+    <a class="nav-link" href="../instructor.html"> 
+<span class="menu-text">Instructor &amp; TA</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignments.html" rel="" target="">
- <span class="menu-text">Assignments &amp; Grading</span></a>
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments &amp; Grading</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html" rel="" target="">
- <span class="menu-text">Data</span></a>
+    <a class="nav-link" href="../data.html"> 
+<span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../class-policies.html" rel="" target="">
- <span class="menu-text">Class Policies</span></a>
+    <a class="nav-link" href="../class-policies.html"> 
+<span class="menu-text">Class Policies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../mission-statements.html" rel="" target="">
- <span class="menu-text">Mission Statements</span></a>
+    <a class="nav-link" href="../mission-statements.html"> 
+<span class="menu-text">Mission Statements</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../umn-policies.html" rel="" target="">
- <span class="menu-text">University Policies</span></a>
+    <a class="nav-link" href="../umn-policies.html"> 
+<span class="menu-text">University Policies</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -243,7 +277,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 25, 2024</p>
+      <p class="date">March 5, 2024</p>
     </div>
   </div>
   
@@ -251,7 +285,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="preparation" class="level1">
 <h1>Preparation</h1>
@@ -270,7 +306,6 @@ div.csl-indent {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>usnwr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["rank"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["school"],"name":[2],"type":["chr"],"align":["left"]},{"label":["peer_rating"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["enroll"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ft_students"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["ft_fac"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["nonres_tuition"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sf_ratio"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["pct_doc"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ug_gpa"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["gre"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["doc_acc"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["tot_pubs"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["tot_res"],"name":[14],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Teachers College, Columbia University","3":"4.2","4":"4471","5":"3192","6":"131","7":"45912","8":"8.4","9":"23.89","10":"3.5","11":"313","12":"12.1","13":"789","14":"65.18"},{"1":"1","2":"University of Michigan--Ann Arbor","3":"4.4","4":"455","5":"303","6":"45","7":"53178","8":"4.2","9":"30.77","10":"3.3","11":"316","12":"13.7","13":"1802","14":"40.90"},{"1":"3","2":"Northwestern University","3":"4.1","4":"382","5":"228","6":"39","7":"56067","8":"2.2","9":"22.25","10":"3.7","11":"321","12":"7.8","13":"719","14":"29.21"},{"1":"3","2":"University of Pennsylvania","3":"4.4","4":"1654","5":"1091","6":"75","7":"42864","8":"4.8","9":"23.76","10":"3.3","11":"312","12":"14.6","13":"1176","14":"50.41"},{"1":"3","2":"University of Wisconsin--Madison","3":"4.3","4":"1136","5":"729","6":"123","7":"24054","8":"5.4","9":"51.06","10":"3.5","11":"305","12":"15.9","13":"1396","14":"64.50"},{"1":"6","2":"Vanderbilt University (Peabody)","3":"4.5","4":"1007","5":"809","6":"97","7":"53160","8":"2.6","9":"24.93","10":"3.6","11":"321","12":"5.4","13":"1195","14":"49.91"},{"1":"7","2":"Stanford University","3":"4.6","4":"343","5":"343","6":"51","7":"56487","8":"4.3","9":"46.65","10":"3.0","11":"327","12":"3.9","13":"1415","14":"25.22"},{"1":"7","2":"University of California--Los Angeles","3":"4.3","4":"701","5":"701","6":"43","7":"26802","8":"7.1","9":"51.64","10":"3.4","11":"310","12":"28.1","13":"1058","14":"46.52"},{"1":"9","2":"Harvard University","3":"4.4","4":"868","5":"707","6":"42","7":"54032","8":"3.6","9":"14.06","10":"3.9","11":"320","12":"5.7","13":"2148","14":"36.73"},{"1":"9","2":"New York University (Steinhardt)","3":"4.1","4":"2163","5":"1747","6":"79","7":"48480","8":"4.6","9":"14.52","10":"3.7","11":"314","12":"4.7","13":"886","14":"71.43"},{"1":"11","2":"University of California--Irvine","3":"3.9","4":"243","5":"241","6":"31","7":"26802","8":"5.1","9":"41.56","10":"NA","11":"324","12":"18.5","13":"721","14":"31.60"},{"1":"11","2":"University of Washington","3":"4.0","4":"826","5":"640","6":"51","7":"32074","8":"3.5","9":"22.15","10":"3.8","11":"307","12":"16.3","13":"1326","14":"34.87"},{"1":"13","2":"Johns Hopkins University","3":"4.1","4":"1732","5":"407","6":"19","7":"41280","8":"2.5","9":"15.18","10":"3.4","11":"314","12":"35.8","13":"981","14":"28.31"},{"1":"14","2":"University of California, Berkeley","3":"4.4","4":"243","5":"243","6":"27","7":"26802","8":"3.3","9":"57.20","10":"3.6","11":"321","12":"4.9","13":"771","14":"14.60"},{"1":"14","2":"University of Oregon","3":"3.7","4":"472","5":"405","6":"47","7":"27990","8":"1.5","9":"32.63","10":"3.5","11":"308","12":"12.0","13":"490","14":"57.72"},{"1":"16","2":"University of Texas--Austin","3":"4.1","4":"785","5":"610","6":"106","7":"18032","8":"2.9","9":"58.34","10":"3.7","11":"304","12":"25.8","13":"1386","14":"38.04"},{"1":"16","2":"University of Virginia","3":"4.2","4":"1173","5":"445","6":"69","7":"14376","8":"2.3","9":"23.27","10":"3.5","11":"270","12":"13.4","13":"1051","14":"35.54"},{"1":"18","2":"Arizona State University (Fulton)","3":"3.7","4":"5035","5":"797","6":"79","7":"24498","8":"3.1","9":"7.15","10":"3.4","11":"314","12":"28.1","13":"1557","14":"73.06"},{"1":"18","2":"University of Florida","3":"3.9","4":"1302","5":"354","6":"64","7":"27336","8":"2.9","9":"39.78","10":"3.6","11":"305","12":"44.6","13":"1303","14":"52.02"},{"1":"18","2":"University of Kansas","3":"3.7","4":"878","5":"380","6":"68","7":"24624","8":"3.7","9":"40.21","10":"3.4","11":"307","12":"50.8","13":"887","14":"61.46"},{"1":"21","2":"Boston College (Lynch)","3":"4.0","4":"867","5":"492","6":"61","7":"38400","8":"3.8","9":"17.07","10":"3.5","11":"320","12":"7.3","13":"433","14":"25.53"},{"1":"21","2":"Florida State University","3":"3.6","4":"1494","5":"633","6":"78","7":"26664","8":"5.3","9":"32.73","10":"3.8","11":"308","12":"30.5","13":"868","14":"35.42"},{"1":"21","2":"Michigan State University","3":"4.2","4":"980","5":"485","6":"112","7":"40488","8":"2.7","9":"38.67","10":"3.6","11":"309","12":"29.1","13":"1879","14":"19.32"},{"1":"21","2":"University of North Carolina--Chapel Hill","3":"4.1","4":"293","5":"201","6":"40","7":"28884","8":"2.8","9":"46.76","10":"3.5","11":"313","12":"22.6","13":"1199","14":"19.93"},{"1":"25","2":"Ohio State University","3":"4.1","4":"1064","5":"546","6":"127","7":"38693","8":"3.7","9":"43.61","10":"3.3","11":"304","12":"59.6","13":"1588","14":"25.22"},{"1":"25","2":"University of Minnesota--Twin Cities","3":"3.8","4":"1725","5":"1059","6":"132","7":"57168","8":"5.9","9":"34.90","10":"3.6","11":"312","12":"24.6","13":"1358","14":"42.30"},{"1":"27","2":"University of Delaware","3":"3.5","4":"347","5":"205","6":"46","7":"23496","8":"2.7","9":"42.65","10":"3.3","11":"306","12":"41.2","13":"535","14":"15.00"},{"1":"27","2":"University of Maryland--College Park","3":"4.1","4":"750","5":"481","6":"77","7":"42456","8":"2.2","9":"56.80","10":"3.4","11":"320","12":"24.0","13":"973","14":"13.91"},{"1":"27","2":"University of Pittsburgh","3":"3.9","4":"627","5":"288","6":"51","7":"42324","8":"2.7","9":"41.31","10":"3.3","11":"298","12":"46.8","13":"931","14":"19.56"},{"1":"27","2":"Virginia Commonwealth University","3":"3.5","4":"687","5":"243","6":"41","7":"22896","8":"2.8","9":"42.50","10":"3.9","11":"304","12":"74.2","13":"697","14":"37.40"},{"1":"31","2":"North Carolina State University--Raleigh","3":"3.5","4":"1473","5":"400","6":"72","7":"28301","8":"3.8","9":"36.46","10":"3.5","11":"305","12":"49.3","13":"932","14":"29.47"},{"1":"31","2":"Texas A&M University--College Station","3":"3.7","4":"1409","5":"615","6":"112","7":"19584","8":"2.7","9":"38.04","10":"3.5","11":"302","12":"49.1","13":"1050","14":"28.67"},{"1":"31","2":"University of Connecticut (Neag)","3":"3.9","4":"661","5":"378","6":"60","7":"40086","8":"3.2","9":"27.84","10":"3.3","11":"309","12":"44.2","13":"801","14":"23.87"},{"1":"31","2":"University of Georgia","3":"3.9","4":"1829","5":"838","6":"136","7":"25186","8":"3.5","9":"41.33","10":"3.4","11":"304","12":"46.3","13":"1133","14":"12.31"},{"1":"31","2":"University of Missouri","3":"3.5","4":"1553","5":"445","6":"68","7":"28608","8":"3.6","9":"25.76","10":"3.8","11":"300","12":"30.2","13":"693","14":"28.25"},{"1":"36","2":"Indiana University--Bloomington","3":"3.9","4":"1202","5":"352","6":"84","7":"36360","8":"3.8","9":"55.91","10":"3.6","11":"306","12":"39.2","13":"1190","14":"18.49"},{"1":"36","2":"University of Illinois Urbana-Champaign","3":"4.0","4":"1280","5":"411","6":"77","7":"29034","8":"5.2","9":"57.03","10":"3.4","11":"NA","12":"29.6","13":"1155","14":"13.21"},{"1":"36","2":"University of Iowa","3":"3.6","4":"681","5":"352","6":"64","7":"31777","8":"2.1","9":"44.35","10":"3.4","11":"307","12":"44.4","13":"756","14":"13.75"},{"1":"36","2":"Utah State University","3":"3.2","4":"1079","5":"311","6":"134","7":"23936","8":"1.5","9":"24.10","10":"3.7","11":"307","12":"19.6","13":"446","14":"40.86"},{"1":"40","2":"Georgia State University","3":"3.4","4":"1419","5":"721","6":"113","7":"30216","8":"2.7","9":"27.55","10":"3.8","11":"303","12":"27.9","13":"781","14":"20.10"},{"1":"40","2":"University of California--Davis","3":"3.8","4":"326","5":"126","6":"33","7":"29017","8":"3.2","9":"38.96","10":"3.2","11":"NA","12":"26.0","13":"630","14":"10.76"},{"1":"40","2":"University of South Carolina","3":"3.2","4":"1271","5":"338","6":"68","7":"29760","8":"3.1","9":"49.33","10":"3.6","11":"297","12":"62.5","13":"713","14":"17.82"},{"1":"43","2":"Rutgers University--New Brunswick","3":"3.6","4":"978","5":"258","6":"39","7":"31800","8":"2.5","9":"25.77","10":"3.4","11":"303","12":"41.9","13":"907","14":"8.27"},{"1":"43","2":"University of Colorado--Boulder","3":"3.8","4":"210","5":"164","6":"39","7":"33174","8":"1.5","9":"41.90","10":"3.7","11":"NA","12":"13.4","13":"843","14":"6.43"},{"1":"43","2":"University of Massachusetts--Boston","3":"3.2","4":"962","5":"321","6":"49","7":"36879","8":"4.0","9":"24.01","10":"3.1","11":"299","12":"19.9","13":"316","14":"23.48"},{"1":"46","2":"Boston University (Wheelock)","3":"3.6","4":"626","5":"262","6":"32","7":"22920","8":"2.0","9":"17.25","10":"3.5","11":"317","12":"9.3","13":"673","14":"9.20"},{"1":"46","2":"Temple University","3":"3.4","4":"920","5":"340","6":"38","7":"24858","8":"2.7","9":"20.87","10":"3.5","11":"305","12":"20.6","13":"569","14":"13.25"},{"1":"46","2":"University of Central Florida","3":"3.1","4":"1375","5":"489","6":"62","7":"25752","8":"4.1","9":"15.78","10":"3.8","11":"296","12":"50.0","13":"628","14":"20.17"},{"1":"49","2":"Pennsylvania State University--University Park","3":"3.9","4":"1273","5":"423","6":"119","7":"41602","8":"2.2","9":"29.85","10":"3.5","11":"306","12":"60.6","13":"1311","14":"7.91"},{"1":"49","2":"Purdue University--West Lafayette","3":"3.3","4":"823","5":"98","6":"64","7":"18802","8":"2.4","9":"26.85","10":"3.8","11":"304","12":"44.0","13":"1367","14":"17.78"},{"1":"49","2":"San Diego State University","3":"3.4","4":"1387","5":"489","6":"79","7":"18966","8":"2.2","9":"14.78","10":"3.1","11":"NA","12":"69.4","13":"419","14":"21.22"},{"1":"49","2":"SMU (Simmons)","3":"2.8","4":"465","5":"122","6":"16","7":"42120","8":"1.3","9":"26.24","10":"3.8","11":"308","12":"56.4","13":"230","14":"8.12"},{"1":"49","2":"University of Mississippi","3":"3.1","4":"638","5":"186","6":"46","7":"35064","8":"2.1","9":"31.50","10":"3.7","11":"291","12":"42.2","13":"247","14":"16.65"},{"1":"54","2":"University of Illinois--Chicago","3":"3.6","4":"662","5":"203","6":"47","7":"25356","8":"3.0","9":"41.69","10":"3.5","11":"NA","12":"45.5","13":"940","14":"7.36"},{"1":"54","2":"University of South Florida","3":"3.0","4":"994","5":"374","6":"94","7":"21048","8":"2.6","9":"46.88","10":"3.3","11":"295","12":"49.2","13":"847","14":"21.42"},{"1":"56","2":"University of Alabama","3":"3.2","4":"1123","5":"335","6":"91","7":"31460","8":"2.0","9":"41.05","10":"3.1","11":"304","12":"37.6","13":"730","14":"12.28"},{"1":"56","2":"University of Tennessee--Knoxville","3":"3.3","4":"898","5":"372","6":"73","7":"39600","8":"2.2","9":"29.18","10":"NA","11":"303","12":"56.4","13":"563","14":"12.47"},{"1":"58","2":"George Washington University","3":"3.4","4":"1059","5":"274","6":"45","7":"42648","8":"3.2","9":"35.41","10":"3.3","11":"299","12":"41.1","13":"528","14":"5.07"},{"1":"58","2":"University at Buffalo--SUNY","3":"3.2","4":"876","5":"477","6":"61","7":"23100","8":"3.5","9":"26.83","10":"3.4","11":"301","12":"40.3","13":"490","14":"6.38"},{"1":"58","2":"University of Arizona","3":"3.6","4":"776","5":"302","6":"58","7":"32290","8":"2.3","9":"43.43","10":"3.8","11":"310","12":"56.9","13":"848","14":"8.74"},{"1":"58","2":"University of Idaho","3":"2.9","4":"408","5":"151","6":"28","7":"29148","8":"2.0","9":"34.56","10":"3.7","11":"NA","12":"30.9","13":"239","14":"21.45"},{"1":"58","2":"University of Nebraska--Lincoln","3":"3.5","4":"734","5":"233","6":"80","7":"23904","8":"2.1","9":"42.78","10":"3.6","11":"300","12":"52.5","13":"651","14":"13.70"},{"1":"58","2":"University of Vermont","3":"3.1","4":"247","5":"48","6":"45","7":"41280","8":"0.4","9":"17.41","10":"3.7","11":"315","12":"65.0","13":"243","14":"6.26"},{"1":"64","2":"Clemson University","3":"3.3","4":"1324","5":"198","6":"49","7":"12626","8":"3.2","9":"16.47","10":"3.9","11":"NA","12":"66.3","13":"481","14":"10.31"},{"1":"64","2":"Syracuse University","3":"3.5","4":"502","5":"244","6":"45","7":"43248","8":"3.2","9":"30.28","10":"3.4","11":"314","12":"34.9","13":"372","14":"5.31"},{"1":"64","2":"Texas Tech University","3":"3.0","4":"1424","5":"294","6":"70","7":"18139","8":"3.3","9":"49.09","10":"NA","11":"300","12":"56.7","13":"485","14":"12.10"},{"1":"64","2":"University of Arkansas--Fayetteville","3":"3.0","4":"1282","5":"407","6":"83","7":"28560","8":"2.5","9":"23.09","10":"3.8","11":"305","12":"53.2","13":"390","14":"18.29"},{"1":"64","2":"University of Hawaii--Manoa","3":"3.0","4":"888","5":"193","6":"91","7":"22432","8":"1.8","9":"32.32","10":"3.9","11":"296","12":"55.1","13":"459","14":"29.34"},{"1":"64","2":"University of Kentucky","3":"3.3","4":"789","5":"420","6":"76","7":"32896","8":"3.3","9":"44.99","10":"NA","11":"299","12":"42.5","13":"743","14":"8.25"},{"1":"70","2":"Howard University","3":"3.5","4":"205","5":"119","6":"32","7":"44112","8":"3.4","9":"80.98","10":"NA","11":"294","12":"96.7","13":"173","14":"3.14"},{"1":"70","2":"Loyola Marymount University","3":"2.9","4":"854","5":"540","6":"30","7":"43752","8":"4.5","9":"8.55","10":"3.0","11":"289","12":"38.5","13":"102","14":"6.68"},{"1":"70","2":"Oklahoma State University","3":"3.1","4":"1040","5":"530","6":"135","7":"24720","8":"2.3","9":"43.08","10":"3.3","11":"304","12":"40.5","13":"309","14":"12.51"},{"1":"70","2":"University of Houston","3":"3.2","4":"882","5":"305","6":"49","7":"16092","8":"3.9","9":"40.70","10":"3.3","11":"298","12":"32.1","13":"559","14":"6.09"},{"1":"70","2":"University of Louisville","3":"3.1","4":"1268","5":"456","6":"61","7":"28340","8":"2.5","9":"16.09","10":"3.3","11":"303","12":"51.2","13":"406","14":"12.24"},{"1":"70","2":"University of North Carolina--Charlotte","3":"3.1","4":"1692","5":"252","6":"90","7":"18482","8":"2.1","9":"15.96","10":"NA","11":"294","12":"82.1","13":"737","14":"10.39"},{"1":"70","2":"William & Mary","3":"3.4","4":"817","5":"256","6":"37","7":"28305","8":"3.5","9":"24.48","10":"3.3","11":"298","12":"67.6","13":"186","14":"6.87"},{"1":"77","2":"Boise State University","3":"2.8","4":"553","5":"99","6":"44","7":"24573","8":"1.8","9":"23.15","10":"3.6","11":"312","12":"57.7","13":"372","14":"12.19"},{"1":"77","2":"Lehigh University","3":"3.0","4":"414","5":"129","6":"26","7":"14160","8":"3.6","9":"37.44","10":"NA","11":"NA","12":"18.5","13":"225","14":"6.80"},{"1":"77","2":"West Virginia University","3":"2.7","4":"334","5":"129","6":"52","7":"26082","8":"0.8","9":"19.76","10":"3.8","11":"NA","12":"57.1","13":"446","14":"5.34"},{"1":"80","2":"Miami University","3":"3.0","4":"520","5":"178","6":"63","7":"32698","8":"1.4","9":"21.92","10":"3.2","11":"282","12":"60.0","13":"381","14":"6.49"},{"1":"80","2":"University of California--Riverside","3":"3.4","4":"214","5":"198","6":"29","7":"20136","8":"3.2","9":"34.11","10":"3.6","11":"311","12":"11.1","13":"312","14":"2.89"},{"1":"80","2":"University of California--Santa Barbara…","3":"3.4","4":"253","5":"247","6":"41","7":"28974","8":"3.9","9":"61.66","10":"3.3","11":"NA","12":"8.3","13":"355","14":"3.28"},{"1":"83","2":"Binghamton University--SUNY","3":"2.9","4":"250","5":"127","6":"15","7":"23112","8":"3.3","9":"22.40","10":"3.9","11":"NA","12":"27.3","13":"199","14":"1.85"},{"1":"83","2":"East Carolina University","3":"2.7","4":"1019","5":"167","6":"53","7":"17898","8":"3.0","9":"12.17","10":"3.2","11":"289","12":"72.7","13":"431","14":"3.70"},{"1":"83","2":"George Mason University","3":"3.1","4":"1667","5":"333","6":"68","7":"18216","8":"4.5","9":"15.48","10":"3.4","11":"300","12":"73.0","13":"758","14":"10.04"},{"1":"83","2":"Illinois State University","3":"2.9","4":"892","5":"186","6":"119","7":"20664","8":"1.8","9":"33.52","10":"3.8","11":"297","12":"74.1","13":"370","14":"7.97"},{"1":"83","2":"Kansas State University","3":"3.1","4":"1205","5":"236","6":"38","7":"23016","8":"3.3","9":"36.68","10":"3.4","11":"NA","12":"89.1","13":"294","14":"6.59"},{"1":"83","2":"Montclair State University","3":"2.9","4":"1951","5":"607","6":"101","7":"16440","8":"2.6","9":"8.56","10":"3.2","11":"NA","12":"46.4","13":"272","14":"9.77"},{"1":"83","2":"Old Dominion University (Darden)","3":"2.8","4":"1523","5":"487","6":"87","7":"33456","8":"2.5","9":"18.98","10":"3.3","11":"297","12":"59.5","13":"489","14":"9.91"},{"1":"83","2":"Oregon State University","3":"3.1","4":"512","5":"108","6":"17","7":"28242","8":"1.8","9":"30.66","10":"3.3","11":"NA","12":"43.9","13":"481","14":"3.72"},{"1":"83","2":"University at Albany--SUNY","3":"3.1","4":"1025","5":"333","6":"52","7":"23100","8":"4.7","9":"31.90","10":"NA","11":"306","12":"42.5","13":"416","14":"5.02"},{"1":"83","2":"University of Denver (Morgridge)","3":"3.1","4":"969","5":"334","6":"33","7":"51091","8":"6.1","9":"27.66","10":"3.3","11":"300","12":"38.2","13":"295","14":"5.16"},{"1":"83","2":"University of Massachusetts--Amherst","3":"3.5","4":"399","5":"266","6":"52","7":"31488","8":"3.4","9":"62.16","10":"3.6","11":"305","12":"57.3","13":"512","14":"3.97"},{"1":"83","2":"University of Nevada--Reno","3":"3.0","4":"502","5":"138","6":"45","7":"21592","8":"1.7","9":"20.92","10":"3.6","11":"298","12":"66.7","13":"288","14":"10.97"},{"1":"83","2":"University of New Mexico","3":"3.0","4":"596","5":"45","6":"94","7":"33648","8":"0.9","9":"34.06","10":"3.1","11":"308","12":"33.3","13":"507","14":"NA"},{"1":"83","2":"University of North Carolina--Greensboro","3":"3.2","4":"965","5":"302","6":"47","7":"18938","8":"3.2","9":"23.73","10":"3.4","11":"298","12":"74.7","13":"415","14":"5.27"},{"1":"83","2":"University of Utah","3":"3.2","4":"579","5":"334","6":"52","7":"25961","8":"4.2","9":"41.45","10":"3.5","11":"305","12":"41.8","13":"679","14":"7.55"},{"1":"83","2":"Virginia Tech","3":"3.4","4":"426","5":"228","6":"33","7":"29238","8":"4.4","9":"53.29","10":"3.3","11":"307","12":"73.6","13":"722","14":"3.14"},{"1":"99","2":"Auburn University","3":"3.2","4":"925","5":"385","6":"80","7":"41544","8":"3.3","9":"48.11","10":"3.3","11":"299","12":"38.7","13":"485","14":"4.63"},{"1":"99","2":"Kent State University","3":"3.0","4":"695","5":"383","6":"92","7":"22523","8":"1.4","9":"28.63","10":"3.3","11":"NA","12":"45.2","13":"405","14":"4.50"},{"1":"99","2":"New Mexico State University","3":"2.7","4":"547","5":"127","6":"40","7":"18023","8":"2.4","9":"26.69","10":"3.3","11":"310","12":"34.9","13":"182","14":"NA"},{"1":"99","2":"Portland State University","3":"2.9","4":"1008","5":"340","6":"43","7":"16392","8":"2.6","9":"7.04","10":"3.5","11":"NA","12":"24.0","13":"245","14":"6.68"},{"1":"99","2":"Rowan University","3":"2.6","4":"1169","5":"170","6":"57","7":"21000","8":"1.8","9":"18.14","10":"3.3","11":"NA","12":"56.3","13":"267","14":"5.17"},{"1":"99","2":"St. John's University","3":"2.7","4":"727","5":"204","6":"43","7":"33600","8":"3.6","9":"48.28","10":"3.2","11":"293","12":"51.3","13":"209","14":"3.18"},{"1":"99","2":"University of Alabama--Birmingham","3":"2.9","4":"579","5":"147","6":"38","7":"26616","8":"3.1","9":"15.37","10":"3.3","11":"NA","12":"55.0","13":"367","14":"4.70"},{"1":"99","2":"University of California--San Diego","3":"3.4","4":"52","5":"52","6":"20","7":"27690","8":"1.6","9":"100.00","10":"3.5","11":"302","12":"6.7","13":"585","14":"1.13"},{"1":"99","2":"University of Colorado--Denver","3":"3.2","4":"1363","5":"892","6":"35","7":"31992","8":"6.0","9":"25.46","10":"3.3","11":"300","12":"27.4","13":"297","14":"3.52"},{"1":"99","2":"University of Miami","3":"3.3","4":"532","5":"449","6":"29","7":"55440","8":"6.1","9":"50.19","10":"3.3","11":"299","12":"51.6","13":"368","14":"1.59"},{"1":"99","2":"University of New Hampshire","3":"2.8","4":"170","5":"51","6":"10","7":"15590","8":"2.4","9":"27.65","10":"3.5","11":"NA","12":"52.2","13":"297","14":"5.06"},{"1":"99","2":"University of North Texas","3":"3.0","4":"1141","5":"341","6":"67","7":"18264","8":"2.7","9":"24.54","10":"3.4","11":"298","12":"43.0","13":"755","14":"6.03"},{"1":"99","2":"University of Oklahoma (Rainbolt)","3":"3.0","4":"615","5":"442","6":"45","7":"24600","8":"4.3","9":"36.91","10":"3.1","11":"305","12":"92.1","13":"380","14":"12.11"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -282,13 +317,17 @@ div.csl-indent {
 </section>
 <section id="modeling-strategy" class="level1">
 <h1>Modeling Strategy</h1>
-<p>We are going to mimic an analysis undertaken by <span class="citation" data-cites="Sweitzer:2009">Sweitzer &amp; Volkwein (<a href="#ref-Sweitzer:2009" role="doc-biblioref">2009</a>)</span>. They used 2009 U.S. News and World Report data and a conceptual model of institutional prestige adapted from <span class="citation" data-cites="Volkwein:2006">Volkwein &amp; Sweitzer (<a href="#ref-Volkwein:2006" role="doc-biblioref">2006</a>)</span> (see <a href="#fig-04-01">Figure&nbsp;1</a>) to explain variation in institutional prestige as measured by peer ratings.</p>
+<p>We are going to mimic an analysis undertaken by <span class="citation" data-cites="Sweitzer:2009">Sweitzer &amp; Volkwein (<a href="#ref-Sweitzer:2009" role="doc-biblioref">2009</a>)</span>. They used 2009 U.S. News and World Report data and a conceptual model of institutional prestige adapted from <span class="citation" data-cites="Volkwein:2006">Volkwein &amp; Sweitzer (<a href="#ref-Volkwein:2006" role="doc-biblioref">2006</a>)</span> (see <a href="#fig-04-01" class="quarto-xref">Figure&nbsp;1</a>) to explain variation in institutional prestige as measured by peer ratings.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-04-01" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-conceptual-model.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Conceptual model of institutional prestige.</figcaption>
+<div id="fig-04-01" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-04-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-conceptual-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-04-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Conceptual model of institutional prestige.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -297,13 +336,17 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>Using the conceptual framework…as a guide, the peer assessment score was employed as the dependent variable and a blocked (set-wise) regression model was estimated for each of the five separate graduate/professional school disciplines…In the first block of the regressions, institutional characteristics were entered, such as the size and wealth of the school. In the second block, faculty and student indicators were entered. In the third block, variables reflecting faculty and student outcomes were entered. (p.&nbsp;827)</p>
 </blockquote>
-<p>We will use more current data (that available as of January 2024) to carry out a similar analysis. The categorization of attributes is shown in <a href="#fig-04-02">Figure&nbsp;2</a>.</p>
+<p>We will use more current data (that available as of January 2024) to carry out a similar analysis. The categorization of attributes is shown in <a href="#fig-04-02" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-04-02" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/04-blocks-and-attributes.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Categorization of attributes into different parts of the conceptual model and their corresponding blocks.</figcaption>
+<div id="fig-04-02" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-04-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/04-blocks-and-attributes.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-04-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Categorization of attributes into different parts of the conceptual model and their corresponding blocks.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -320,7 +363,6 @@ div.csl-indent {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View data (n = 83)</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>usnwr_complete</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["rank"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["school"],"name":[2],"type":["chr"],"align":["left"]},{"label":["peer_rating"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["enroll"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ft_students"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["ft_fac"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["nonres_tuition"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sf_ratio"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["pct_doc"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ug_gpa"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["gre"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["doc_acc"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["tot_pubs"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["tot_res"],"name":[14],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Teachers College, Columbia University","3":"4.2","4":"4471","5":"3192","6":"131","7":"45912","8":"8.4","9":"23.89","10":"3.5","11":"313","12":"12.1","13":"789","14":"65.18"},{"1":"1","2":"University of Michigan--Ann Arbor","3":"4.4","4":"455","5":"303","6":"45","7":"53178","8":"4.2","9":"30.77","10":"3.3","11":"316","12":"13.7","13":"1802","14":"40.90"},{"1":"3","2":"Northwestern University","3":"4.1","4":"382","5":"228","6":"39","7":"56067","8":"2.2","9":"22.25","10":"3.7","11":"321","12":"7.8","13":"719","14":"29.21"},{"1":"3","2":"University of Pennsylvania","3":"4.4","4":"1654","5":"1091","6":"75","7":"42864","8":"4.8","9":"23.76","10":"3.3","11":"312","12":"14.6","13":"1176","14":"50.41"},{"1":"3","2":"University of Wisconsin--Madison","3":"4.3","4":"1136","5":"729","6":"123","7":"24054","8":"5.4","9":"51.06","10":"3.5","11":"305","12":"15.9","13":"1396","14":"64.50"},{"1":"6","2":"Vanderbilt University (Peabody)","3":"4.5","4":"1007","5":"809","6":"97","7":"53160","8":"2.6","9":"24.93","10":"3.6","11":"321","12":"5.4","13":"1195","14":"49.91"},{"1":"7","2":"Stanford University","3":"4.6","4":"343","5":"343","6":"51","7":"56487","8":"4.3","9":"46.65","10":"3.0","11":"327","12":"3.9","13":"1415","14":"25.22"},{"1":"7","2":"University of California--Los Angeles","3":"4.3","4":"701","5":"701","6":"43","7":"26802","8":"7.1","9":"51.64","10":"3.4","11":"310","12":"28.1","13":"1058","14":"46.52"},{"1":"9","2":"Harvard University","3":"4.4","4":"868","5":"707","6":"42","7":"54032","8":"3.6","9":"14.06","10":"3.9","11":"320","12":"5.7","13":"2148","14":"36.73"},{"1":"9","2":"New York University (Steinhardt)","3":"4.1","4":"2163","5":"1747","6":"79","7":"48480","8":"4.6","9":"14.52","10":"3.7","11":"314","12":"4.7","13":"886","14":"71.43"},{"1":"11","2":"University of Washington","3":"4.0","4":"826","5":"640","6":"51","7":"32074","8":"3.5","9":"22.15","10":"3.8","11":"307","12":"16.3","13":"1326","14":"34.87"},{"1":"13","2":"Johns Hopkins University","3":"4.1","4":"1732","5":"407","6":"19","7":"41280","8":"2.5","9":"15.18","10":"3.4","11":"314","12":"35.8","13":"981","14":"28.31"},{"1":"14","2":"University of California, Berkeley","3":"4.4","4":"243","5":"243","6":"27","7":"26802","8":"3.3","9":"57.20","10":"3.6","11":"321","12":"4.9","13":"771","14":"14.60"},{"1":"14","2":"University of Oregon","3":"3.7","4":"472","5":"405","6":"47","7":"27990","8":"1.5","9":"32.63","10":"3.5","11":"308","12":"12.0","13":"490","14":"57.72"},{"1":"16","2":"University of Texas--Austin","3":"4.1","4":"785","5":"610","6":"106","7":"18032","8":"2.9","9":"58.34","10":"3.7","11":"304","12":"25.8","13":"1386","14":"38.04"},{"1":"16","2":"University of Virginia","3":"4.2","4":"1173","5":"445","6":"69","7":"14376","8":"2.3","9":"23.27","10":"3.5","11":"270","12":"13.4","13":"1051","14":"35.54"},{"1":"18","2":"Arizona State University (Fulton)","3":"3.7","4":"5035","5":"797","6":"79","7":"24498","8":"3.1","9":"7.15","10":"3.4","11":"314","12":"28.1","13":"1557","14":"73.06"},{"1":"18","2":"University of Florida","3":"3.9","4":"1302","5":"354","6":"64","7":"27336","8":"2.9","9":"39.78","10":"3.6","11":"305","12":"44.6","13":"1303","14":"52.02"},{"1":"18","2":"University of Kansas","3":"3.7","4":"878","5":"380","6":"68","7":"24624","8":"3.7","9":"40.21","10":"3.4","11":"307","12":"50.8","13":"887","14":"61.46"},{"1":"21","2":"Boston College (Lynch)","3":"4.0","4":"867","5":"492","6":"61","7":"38400","8":"3.8","9":"17.07","10":"3.5","11":"320","12":"7.3","13":"433","14":"25.53"},{"1":"21","2":"Florida State University","3":"3.6","4":"1494","5":"633","6":"78","7":"26664","8":"5.3","9":"32.73","10":"3.8","11":"308","12":"30.5","13":"868","14":"35.42"},{"1":"21","2":"Michigan State University","3":"4.2","4":"980","5":"485","6":"112","7":"40488","8":"2.7","9":"38.67","10":"3.6","11":"309","12":"29.1","13":"1879","14":"19.32"},{"1":"21","2":"University of North Carolina--Chapel Hill","3":"4.1","4":"293","5":"201","6":"40","7":"28884","8":"2.8","9":"46.76","10":"3.5","11":"313","12":"22.6","13":"1199","14":"19.93"},{"1":"25","2":"Ohio State University","3":"4.1","4":"1064","5":"546","6":"127","7":"38693","8":"3.7","9":"43.61","10":"3.3","11":"304","12":"59.6","13":"1588","14":"25.22"},{"1":"25","2":"University of Minnesota--Twin Cities","3":"3.8","4":"1725","5":"1059","6":"132","7":"57168","8":"5.9","9":"34.90","10":"3.6","11":"312","12":"24.6","13":"1358","14":"42.30"},{"1":"27","2":"University of Delaware","3":"3.5","4":"347","5":"205","6":"46","7":"23496","8":"2.7","9":"42.65","10":"3.3","11":"306","12":"41.2","13":"535","14":"15.00"},{"1":"27","2":"University of Maryland--College Park","3":"4.1","4":"750","5":"481","6":"77","7":"42456","8":"2.2","9":"56.80","10":"3.4","11":"320","12":"24.0","13":"973","14":"13.91"},{"1":"27","2":"University of Pittsburgh","3":"3.9","4":"627","5":"288","6":"51","7":"42324","8":"2.7","9":"41.31","10":"3.3","11":"298","12":"46.8","13":"931","14":"19.56"},{"1":"27","2":"Virginia Commonwealth University","3":"3.5","4":"687","5":"243","6":"41","7":"22896","8":"2.8","9":"42.50","10":"3.9","11":"304","12":"74.2","13":"697","14":"37.40"},{"1":"31","2":"North Carolina State University--Raleigh","3":"3.5","4":"1473","5":"400","6":"72","7":"28301","8":"3.8","9":"36.46","10":"3.5","11":"305","12":"49.3","13":"932","14":"29.47"},{"1":"31","2":"Texas A&M University--College Station","3":"3.7","4":"1409","5":"615","6":"112","7":"19584","8":"2.7","9":"38.04","10":"3.5","11":"302","12":"49.1","13":"1050","14":"28.67"},{"1":"31","2":"University of Connecticut (Neag)","3":"3.9","4":"661","5":"378","6":"60","7":"40086","8":"3.2","9":"27.84","10":"3.3","11":"309","12":"44.2","13":"801","14":"23.87"},{"1":"31","2":"University of Georgia","3":"3.9","4":"1829","5":"838","6":"136","7":"25186","8":"3.5","9":"41.33","10":"3.4","11":"304","12":"46.3","13":"1133","14":"12.31"},{"1":"31","2":"University of Missouri","3":"3.5","4":"1553","5":"445","6":"68","7":"28608","8":"3.6","9":"25.76","10":"3.8","11":"300","12":"30.2","13":"693","14":"28.25"},{"1":"36","2":"Indiana University--Bloomington","3":"3.9","4":"1202","5":"352","6":"84","7":"36360","8":"3.8","9":"55.91","10":"3.6","11":"306","12":"39.2","13":"1190","14":"18.49"},{"1":"36","2":"University of Iowa","3":"3.6","4":"681","5":"352","6":"64","7":"31777","8":"2.1","9":"44.35","10":"3.4","11":"307","12":"44.4","13":"756","14":"13.75"},{"1":"36","2":"Utah State University","3":"3.2","4":"1079","5":"311","6":"134","7":"23936","8":"1.5","9":"24.10","10":"3.7","11":"307","12":"19.6","13":"446","14":"40.86"},{"1":"40","2":"Georgia State University","3":"3.4","4":"1419","5":"721","6":"113","7":"30216","8":"2.7","9":"27.55","10":"3.8","11":"303","12":"27.9","13":"781","14":"20.10"},{"1":"40","2":"University of South Carolina","3":"3.2","4":"1271","5":"338","6":"68","7":"29760","8":"3.1","9":"49.33","10":"3.6","11":"297","12":"62.5","13":"713","14":"17.82"},{"1":"43","2":"Rutgers University--New Brunswick","3":"3.6","4":"978","5":"258","6":"39","7":"31800","8":"2.5","9":"25.77","10":"3.4","11":"303","12":"41.9","13":"907","14":"8.27"},{"1":"43","2":"University of Massachusetts--Boston","3":"3.2","4":"962","5":"321","6":"49","7":"36879","8":"4.0","9":"24.01","10":"3.1","11":"299","12":"19.9","13":"316","14":"23.48"},{"1":"46","2":"Boston University (Wheelock)","3":"3.6","4":"626","5":"262","6":"32","7":"22920","8":"2.0","9":"17.25","10":"3.5","11":"317","12":"9.3","13":"673","14":"9.20"},{"1":"46","2":"Temple University","3":"3.4","4":"920","5":"340","6":"38","7":"24858","8":"2.7","9":"20.87","10":"3.5","11":"305","12":"20.6","13":"569","14":"13.25"},{"1":"46","2":"University of Central Florida","3":"3.1","4":"1375","5":"489","6":"62","7":"25752","8":"4.1","9":"15.78","10":"3.8","11":"296","12":"50.0","13":"628","14":"20.17"},{"1":"49","2":"Pennsylvania State University--University Park","3":"3.9","4":"1273","5":"423","6":"119","7":"41602","8":"2.2","9":"29.85","10":"3.5","11":"306","12":"60.6","13":"1311","14":"7.91"},{"1":"49","2":"Purdue University--West Lafayette","3":"3.3","4":"823","5":"98","6":"64","7":"18802","8":"2.4","9":"26.85","10":"3.8","11":"304","12":"44.0","13":"1367","14":"17.78"},{"1":"49","2":"SMU (Simmons)","3":"2.8","4":"465","5":"122","6":"16","7":"42120","8":"1.3","9":"26.24","10":"3.8","11":"308","12":"56.4","13":"230","14":"8.12"},{"1":"49","2":"University of Mississippi","3":"3.1","4":"638","5":"186","6":"46","7":"35064","8":"2.1","9":"31.50","10":"3.7","11":"291","12":"42.2","13":"247","14":"16.65"},{"1":"54","2":"University of South Florida","3":"3.0","4":"994","5":"374","6":"94","7":"21048","8":"2.6","9":"46.88","10":"3.3","11":"295","12":"49.2","13":"847","14":"21.42"},{"1":"56","2":"University of Alabama","3":"3.2","4":"1123","5":"335","6":"91","7":"31460","8":"2.0","9":"41.05","10":"3.1","11":"304","12":"37.6","13":"730","14":"12.28"},{"1":"58","2":"George Washington University","3":"3.4","4":"1059","5":"274","6":"45","7":"42648","8":"3.2","9":"35.41","10":"3.3","11":"299","12":"41.1","13":"528","14":"5.07"},{"1":"58","2":"University at Buffalo--SUNY","3":"3.2","4":"876","5":"477","6":"61","7":"23100","8":"3.5","9":"26.83","10":"3.4","11":"301","12":"40.3","13":"490","14":"6.38"},{"1":"58","2":"University of Arizona","3":"3.6","4":"776","5":"302","6":"58","7":"32290","8":"2.3","9":"43.43","10":"3.8","11":"310","12":"56.9","13":"848","14":"8.74"},{"1":"58","2":"University of Nebraska--Lincoln","3":"3.5","4":"734","5":"233","6":"80","7":"23904","8":"2.1","9":"42.78","10":"3.6","11":"300","12":"52.5","13":"651","14":"13.70"},{"1":"58","2":"University of Vermont","3":"3.1","4":"247","5":"48","6":"45","7":"41280","8":"0.4","9":"17.41","10":"3.7","11":"315","12":"65.0","13":"243","14":"6.26"},{"1":"64","2":"Syracuse University","3":"3.5","4":"502","5":"244","6":"45","7":"43248","8":"3.2","9":"30.28","10":"3.4","11":"314","12":"34.9","13":"372","14":"5.31"},{"1":"64","2":"University of Arkansas--Fayetteville","3":"3.0","4":"1282","5":"407","6":"83","7":"28560","8":"2.5","9":"23.09","10":"3.8","11":"305","12":"53.2","13":"390","14":"18.29"},{"1":"64","2":"University of Hawaii--Manoa","3":"3.0","4":"888","5":"193","6":"91","7":"22432","8":"1.8","9":"32.32","10":"3.9","11":"296","12":"55.1","13":"459","14":"29.34"},{"1":"70","2":"Loyola Marymount University","3":"2.9","4":"854","5":"540","6":"30","7":"43752","8":"4.5","9":"8.55","10":"3.0","11":"289","12":"38.5","13":"102","14":"6.68"},{"1":"70","2":"Oklahoma State University","3":"3.1","4":"1040","5":"530","6":"135","7":"24720","8":"2.3","9":"43.08","10":"3.3","11":"304","12":"40.5","13":"309","14":"12.51"},{"1":"70","2":"University of Houston","3":"3.2","4":"882","5":"305","6":"49","7":"16092","8":"3.9","9":"40.70","10":"3.3","11":"298","12":"32.1","13":"559","14":"6.09"},{"1":"70","2":"University of Louisville","3":"3.1","4":"1268","5":"456","6":"61","7":"28340","8":"2.5","9":"16.09","10":"3.3","11":"303","12":"51.2","13":"406","14":"12.24"},{"1":"70","2":"William & Mary","3":"3.4","4":"817","5":"256","6":"37","7":"28305","8":"3.5","9":"24.48","10":"3.3","11":"298","12":"67.6","13":"186","14":"6.87"},{"1":"77","2":"Boise State University","3":"2.8","4":"553","5":"99","6":"44","7":"24573","8":"1.8","9":"23.15","10":"3.6","11":"312","12":"57.7","13":"372","14":"12.19"},{"1":"80","2":"Miami University","3":"3.0","4":"520","5":"178","6":"63","7":"32698","8":"1.4","9":"21.92","10":"3.2","11":"282","12":"60.0","13":"381","14":"6.49"},{"1":"80","2":"University of California--Riverside","3":"3.4","4":"214","5":"198","6":"29","7":"20136","8":"3.2","9":"34.11","10":"3.6","11":"311","12":"11.1","13":"312","14":"2.89"},{"1":"83","2":"East Carolina University","3":"2.7","4":"1019","5":"167","6":"53","7":"17898","8":"3.0","9":"12.17","10":"3.2","11":"289","12":"72.7","13":"431","14":"3.70"},{"1":"83","2":"George Mason University","3":"3.1","4":"1667","5":"333","6":"68","7":"18216","8":"4.5","9":"15.48","10":"3.4","11":"300","12":"73.0","13":"758","14":"10.04"},{"1":"83","2":"Illinois State University","3":"2.9","4":"892","5":"186","6":"119","7":"20664","8":"1.8","9":"33.52","10":"3.8","11":"297","12":"74.1","13":"370","14":"7.97"},{"1":"83","2":"Old Dominion University (Darden)","3":"2.8","4":"1523","5":"487","6":"87","7":"33456","8":"2.5","9":"18.98","10":"3.3","11":"297","12":"59.5","13":"489","14":"9.91"},{"1":"83","2":"University of Denver (Morgridge)","3":"3.1","4":"969","5":"334","6":"33","7":"51091","8":"6.1","9":"27.66","10":"3.3","11":"300","12":"38.2","13":"295","14":"5.16"},{"1":"83","2":"University of Massachusetts--Amherst","3":"3.5","4":"399","5":"266","6":"52","7":"31488","8":"3.4","9":"62.16","10":"3.6","11":"305","12":"57.3","13":"512","14":"3.97"},{"1":"83","2":"University of Nevada--Reno","3":"3.0","4":"502","5":"138","6":"45","7":"21592","8":"1.7","9":"20.92","10":"3.6","11":"298","12":"66.7","13":"288","14":"10.97"},{"1":"83","2":"University of North Carolina--Greensboro","3":"3.2","4":"965","5":"302","6":"47","7":"18938","8":"3.2","9":"23.73","10":"3.4","11":"298","12":"74.7","13":"415","14":"5.27"},{"1":"83","2":"University of Utah","3":"3.2","4":"579","5":"334","6":"52","7":"25961","8":"4.2","9":"41.45","10":"3.5","11":"305","12":"41.8","13":"679","14":"7.55"},{"1":"83","2":"Virginia Tech","3":"3.4","4":"426","5":"228","6":"33","7":"29238","8":"4.4","9":"53.29","10":"3.3","11":"307","12":"73.6","13":"722","14":"3.14"},{"1":"99","2":"Auburn University","3":"3.2","4":"925","5":"385","6":"80","7":"41544","8":"3.3","9":"48.11","10":"3.3","11":"299","12":"38.7","13":"485","14":"4.63"},{"1":"99","2":"St. John's University","3":"2.7","4":"727","5":"204","6":"43","7":"33600","8":"3.6","9":"48.28","10":"3.2","11":"293","12":"51.3","13":"209","14":"3.18"},{"1":"99","2":"University of California--San Diego","3":"3.4","4":"52","5":"52","6":"20","7":"27690","8":"1.6","9":"100.00","10":"3.5","11":"302","12":"6.7","13":"585","14":"1.13"},{"1":"99","2":"University of Colorado--Denver","3":"3.2","4":"1363","5":"892","6":"35","7":"31992","8":"6.0","9":"25.46","10":"3.3","11":"300","12":"27.4","13":"297","14":"3.52"},{"1":"99","2":"University of Miami","3":"3.3","4":"532","5":"449","6":"29","7":"55440","8":"6.1","9":"50.19","10":"3.3","11":"299","12":"51.6","13":"368","14":"1.59"},{"1":"99","2":"University of North Texas","3":"3.0","4":"1141","5":"341","6":"67","7":"18264","8":"2.7","9":"24.54","10":"3.4","11":"298","12":"43.0","13":"755","14":"6.03"},{"1":"99","2":"University of Oklahoma (Rainbolt)","3":"3.0","4":"615","5":"442","6":"45","7":"24600","8":"4.3","9":"36.91","10":"3.1","11":"305","12":"92.1","13":"380","14":"12.11"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -357,7 +399,6 @@ div.csl-indent {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"2.95035940475","3":"0.20043505866","4":"14.7197772","5":"3.212316e-24"},{"1":"enroll","2":"-0.00015395167","3":"0.00009896459","4":"-1.5556237","5":"1.238460e-01"},{"1":"ft_students","2":"0.00052418253","3":"0.00018972573","4":"2.7628437","5":"7.144259e-03"},{"1":"ft_fac","2":"0.00148441660","3":"0.00178779966","4":"0.8303037","5":"4.089013e-01"},{"1":"nonres_tuition","2":"0.00001290727","3":"0.00000483485","4":"2.6696321","5":"9.235823e-03"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -501,7 +542,6 @@ p(x_1, x_2, x_3, \ldots, x_k) = p(x_1) \times p(x_2) \times p(x_3) \times \ldots
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get RSE for use in likelihood</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0.4906292","4":"NA","5":"NA","6":"NA","7":"-58.16733","8":"120.3347","9":"125.1723","10":"19.7388","11":"82","12":"83"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -781,7 +821,7 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 \chi^2(4) = 25.44
 \]</span></p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataset</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>fig_01 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -804,10 +844,14 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> shaded, <span class="at">ymin =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="fu">aes</span>(<span class="at">ymax =</span> Y), <span class="at">color =</span> <span class="st">"#bbbbbb"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-01" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-likelihood-evidence_files/figure-html/fig-01-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Plot of the probability density function (PDF) for a <span class="math inline">\(\chi^2(4)\)</span> distribution. The grey shaded area represents the <em>p</em>-value based on <span class="math inline">\(\chi^2=25.44\)</span>.</figcaption>
+<div id="fig-01" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-likelihood-evidence_files/figure-html/fig-01-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Plot of the probability density function (PDF) for a <span class="math inline">\(\chi^2(4)\)</span> distribution. The grey shaded area represents the <em>p</em>-value based on <span class="math inline">\(\chi^2=25.44\)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -831,7 +875,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output Model 0</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0.4906292","4":"NA","5":"NA","6":"NA","7":"-58.16733","8":"120.3347","9":"125.1723","10":"19.7388","11":"82","12":"83"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -841,7 +884,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level output Model 1</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.2639533","2":"0.2262073","3":"0.4315844","4":"6.992884","5":"0.0000728055","6":"4","7":"-45.44917","8":"102.8983","9":"117.4114","10":"14.52868","11":"78","12":"83"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -863,7 +905,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># LRT to compare Model 0 and Model 1</span></span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.0</span>, lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"-58.16733","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"6","2":"-45.44917","3":"4","4":"25.43632","5":"0.00004110256","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -884,7 +925,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.5724919","2":"0.5197855","3":"0.3399938","4":"10.86189","5":"1.603842e-10","6":"9","7":"-22.90137","8":"67.80275","9":"94.40999","10":"8.438494","11":"73","12":"83"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -924,7 +964,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LRT to compare Model 1 and Model 2</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.1</span>, lm<span class="fl">.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"6","2":"-45.44917","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"11","2":"-22.90137","3":"5","4":"45.0956","5":"0.00000001387377","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -946,7 +985,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient-level output</span></span>
 <span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.818531","2":"0.7904161","3":"0.2246117","4":"29.11376","5":"5.128748e-22","6":"11","7":"12.65949","8":"0.6810194","9":"32.12595","10":"3.58198","11":"71","12":"83"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -969,7 +1007,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LRT to compare Model 1 and Model 2</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.2</span>, lm<span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"11","2":"-22.90137","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"13","2":"12.65949","3":"2","4":"71.12173","5":"3.598433e-16","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -987,10 +1024,14 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create residual plots</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">residual_plots</span>(lm<span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-residuals-linear" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-likelihood-evidence_files/figure-html/fig-residuals-linear-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Two residual plots for the model regressing institutional prestige on a set of institutional characteristics, student- and faculty-resources, and student- and faculty-outcomes.</figcaption>
+<div id="fig-residuals-linear" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-residuals-linear-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-likelihood-evidence_files/figure-html/fig-residuals-linear-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-residuals-linear-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Two residual plots for the model regressing institutional prestige on a set of institutional characteristics, student- and faculty-resources, and student- and faculty-outcomes.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1023,7 +1064,7 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <h1>Presenting the Results</h1>
 <p>Below we present the results of the fitted models in a regression table. As is common, we report the coefficient estimates, standard errors for those coefficients, and error variances (RMSE). We also report the <span class="math inline">\(R^2\)</span> values and pertinent information for the LRTs: <span class="math inline">\(\chi^2\)</span>-values, number of parameters (<em>k</em>), and associated <em>p</em>-values.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(texreg)</span>
@@ -1056,7 +1097,6 @@ H_A:&amp; \theta_1 = \{\beta_0,~\beta_{\mathrm{Enrollment}},~\beta_{\mathrm{FT~S
 <span id="cb68-29"><a href="#cb68-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Table 2: Coefficients (and standard errors) for four models evaluating predictors of institutional prestige. The $</span><span class="sc">\\</span><span class="st">chi^2$-values, number of parameters (*k*), and associated *p*-values are also reported from the likelihood ratio tests."</span></span>
 <span id="cb68-30"><a href="#cb68-30" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-
 <table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 1px solid #000000;">
 <caption>
 Table 2: Coefficients (and standard errors) for four models evaluating predictors of institutional prestige. The <span class="math inline">\(\chi^2\)</span>-values, number of parameters (<em>k</em>), and associated <em>p</em>-values are also reported from the likelihood ratio tests.
@@ -1575,7 +1615,6 @@ RMSE
 </td>
 </tr>
 </tbody>
-
 </table>
 </div>
 <p><br></p>
@@ -1617,7 +1656,6 @@ H_0: \beta_{\mathrm{Enrollment}} = 0
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out LRT</span></span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.1</span>a, lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"-46.71715","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"6","2":"-45.44917","3":"1","4":"2.535952","5":"0.1112797","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1632,7 +1670,6 @@ H_0: \beta_{\mathrm{Enrollment}} = 0
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>lm<span class="fl">.1</span>b <span class="ot">=</span> <span class="fu">lm</span>(peer_rating <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> enroll <span class="sc">+</span> ft_fac <span class="sc">+</span> nonres_tuition, <span class="at">data =</span> usnwr_complete)</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.1</span>b, lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"-49.32384","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"6","2":"-45.44917","3":"1","4":"7.749333","5":"0.005373238","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1643,7 +1680,6 @@ H_0: \beta_{\mathrm{Enrollment}} = 0
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>lm<span class="fl">.1</span>c <span class="ot">=</span> <span class="fu">lm</span>(peer_rating <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> enroll <span class="sc">+</span> ft_students <span class="sc">+</span> nonres_tuition, <span class="at">data =</span> usnwr_complete)</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.1</span>c, lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"-45.81436","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"6","2":"-45.44917","3":"1","4":"0.7303738","5":"0.3927621","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1654,7 +1690,6 @@ H_0: \beta_{\mathrm{Enrollment}} = 0
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>lm<span class="fl">.1</span>d <span class="ot">=</span> <span class="fu">lm</span>(peer_rating <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> enroll <span class="sc">+</span> ft_students <span class="sc">+</span> ft_fac , <span class="at">data =</span> usnwr_complete)</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(lm<span class="fl">.1</span>d, lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["#Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LogLik"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"-49.07771","3":"NA","4":"NA","5":"NA","_rn_":"1"},{"1":"6","2":"-45.44917","3":"1","4":"7.257078","5":"0.00706221","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1672,7 +1707,7 @@ H_0: \beta_{\mathrm{Enrollment}} = 0
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Cohen:1994" class="csl-entry" role="listitem">
 Cohen, J. (1994). The earth is round (<span class="math inline">\(p &lt; .05\)</span>). <em>American Psychologist</em>, <em>49</em>(12), 997–1003.
 </div>
@@ -1781,10 +1816,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1794,8 +1828,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1808,6 +1851,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1851,6 +2013,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1876,6 +2039,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1936,6 +2125,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

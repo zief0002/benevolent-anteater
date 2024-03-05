@@ -23,10 +23,10 @@ carbon
 ### Exploration
 ##################################################
 
-p1 = ggplot(data = carbon, aes(x = co2)) +
+p1 = ggplot(data = carbon, aes(x = l2co2)) +
   geom_density() +
   theme_bw() +
-  xlab("Carbon emissions (metric tons per person)") +
+  xlab("log2(Carbon emissions (metric tons per person))") +
   ylab("Probability density")
 
 # Marginal distribution of wealth (predictor)
@@ -37,12 +37,12 @@ p2 = ggplot(data = carbon, aes(x = wealth)) +
   ylab("Probability density")
 
 # Scatterplot
-p3 = ggplot(data = carbon, aes(x = wealth, y = co2)) +
+p3 = ggplot(data = carbon, aes(x = wealth, y = l2co2)) +
   geom_point() +
   geom_smooth(se = FALSE) +
   theme_bw() +
   xlab("Wealth") +
-  ylab("Carbon emissions (metric tons per person)") +
+  ylab("log2(Carbon emissions (metric tons per person))") +
   annotate(geom = "text", x = 6.4, y = 38, label = "Quatar", size = 3, hjust = 1) +
   annotate(geom = "text", x = 4.6, y = 31.3, label = "Trinidad and Tobago", size = 3, hjust = 1) 
 

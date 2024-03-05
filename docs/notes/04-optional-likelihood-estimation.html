@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-12">
+<meta name="dcterms.date" content="2024-03-05">
 
 <title>EPsy 8252 - Likelihood: A Framework for Estimation</title>
 <style>
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,18 +95,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="../site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/sticky-notes.css">
 </head>
@@ -109,9 +142,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EPsy 8252</span>
     </a>
@@ -123,41 +156,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html" rel="" target="">
- <span class="menu-text">Schedule</span></a>
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructor.html" rel="" target="">
- <span class="menu-text">Instructor &amp; TA</span></a>
+    <a class="nav-link" href="../instructor.html"> 
+<span class="menu-text">Instructor &amp; TA</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignments.html" rel="" target="">
- <span class="menu-text">Assignments &amp; Grading</span></a>
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments &amp; Grading</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html" rel="" target="">
- <span class="menu-text">Data</span></a>
+    <a class="nav-link" href="../data.html"> 
+<span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../class-policies.html" rel="" target="">
- <span class="menu-text">Class Policies</span></a>
+    <a class="nav-link" href="../class-policies.html"> 
+<span class="menu-text">Class Policies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../mission-statements.html" rel="" target="">
- <span class="menu-text">Mission Statements</span></a>
+    <a class="nav-link" href="../mission-statements.html"> 
+<span class="menu-text">Mission Statements</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../umn-policies.html" rel="" target="">
- <span class="menu-text">University Policies</span></a>
+    <a class="nav-link" href="../umn-policies.html"> 
+<span class="menu-text">University Policies</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -208,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 12, 2024</p>
+      <p class="date">March 5, 2024</p>
     </div>
   </div>
   
@@ -216,7 +249,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="preparation" class="level1">
 <h1>Preparation</h1>
@@ -298,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Based on this it looks like a <span class="math inline">\(\mu\approx25\)</span> produces the highest likelihood. We can also plot the likelihood versus the candidate parameter values.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>example_01 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -319,10 +354,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-lik_prof_01" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-optional-likelihood-estimation_files/figure-html/fig-lik_prof_01-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Plot of the likelihood values for five candidate parameter values.</figcaption>
+<div id="fig-lik_prof_01" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lik_prof_01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-optional-likelihood-estimation_files/figure-html/fig-lik_prof_01-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lik_prof_01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Plot of the likelihood values for five candidate parameter values.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -344,7 +383,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_01_grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["L"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"10.00","2":"1.449116e-16"},{"1":"10.01","2":"1.498355e-16"},{"1":"10.02","2":"1.549232e-16"},{"1":"10.03","2":"1.601802e-16"},{"1":"10.04","2":"1.656120e-16"},{"1":"10.05","2":"1.712242e-16"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -361,10 +399,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Likelihood"</span>) <span class="sc">+</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-plot_example_01" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-optional-likelihood-estimation_files/figure-html/fig-plot_example_01-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Likelihood profile for several parameter values assuming a normal distribution and a standard deviation of 4.272.</figcaption>
+<div id="fig-plot_example_01" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plot_example_01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-optional-likelihood-estimation_files/figure-html/fig-plot_example_01-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plot_example_01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Likelihood profile for several parameter values assuming a normal distribution and a standard deviation of 4.272.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -375,7 +417,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>example_01_grid <span class="sc">|&gt;</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(L, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["L"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"25.25","2":"0.00001696965"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -410,7 +451,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>example_02 <span class="sc">|&gt;</span></span>
 <span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(L, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["L"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"25.2","2":"3.7","3":"0.00001829129"},{"1":"25.3","2":"3.7","3":"0.00001829129"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -422,10 +462,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In computer science, this method for finding the MLE is referred to as a <em>grid search</em>. This is because the combinations of parameter values in the search space constitute a grid. In the figure below, the search space for each parameter is listed in the first row/column of the table. Every other cell of the table (the “grid”) constitutes a particular combination of the parameters. We are then computing the likelihood for each combination of parameters and searching for the cell with the highest likelihood.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-grid-search-example-02" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/grid-search.jpg" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Grid showing the combinations of parameter values used in the search space.</figcaption>
+<div id="fig-grid-search-example-02" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-grid-search-example-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/grid-search.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grid-search-example-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Grid showing the combinations of parameter values used in the search space.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -439,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="likelihood-profile-for-multiple-parameters">Likelihood Profile for Multiple Parameters</h2>
 <p>We could also plot the profile of the likelihood for our search space, but this time there would be three dimensions: one dimension for <span class="math inline">\(\mu\)</span> (<em>x</em>-axis), one dimension for <span class="math inline">\(\sigma\)</span> (<em>y</em>-axis), and one dimension for the likelihood (<em>z</em>-axis). When we plot the likelihood profile across both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>, the profile looks like an asymmetrical mountain. The highest likelihood value is at the summit of the mountain and corresponds to <span class="math inline">\(\mu=25.2\)</span> and <span class="math inline">\(\sigma=3.7\)</span>.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plot3D)</span>
@@ -453,10 +497,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-three-dim" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-optional-likelihood-estimation_files/figure-html/fig-three-dim-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Likelihood profile for the search space of both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> assuming a normal distribution.</figcaption>
+<div id="fig-three-dim" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-three-dim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-optional-likelihood-estimation_files/figure-html/fig-three-dim-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-three-dim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Likelihood profile for the search space of both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> assuming a normal distribution.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -485,7 +533,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>example_01 <span class="sc">|&gt;</span></span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(ln_L, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["L"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ln_L"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"25.25","2":"0.00001696965","3":"-10.98408"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -502,10 +549,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log-likelihood"</span>) <span class="sc">+</span></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-example-03" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="04-optional-likelihood-estimation_files/figure-html/fig-example-03-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Log-likelihood profile for several parameter values assuming a normal distribution and a standard deviation of 4.272.</figcaption>
+<div id="fig-example-03" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-example-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-optional-likelihood-estimation_files/figure-html/fig-example-03-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Log-likelihood profile for several parameter values assuming a normal distribution and a standard deviation of 4.272.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -518,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In estimating parameters for a regression model, we want to maximize the likelihood (or log-likelihood) for a given set of residuals that come from a normal distribution. We use the residuals since that is what we make distributional assumptions about in the model (e.g., normality, homogeneity of variance, independence). Our goal in regression is to estimate a set of parameters (<span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>) that maximize the likelihood of the residuals.</p>
 <p>To understand this, consider the following a toy example of <span class="math inline">\(n=10\)</span> observations.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create toy data</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>example_03 <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -541,26 +592,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>   <span class="at">table.width =</span> <span class="fu">pct</span>(<span class="dv">30</span>) </span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div id="tbl-example-03" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-example-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Toy data set that includes predictor (x) and outcome (y) values.
+</figcaption>
+<div aria-describedby="tbl-example-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-example-03" class="anchored">
-
-<div id="fkqbvndtxb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fkqbvndtxb table {
+<div>
+<div id="slyixqfsyq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#slyixqfsyq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fkqbvndtxb thead, #fkqbvndtxb tbody, #fkqbvndtxb tfoot, #fkqbvndtxb tr, #fkqbvndtxb td, #fkqbvndtxb th {
+#slyixqfsyq thead, #slyixqfsyq tbody, #slyixqfsyq tfoot, #slyixqfsyq tr, #slyixqfsyq td, #slyixqfsyq th {
   border-style: none;
 }
 
-#fkqbvndtxb p {
+#slyixqfsyq p {
   margin: 0;
   padding: 0;
 }
 
-#fkqbvndtxb .gt_table {
+#slyixqfsyq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -586,12 +642,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_caption {
+#slyixqfsyq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fkqbvndtxb .gt_title {
+#slyixqfsyq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -603,7 +659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#fkqbvndtxb .gt_subtitle {
+#slyixqfsyq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -615,7 +671,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#fkqbvndtxb .gt_heading {
+#slyixqfsyq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -627,13 +683,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_bottom_border {
+#slyixqfsyq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_col_headings {
+#slyixqfsyq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -648,7 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_col_heading {
+#slyixqfsyq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -668,7 +724,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#fkqbvndtxb .gt_column_spanner_outer {
+#slyixqfsyq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -680,15 +736,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#fkqbvndtxb .gt_column_spanner_outer:first-child {
+#slyixqfsyq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fkqbvndtxb .gt_column_spanner_outer:last-child {
+#slyixqfsyq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fkqbvndtxb .gt_column_spanner {
+#slyixqfsyq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -700,11 +756,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#fkqbvndtxb .gt_spanner_row {
+#slyixqfsyq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fkqbvndtxb .gt_group_heading {
+#slyixqfsyq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -730,7 +786,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#fkqbvndtxb .gt_empty_group_heading {
+#slyixqfsyq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -745,15 +801,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#fkqbvndtxb .gt_from_md > :first-child {
+#slyixqfsyq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fkqbvndtxb .gt_from_md > :last-child {
+#slyixqfsyq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fkqbvndtxb .gt_row {
+#slyixqfsyq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -772,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#fkqbvndtxb .gt_stub {
+#slyixqfsyq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -785,7 +841,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fkqbvndtxb .gt_stub_row_group {
+#slyixqfsyq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -799,15 +855,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#fkqbvndtxb .gt_row_group_first td {
+#slyixqfsyq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fkqbvndtxb .gt_row_group_first th {
+#slyixqfsyq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fkqbvndtxb .gt_summary_row {
+#slyixqfsyq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -817,16 +873,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fkqbvndtxb .gt_first_summary_row {
+#slyixqfsyq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_first_summary_row.thick {
+#slyixqfsyq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fkqbvndtxb .gt_last_summary_row {
+#slyixqfsyq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -836,7 +892,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_grand_summary_row {
+#slyixqfsyq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -846,7 +902,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fkqbvndtxb .gt_first_grand_summary_row {
+#slyixqfsyq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -856,7 +912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_last_grand_summary_row_top {
+#slyixqfsyq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -866,11 +922,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_striped {
+#slyixqfsyq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fkqbvndtxb .gt_table_body {
+#slyixqfsyq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -879,7 +935,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_footnotes {
+#slyixqfsyq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -893,7 +949,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_footnote {
+#slyixqfsyq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -902,7 +958,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fkqbvndtxb .gt_sourcenotes {
+#slyixqfsyq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -916,7 +972,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fkqbvndtxb .gt_sourcenote {
+#slyixqfsyq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -924,101 +980,123 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fkqbvndtxb .gt_left {
+#slyixqfsyq .gt_left {
   text-align: left;
 }
 
-#fkqbvndtxb .gt_center {
+#slyixqfsyq .gt_center {
   text-align: center;
 }
 
-#fkqbvndtxb .gt_right {
+#slyixqfsyq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fkqbvndtxb .gt_font_normal {
+#slyixqfsyq .gt_font_normal {
   font-weight: normal;
 }
 
-#fkqbvndtxb .gt_font_bold {
+#slyixqfsyq .gt_font_bold {
   font-weight: bold;
 }
 
-#fkqbvndtxb .gt_font_italic {
+#slyixqfsyq .gt_font_italic {
   font-style: italic;
 }
 
-#fkqbvndtxb .gt_super {
+#slyixqfsyq .gt_super {
   font-size: 65%;
 }
 
-#fkqbvndtxb .gt_footnote_marks {
+#slyixqfsyq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fkqbvndtxb .gt_asterisk {
+#slyixqfsyq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fkqbvndtxb .gt_indent_1 {
+#slyixqfsyq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fkqbvndtxb .gt_indent_2 {
+#slyixqfsyq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fkqbvndtxb .gt_indent_3 {
+#slyixqfsyq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fkqbvndtxb .gt_indent_4 {
+#slyixqfsyq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fkqbvndtxb .gt_indent_5 {
+#slyixqfsyq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;1:  <p>Toy data set that includes predictor (x) and outcome (y) values.</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>x</em>"><em>x</em></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<em>y</em>"><em>y</em></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="x" class="gt_row gt_center">4</td>
-<td headers="y" class="gt_row gt_center">53</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">0</td>
-<td headers="y" class="gt_row gt_center">56</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">3</td>
-<td headers="y" class="gt_row gt_center">37</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">4</td>
-<td headers="y" class="gt_row gt_center">55</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">7</td>
-<td headers="y" class="gt_row gt_center">50</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">0</td>
-<td headers="y" class="gt_row gt_center">36</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">0</td>
-<td headers="y" class="gt_row gt_center">22</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">3</td>
-<td headers="y" class="gt_row gt_center">75</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">0</td>
-<td headers="y" class="gt_row gt_center">37</td></tr>
-    <tr><td headers="x" class="gt_row gt_center">2</td>
-<td headers="y" class="gt_row gt_center">42</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="<em>x</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>x</em></th>
+<th id="<em>y</em>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><em>y</em></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="x">4</td>
+<td class="gt_row gt_center" headers="y">53</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="x">0</td>
+<td class="gt_row gt_center" headers="y">56</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="x">3</td>
+<td class="gt_row gt_center" headers="y">37</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="x">4</td>
+<td class="gt_row gt_center" headers="y">55</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="x">7</td>
+<td class="gt_row gt_center" headers="y">50</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="x">0</td>
+<td class="gt_row gt_center" headers="y">36</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="x">0</td>
+<td class="gt_row gt_center" headers="y">22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="x">3</td>
+<td class="gt_row gt_center" headers="y">75</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="x">0</td>
+<td class="gt_row gt_center" headers="y">37</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="x">2</td>
+<td class="gt_row gt_center" headers="y">42</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>We initially enter these observations into two vectors, <code>x</code> and <code>y</code>.</p>
@@ -1091,7 +1169,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>example_03 <span class="sc">|&gt;</span></span>
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(ln_L, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["B0"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["B1"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ln_L"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"40.1","2":"2.7","3":"-39.48144"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1181,7 +1258,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get estimates</span></span>
 <span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.1933807","2":"0.09255326","3":"13.98625","4":"1.917937","5":"0.2034786","6":"1","7":"-39.45442","8":"84.90883","9":"85.81659","10":"1564.922","11":"8","12":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1190,7 +1266,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"40.005988","3":"6.341633","4":"6.308468","5":"0.0002306738"},{"1":"x","2":"2.736527","3":"1.975980","4":"1.384896","5":"0.2034785827"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1198,9 +1273,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 </div>
 </div>
 </div>
-<p>Both sets of parameter estimates are presented in <a href="#tbl-compare-ests">Table&nbsp;2</a>.</p>
+<p>Both sets of parameter estimates are presented in <a href="#tbl-compare-ests" class="quarto-xref">Table&nbsp;2</a>.</p>
 <div class="cell" data-layout-align="center">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create toy data</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>estimates <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
@@ -1220,26 +1295,31 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>   <span class="at">table.width =</span> <span class="fu">pct</span>(<span class="dv">40</span>) </span>
 <span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div id="tbl-compare-ests" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-compare-ests-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Parameter estimates using maximum likelihood (ML) and ordinary least squares (OLS) estimation.
+</figcaption>
+<div aria-describedby="tbl-compare-ests-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-compare-ests" class="anchored">
-
-<div id="yndknflkjd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yndknflkjd table {
+<div>
+<div id="nzfdzjdwxu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nzfdzjdwxu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yndknflkjd thead, #yndknflkjd tbody, #yndknflkjd tfoot, #yndknflkjd tr, #yndknflkjd td, #yndknflkjd th {
+#nzfdzjdwxu thead, #nzfdzjdwxu tbody, #nzfdzjdwxu tfoot, #nzfdzjdwxu tr, #nzfdzjdwxu td, #nzfdzjdwxu th {
   border-style: none;
 }
 
-#yndknflkjd p {
+#nzfdzjdwxu p {
   margin: 0;
   padding: 0;
 }
 
-#yndknflkjd .gt_table {
+#nzfdzjdwxu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1265,12 +1345,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-left-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_caption {
+#nzfdzjdwxu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yndknflkjd .gt_title {
+#nzfdzjdwxu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1282,7 +1362,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-bottom-width: 0;
 }
 
-#yndknflkjd .gt_subtitle {
+#nzfdzjdwxu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1294,7 +1374,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-top-width: 0;
 }
 
-#yndknflkjd .gt_heading {
+#nzfdzjdwxu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1306,13 +1386,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-right-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_bottom_border {
+#nzfdzjdwxu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_col_headings {
+#nzfdzjdwxu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1327,7 +1407,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-right-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_col_heading {
+#nzfdzjdwxu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1347,7 +1427,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   overflow-x: hidden;
 }
 
-#yndknflkjd .gt_column_spanner_outer {
+#nzfdzjdwxu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1359,15 +1439,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   padding-right: 4px;
 }
 
-#yndknflkjd .gt_column_spanner_outer:first-child {
+#nzfdzjdwxu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yndknflkjd .gt_column_spanner_outer:last-child {
+#nzfdzjdwxu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yndknflkjd .gt_column_spanner {
+#nzfdzjdwxu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1379,11 +1459,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   width: 100%;
 }
 
-#yndknflkjd .gt_spanner_row {
+#nzfdzjdwxu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yndknflkjd .gt_group_heading {
+#nzfdzjdwxu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1409,7 +1489,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   text-align: left;
 }
 
-#yndknflkjd .gt_empty_group_heading {
+#nzfdzjdwxu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1424,15 +1504,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   vertical-align: middle;
 }
 
-#yndknflkjd .gt_from_md > :first-child {
+#nzfdzjdwxu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yndknflkjd .gt_from_md > :last-child {
+#nzfdzjdwxu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yndknflkjd .gt_row {
+#nzfdzjdwxu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1451,7 +1531,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   overflow-x: hidden;
 }
 
-#yndknflkjd .gt_stub {
+#nzfdzjdwxu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1464,7 +1544,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   padding-right: 5px;
 }
 
-#yndknflkjd .gt_stub_row_group {
+#nzfdzjdwxu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1478,15 +1558,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   vertical-align: top;
 }
 
-#yndknflkjd .gt_row_group_first td {
+#nzfdzjdwxu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yndknflkjd .gt_row_group_first th {
+#nzfdzjdwxu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yndknflkjd .gt_summary_row {
+#nzfdzjdwxu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1496,16 +1576,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   padding-right: 5px;
 }
 
-#yndknflkjd .gt_first_summary_row {
+#nzfdzjdwxu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_first_summary_row.thick {
+#nzfdzjdwxu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yndknflkjd .gt_last_summary_row {
+#nzfdzjdwxu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1515,7 +1595,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-bottom-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_grand_summary_row {
+#nzfdzjdwxu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1525,7 +1605,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   padding-right: 5px;
 }
 
-#yndknflkjd .gt_first_grand_summary_row {
+#nzfdzjdwxu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1535,7 +1615,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-top-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_last_grand_summary_row_top {
+#nzfdzjdwxu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1545,11 +1625,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-bottom-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_striped {
+#nzfdzjdwxu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yndknflkjd .gt_table_body {
+#nzfdzjdwxu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1558,7 +1638,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-bottom-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_footnotes {
+#nzfdzjdwxu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1572,7 +1652,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-right-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_footnote {
+#nzfdzjdwxu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1581,7 +1661,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   padding-right: 5px;
 }
 
-#yndknflkjd .gt_sourcenotes {
+#nzfdzjdwxu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1595,7 +1675,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   border-right-color: #D3D3D3;
 }
 
-#yndknflkjd .gt_sourcenote {
+#nzfdzjdwxu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1603,92 +1683,99 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   padding-right: 5px;
 }
 
-#yndknflkjd .gt_left {
+#nzfdzjdwxu .gt_left {
   text-align: left;
 }
 
-#yndknflkjd .gt_center {
+#nzfdzjdwxu .gt_center {
   text-align: center;
 }
 
-#yndknflkjd .gt_right {
+#nzfdzjdwxu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yndknflkjd .gt_font_normal {
+#nzfdzjdwxu .gt_font_normal {
   font-weight: normal;
 }
 
-#yndknflkjd .gt_font_bold {
+#nzfdzjdwxu .gt_font_bold {
   font-weight: bold;
 }
 
-#yndknflkjd .gt_font_italic {
+#nzfdzjdwxu .gt_font_italic {
   font-style: italic;
 }
 
-#yndknflkjd .gt_super {
+#nzfdzjdwxu .gt_super {
   font-size: 65%;
 }
 
-#yndknflkjd .gt_footnote_marks {
+#nzfdzjdwxu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yndknflkjd .gt_asterisk {
+#nzfdzjdwxu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yndknflkjd .gt_indent_1 {
+#nzfdzjdwxu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yndknflkjd .gt_indent_2 {
+#nzfdzjdwxu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yndknflkjd .gt_indent_3 {
+#nzfdzjdwxu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yndknflkjd .gt_indent_4 {
+#nzfdzjdwxu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yndknflkjd .gt_indent_5 {
+#nzfdzjdwxu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2:  <p>Parameter estimates using maximum likelihood (ML) and ordinary least
-squares (OLS) estimation.</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Estimate">Estimate</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="ML">ML</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OLS">OLS</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Estimate" class="gt_row gt_center">$$\hat{\beta}_0$$</td>
-<td headers="ML" class="gt_row gt_center">40.01</td>
-<td headers="OLS" class="gt_row gt_center">40.01</td></tr>
-    <tr><td headers="Estimate" class="gt_row gt_center">$$\hat{\beta}_1$$</td>
-<td headers="ML" class="gt_row gt_center">2.74</td>
-<td headers="OLS" class="gt_row gt_center">2.74</td></tr>
-    <tr><td headers="Estimate" class="gt_row gt_center">$$\hat{\sigma}^2_{\epsilon}$$</td>
-<td headers="ML" class="gt_row gt_center">12.51</td>
-<td headers="OLS" class="gt_row gt_center">13.99</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Estimate</th>
+<th id="ML" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">ML</th>
+<th id="OLS" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">OLS</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Estimate">$$\hat{\beta}_0$$</td>
+<td class="gt_row gt_center" headers="ML">40.01</td>
+<td class="gt_row gt_center" headers="OLS">40.01</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Estimate">$$\hat{\beta}_1$$</td>
+<td class="gt_row gt_center" headers="ML">2.74</td>
+<td class="gt_row gt_center" headers="OLS">2.74</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Estimate">$$\hat{\sigma}^2_{\epsilon}$$</td>
+<td class="gt_row gt_center" headers="ML">12.51</td>
+<td class="gt_row gt_center" headers="OLS">13.99</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>Comparing the coefficient estimates (<span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span>) to those obtained through ordinary least squares, we find they are quite similar. The estimate of the residual standard error (<span class="math inline">\(\sigma_{\epsilon}\)</span>), however, differs between the two estimation methods (although they are somewhat close in value).</p>
@@ -1892,10 +1979,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1905,8 +1991,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1919,6 +2014,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1962,6 +2176,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1987,6 +2202,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2047,6 +2288,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

@@ -341,7 +341,7 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Mar. 14</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/07-logarithmic-transformations-predictor.html) -->
+  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/08-logarithmic-transformations-predictor.html)
 </td>
 <td style="vertical-align:middle;" rowspan="2">Log-Transforming the Predictor</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
@@ -402,13 +402,13 @@ As part of the course, there are several articles, papers and technical reports 
 </td>
 <td style="vertical-align:middle;">Linear Probability Model</td>
 <td align="center" style="vertical-align:middle;">
-   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/10-linear-probability-model.html) -->
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/10-optional-linear-probability-model.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/10-linear-probability-model.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/10-optional-linear-probability-model.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/10-linear-probability-model.R) -->
+  <span class="fa fa-code" style="font-size: 17px; color: #f1f1f1"></span>
 </td>
 </tr>
 
@@ -417,17 +417,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Mar. 26</td>
 <td align="center" style="vertical-align:middle;" >
-  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/11-logistic-regression.html) -->
+  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/10-logistic-regression.html)
 </td>
 <td style="vertical-align:middle;">Logistic Regression Model</td>
 <td align="center" style="vertical-align:middle;">
-   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/11-logistic-regression.html) -->
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/10-logistic-regression.html)
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/11-logistic-regression.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/10-logistic-regression.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/11-logistic-regression.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/10-logistic-regression.R)
 </td>
 </tr>
 
@@ -439,14 +439,14 @@ As part of the course, there are several articles, papers and technical reports 
   <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
 </td>
 <td style="vertical-align:middle;" rowspan="2">More Logistic Regression</td>
-<td align="center" style="vertical-align:middle;">
-   <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/12-more-logistic-regression.html) -->
+<td align="center" style="vertical-align:middle;" rowspan="2">
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/11-more-logistic-regression.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/12-more-logistic-regression.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/11-more-logistic-regression.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/12-more-logistic-regression.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](scripts/11-more-logistic-regression.R)
 </td>
 </tr>
 
@@ -470,17 +470,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Apr. 04</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/13-introduction-to-mixed-effects-models.html) -->
+  <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
 </td>
 <td style="vertical-align:middle;" rowspan="2">Introduction to Mixed-Effects Regression Models</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/13-introduction-to-mixed-effects-models.html) -->
+  [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/12-introduction-to-mixed-effects-models.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/13-introduction-to-mixed-effects-models.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/12-introduction-to-mixed-effects-models.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/13-introduction-to-mixed-effects-models.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/12-introduction-to-mixed-effects-models.R)
 </td>
 </tr>
 
@@ -496,17 +496,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Apr. 11</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
+  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/13-lmer-average-change-over-time.html)
 </td>
 <td style="vertical-align:middle;" rowspan="2">LMER: Average Change Over Time</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/14-lmer-average-change-over-time.html) -->
+  [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/13-lmer-average-change-over-time.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/14-lmer-average-change-over-time.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/13-lmer-average-change-over-time.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/14-lmer-average-change-over-time.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/13-lmer-average-change-over-time.R)
 </td>
 </tr>
 
@@ -522,17 +522,17 @@ As part of the course, there are several articles, papers and technical reports 
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Apr. 18</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/15-lmer-other-random-effects-and-covariates.html) -->
+  [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/14-lmer-other-random-effects-and-covariates.html)
 </td>
 <td style="vertical-align:middle;" rowspan="2">LMER: Other Random-Effects and Covariates</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/15-lmer-other-random-effects-and-covariates.html) -->
+  [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/14-lmer-other-random-effects-and-covariates.html)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/15-lmer-other-random-effects-and-covariates.qmd) -->
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/14-lmer-other-random-effects-and-covariates.qmd)
 </td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <!-- [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/15-lmer-other-random-effects-and-covariates.R) -->
+  [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/14-lmer-other-random-effects-and-covariates.R)
 </td>
 </tr>
 
@@ -542,6 +542,23 @@ As part of the course, there are several articles, papers and technical reports 
 <td>Apr. 23</td>
 </tr>
 
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>*Optional*</td>
+<td align="center" style="vertical-align:middle;">
+  <span class="fa fa-book" style="color: #f1f1f1; font-size: 17px;"></span>
+</td>
+<td style="vertical-align:middle;">LMER: Alternative Representations &amp; Assumptions</td>
+<td align="center" style="vertical-align:middle;">
+   [<span class="fas fa-link" style="font-size: 17px;"></span>](notes/15-optional-lmer-alt-representations-and-assumptions.html)
+</td>
+<td align="center" style="vertical-align:middle;">
+  [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/15-optional-lmer-alt-representations-and-assumptions.qmd)
+</td>
+<td align="center" style="vertical-align:middle;">
+  <span class="fa fa-code" style="font-size: 17px; color: #f1f1f1"></span>
+</td>
+</tr>
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
@@ -562,29 +579,7 @@ As part of the course, there are several articles, papers and technical reports 
 </tr>
 
 
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Apr. 23</td> -->
-<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fa fa-book" style="font-size: 17px;"></span>](readings/16-lmer-alt-representations-and-assumptions.html) -->
-<!-- </td> -->
-<!-- <td style="vertical-align:middle;" rowspan="2">NO CLASS --- Optional: LMER: Alternative Representations and Assumptions</td> -->
-<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fas fa-link" style="font-size: 17px;"></span>](https://zief0002.github.io/benevolent-anteater/notes/16-lmer-alt-representations-and-assumptions.html) -->
-<!-- </td> -->
-<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fab fa-markdown" style="font-size: 17px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/notes/16-lmer-alt-representations-and-assumptions.qmd) -->
-<!-- </td> -->
-<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   [<span class="fa fa-code" style="font-size: 17px;"></span>](https://github.com/zief0002/benevolent-anteater/raw/main/scripts/16-lmer-alt-representations-and-assumptions.R) -->
-<!-- </td> -->
-<!-- </tr> -->
 
-
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Apr. 25</td> -->
-<!-- </tr> -->
 
 
 </tbody>

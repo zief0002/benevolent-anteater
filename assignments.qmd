@@ -87,22 +87,22 @@ Below are the due dates for the assignments, as well as links to each assignment
 <!-- <br /><span style="margin-left:5px; color:#5a067d;font-size:12px;">*[Updated: 03-24-2022]*</span> -->
 <td>Apr. 11</td>
 <td align="center" style="vertical-align:middle;">
-<!-- [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-05-logistic-regression.qmd) -->
+[<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-05-logistic-regression.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
-<!-- [<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-05-logistic-regression.html) -->
+[<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-05-logistic-regression.html)
 </td>
 </tr>
 
 
 <tr>
-<td>Assignment \#6: *LMER: Unconditional Longitudinal Models*</td>
+<td>Assignment \#6: *Linear Mixed-Effects Regression*</td>
 <td>Apr. 30 (due by 10:00am)</td>
 <td align="center" style="vertical-align:middle;">
-<!-- [<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-06-lmer-unconditional-longitudinal-models.qmd) -->
+[<span class="fab fa-markdown" style="font-size: 20px;"></span>](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/assignments/assignment-06-lmer-analysis.qmd)
 </td>
 <td align="center" style="vertical-align:middle;">
-<!-- [<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-06-lmer-unconditional-longitudinal-models.html) -->
+[<span class="fas fa-link" style="font-size: 20px;"></span>](assignments/assignment-06-lmer-analysis.html)
 </td>
 </tr>
 
