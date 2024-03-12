@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-05">
+<meta name="dcterms.date" content="2024-03-12">
 
 <title>EPsy 8252 - Log-Transforming the Outcome</title>
 <style>
@@ -274,7 +274,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 5, 2024</p>
+      <p class="date">March 12, 2024</p>
     </div>
   </div>
   
@@ -974,10 +974,10 @@ Figure&nbsp;8: Plot of predicted CO2 emisssions as a function of wealth.
 <p>To interpret these, we exponentiate the coefficients using base-e.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exponentiate using base-e</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(lm.log10))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(lm.ln))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)      wealth 
-   0.385220    1.430052 </code></pre>
+  0.1111884   2.2788237 </code></pre>
 </div>
 </div>
 <p>We get the exact same back-transformed coefficients as we did when we back-transformed the base-2 coefficients. Again, this is expected. Based on these, the interpretations are:</p>

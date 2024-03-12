@@ -710,7 +710,7 @@ To interpret these, we exponentiate the coefficients using base-e.
 
 ```{r}
 # Exponentiate using base-e
-exp(coef(lm.log10))
+exp(coef(lm.ln))
 ```
 
 We get the exact same back-transformed coefficients as we did when we back-transformed the base-2 coefficients. Again, this is expected. Based on these, the interpretations are:
