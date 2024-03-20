@@ -239,9 +239,6 @@ lm.ln = lm(lnco2 ~ 1 + wealth, data = carbon)
 glance(lm.ln)
 
 
-# Model-level output
-glance(lm.ln)
-
 
 # Coefficient-level output
 coef(lm.log10)

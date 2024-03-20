@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-05">
+<meta name="dcterms.date" content="2024-03-20">
 
 <title>EPsy 8252 - Assignment 04</title>
 <style>
@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
   <li><a href="#model-1-effect-of-wine-rating-on-price" id="toc-model-1-effect-of-wine-rating-on-price" class="nav-link" data-scroll-target="#model-1-effect-of-wine-rating-on-price">Model 1: Effect of Wine Rating on Price</a></li>
   <li><a href="#effect-of-wine-rating-and-region-on-log-transformed-price" id="toc-effect-of-wine-rating-and-region-on-log-transformed-price" class="nav-link" data-scroll-target="#effect-of-wine-rating-and-region-on-log-transformed-price">Effect of Wine Rating and Region on Log-Transformed Price</a></li>
-  <li><a href="#adopting-a-final-candidate-model" id="toc-adopting-a-final-candidate-model" class="nav-link" data-scroll-target="#adopting-a-final-candidate-model">Adopting a “Final” Candidate Model</a></li>
+  <li><a href="#adopting-a-final-candidate-models" id="toc-adopting-a-final-candidate-models" class="nav-link" data-scroll-target="#adopting-a-final-candidate-models">Adopting a “Final” Candidate Model(s)</a></li>
   <li><a href="#presenting-the-results" id="toc-presenting-the-results" class="nav-link" data-scroll-target="#presenting-the-results">Presenting the Results</a></li>
   </ul>
 </nav>
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 5, 2024</p>
+      <p class="date">March 20, 2024</p>
     </div>
   </div>
   
@@ -176,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with logarithmically transformed variables. In this assignment, you will use the data from the file <em>wine.csv</em> to examine several different predictors of wine rating (a measure of the wine’s quality). The literature has suggested that price of wine is quite predictive of a wine’s quality. You will be carrying out a replication study (using a different data set) of a study published by Snipes and Taylor (2014).</p>
+<p>The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with logarithmically transformed variables. In this assignment, you will use the data from the file <em>wine.csv</em> to examine several different predictors of wine rating (a measure of the wine’s quality). The literature has suggested that price of wine is quite predictive of a wine’s quality.</p>
 <ul>
 <li><a href="https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/wine.csv">[CSV]</a></li>
 <li><a href="http://zief0002.github.io/benevolent-anteater/codebooks/wine.html">[Data Codebook]</a></li>
@@ -224,16 +224,16 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>Fit a model that includes both the the wine rating and <code>california</code> main effects, as well as, the interaction effect between those predictors to predict variation in the log-transformed price (Model 4).</p>
 <ol start="6" type="1">
-<li>Create a table to present the numerical information from the three models you fitted in this assignment along with the AICc values. (Mimic the <em>Presenting Results from Many Fitted Regression Models</em> section of the document <a href="https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html">Creating Tables to Present Statistical Results</a> to create this table. Include the AICc value below the RMSE value in the table.) Make sure the table you create also has an appropriate caption. If the table is too wide, change the page orientation in your word processing program to “Landscape”, rather than changing the size of the font. (Note: Only this table should be presented in landscape orientation…not your entire assignment!) <strong>(3pts.)</strong></li>
+<li>Create a table to present the numerical information from the four models you fitted in this assignment along with the AICc values. (Mimic the <em>Presenting Results from Many Fitted Regression Models</em> section of the document <a href="https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html">Creating Tables to Present Statistical Results</a> to create this table. Include the AICc value below the RMSE value in the table.) Make sure the table you create also has an appropriate caption. If the table is too wide, change the page orientation in your word processing program to “Landscape”, rather than changing the size of the font. (Note: Only this table should be presented in landscape orientation…not your entire assignment!) <strong>(3pts.)</strong></li>
 </ol>
 <p><br></p>
 </section>
-<section id="adopting-a-final-candidate-model" class="level2">
-<h2 class="anchored" data-anchor-id="adopting-a-final-candidate-model">Adopting a “Final” Candidate Model</h2>
+<section id="adopting-a-final-candidate-models" class="level2">
+<h2 class="anchored" data-anchor-id="adopting-a-final-candidate-models">Adopting a “Final” Candidate Model(s)</h2>
 <ol start="7" type="1">
-<li><p>Based on the model evidence, which of the candidate models will you adopt as your “final” model? Explain.</p></li>
-<li><p>Write the fitted equation for the adopted candidate model.</p></li>
-<li><p>Create and report a set of residual plots that allow you to evaluate the adopted model’s assumptions. Are the assumptions for the model satisfied? Explain. <strong>(2pts.)</strong></p></li>
+<li><p>Based on the model evidence, which of the candidate models will you adopt as your “final” model(s)? Explain.</p></li>
+<li><p>Write the fitted equation for any adopted candidate models.</p></li>
+<li><p>Create and report a set of residual plots that allow you to evaluate any adopted model’s assumptions. Are the assumptions for the model satisfied? Explain. <strong>(2pts.)</strong></p></li>
 </ol>
 <p><br></p>
 </section>

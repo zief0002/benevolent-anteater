@@ -7,7 +7,7 @@ format:
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 ---
 
-The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with logarithmically transformed variables. In this assignment, you will use the data from the file *wine.csv* to examine several different predictors of wine rating (a measure of the wine's quality). The literature has suggested that price of wine is quite predictive of a wine's quality. You will be carrying out a replication study (using a different data set) of a study published by Snipes and Taylor (2014). 
+The goal of this assignment is to give you experience fitting, interpreting, and evaluating models with logarithmically transformed variables. In this assignment, you will use the data from the file *wine.csv* to examine several different predictors of wine rating (a measure of the wine's quality). The literature has suggested that price of wine is quite predictive of a wine's quality.
 
 - [[CSV]](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/wine.csv)
 - [[Data Codebook]](http://zief0002.github.io/benevolent-anteater/codebooks/wine.html)
@@ -59,19 +59,19 @@ Fit two additional models:
 
 Fit a model that includes both the the wine rating and `california` main effects, as well as, the interaction effect between those predictors to predict variation in the log-transformed price (Model 4). 
 
-6.  Create a table to present the numerical information from the three models you fitted in this assignment along with the AICc values. (Mimic the *Presenting Results from Many Fitted Regression Models* section of the document [Creating Tables to Present Statistical Results](https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html) to create this table. Include the AICc value below the RMSE value in the table.)  Make sure the table you create also has an appropriate caption. If the table is too wide, change the page orientation in your word processing program to "Landscape", rather than changing the size of the font. (Note: Only this table should be presented in landscape orientation...not your entire assignment!) **(3pts.)**
+6.  Create a table to present the numerical information from the four models you fitted in this assignment along with the AICc values. (Mimic the *Presenting Results from Many Fitted Regression Models* section of the document [Creating Tables to Present Statistical Results](https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html) to create this table. Include the AICc value below the RMSE value in the table.)  Make sure the table you create also has an appropriate caption. If the table is too wide, change the page orientation in your word processing program to "Landscape", rather than changing the size of the font. (Note: Only this table should be presented in landscape orientation...not your entire assignment!) **(3pts.)**
 
 
 <br />
 
 
-## Adopting a "Final" Candidate Model
+## Adopting a "Final" Candidate Model(s)
 
-7. Based on the model evidence, which of the candidate models will you adopt as your "final" model? Explain.
+7. Based on the model evidence, which of the candidate models will you adopt as your "final" model(s)? Explain.
 
-8. Write the fitted equation for the adopted candidate model.
+8. Write the fitted equation for any adopted candidate models.
 
-9. Create and report a set of residual plots that allow you to evaluate the adopted model's assumptions. Are the assumptions for the model satisfied? Explain. **(2pts.)**
+9. Create and report a set of residual plots that allow you to evaluate any adopted model's assumptions. Are the assumptions for the model satisfied? Explain. **(2pts.)**
 
 <br />
 
