@@ -48,8 +48,8 @@ This assignment is worth 15 points.
 
 Fit two additional models:
 
-- A model that includes the effects of whether or not the wine is from California (i.e., `california`) to predict variation in the log-transformed price  (Model 2). 
-- A model that includes the effects of wine rating *and* whether or not the wine is from California (i.e., `california`) to predict variation in the log-transformed price  (Model 3). 
+- A model that includes the effects of whether or not the wine is from California (i.e., `california`) to predict variation in the log-transformed price  (**Model 2**). 
+- A model that includes the effects of wine rating *and* whether or not the wine is from California (i.e., `california`) to predict variation in the log-transformed price  (**Model 3**). 
 
 
 4. Interpret the effect associated with `california` predictor (using the log-metric) from Model 3.
@@ -57,7 +57,7 @@ Fit two additional models:
 5. Report and interpret the back-transformed coefficient associated with `california` predictor from Model 3.
 
 
-Fit a model that includes both the the wine rating and `california` main effects, as well as, the interaction effect between those predictors to predict variation in the log-transformed price (Model 4). 
+Fit a model that includes both the wine rating and `california` main effects, as well as, the interaction effect between those predictors to predict variation in the log-transformed price (**Model 4**). 
 
 6.  Create a table to present the numerical information from the four models you fitted in this assignment along with the AICc values. (Mimic the *Presenting Results from Many Fitted Regression Models* section of the document [Creating Tables to Present Statistical Results](https://zief0002.github.io/musings/creating-tables-to-present-statistical-results.html) to create this table. Include the AICc value below the RMSE value in the table.)  Make sure the table you create also has an appropriate caption. If the table is too wide, change the page orientation in your word processing program to "Landscape", rather than changing the size of the font. (Note: Only this table should be presented in landscape orientation...not your entire assignment!) **(3pts.)**
 
