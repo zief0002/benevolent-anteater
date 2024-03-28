@@ -10,8 +10,8 @@ date: "`r format(Sys.Date(), '%B %d, %Y')`"
 
 This goal of this assignment is to give you experience working with mixed-effects regression models to analyze longitudinal data. In this assignment, you will use the data from the file *nhl.csv* to examine longitudinal variation in cost of attending an NHL game.
 
-- [[CSV]](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/wine.csv)
-- [[Data Codebook]](http://zief0002.github.io/benevolent-anteater/codebooks/wine.html)
+- [[CSV]](https://raw.githubusercontent.com/zief0002/benevolent-anteater/main/data/nhl.csv)
+- [[Data Codebook]](http://zief0002.github.io/benevolent-anteater/codebooks/nhl.html)
 
 
 ```{r}
