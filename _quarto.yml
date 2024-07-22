@@ -21,8 +21,6 @@ website:
         file: index.qmd
       - text: "Schedule"
         file: schedule.qmd
-      - text: "Instructor & TA"
-        file: instructor.qmd
       # - sidebar:assignments
       - text: "Assignments & Grading"
         file: assignments.qmd
@@ -30,6 +28,8 @@ website:
         file: data.qmd
       - text: "Class Policies"
         file: class-policies.qmd
+      - text: "Instructor & TA"
+        file: instructor.qmd
       - text: "Mission Statements"
         file: mission-statements.qmd
       - text: "University Policies"
